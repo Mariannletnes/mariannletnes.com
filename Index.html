@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mari-Ann Letnes — Farge 1: Rust</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f8f6f2;
+    --text: #111110;
+    --muted: #78736c;
+    --border: rgba(0,0,0,0.08);
+    --ink: #1c1a17;
+    --pop: #b84a2e;       /* rust/terrakotta */
+    --pop-dark: #8f3820;
+    --pop-light: #fdf0ec;
+    --surface: #fff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); font-family: 'Inter', sans-serif; color: var(--text); }
+
+  nav {
+    background: var(--ink);
+    padding: 0 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+  }
+  .nav-brand { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: #fff; text-decoration: none; }
+  .nav-brand span { color: var(--pop); font-style: italic; }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover { color: #fff; }
+
+  /* MASTHEAD */
+  .masthead {
+    background: var(--ink);
+    padding: 0 48px;
+    overflow: hidden;
+  }
+  .masthead-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 0;
+    align-items: stretch;
+    min-height: 420px;
+  }
+  .masthead-text {
+    padding: 64px 56px 64px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .issue-tag {
+    display: inline-block;
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    padding: 4px 10px;
+    background: var(--pop);
+    color: #fff;
+    border-radius: 2px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    align-self: flex-start;
+  }
+  .masthead h1 { font-family: 'Playfair Display', serif; font-size: 4rem; font-weight: 900; line-height: 1.05; color: #fff; margin-bottom: 20px; }
+  .masthead h1 em { font-style: italic; color: var(--pop); font-weight: 400; }
+  .masthead p { font-size: 0.88rem; color: rgba(255,255,255,0.5); line-height: 1.7; max-width: 440px; }
+
+  /* Image panel */
+  .masthead-img {
+    position: relative;
+    overflow: hidden;
+  }
+  .img-placeholder {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .img-placeholder-bg {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #2a2420 0%, var(--pop-dark) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .img-placeholder-bg svg { opacity: 0.3; }
+  .img-placeholder-bg span { font-size: 0.65rem; color: rgba(255,255,255,0.3); text-transform: uppercase; letter-spacing: 0.12em; }
+
+  /* FEATURED STRIP */
+  .featured-strip {
+    background: var(--pop);
+    padding: 20px 48px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    max-width: 100%;
+  }
+  .featured-strip .strip-label { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.14em; color: rgba(255,255,255,0.7); flex-shrink: 0; font-weight: 500; }
+  .featured-strip h2 { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: #fff; }
+  .featured-strip a { font-size: 0.7rem; color: rgba(255,255,255,0.8); text-decoration: none; flex-shrink: 0; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 1px; }
+
+  /* CONTENT */
+  .content { max-width: 1100px; margin: 0 auto; padding: 48px 48px 80px; }
+
+  .featured-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 24px;
+    margin-bottom: 48px;
+    padding-bottom: 48px;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .featured-main {
+    background: var(--surface);
+    border-radius: 4px;
+    text-decoration: none;
+    display: block;
+    transition: box-shadow 0.2s;
+    overflow: hidden;
+  }
+  .featured-main:hover { box-shadow: 0 6px 28px rgba(0,0,0,0.1); }
+  .featured-main-img {
+    width: 100%;
+    height: 220px;
+    background: linear-gradient(135deg, var(--pop-light), #e8d5ce);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 6px;
+    color: var(--muted);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .featured-main-img svg { opacity: 0.4; }
+  .featured-main-body { padding: 28px; }
+  .post-num { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 900; color: var(--pop-light); line-height: 1; margin-bottom: 8px; }
+  .featured-main h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; line-height: 1.25; color: var(--text); margin-bottom: 10px; }
+  .featured-main p { font-size: 0.83rem; color: var(--muted); line-height: 1.7; }
+
+  .featured-side { display: flex; flex-direction: column; gap: 2px; background: var(--border); }
+  .side-post { background: var(--surface); padding: 18px 20px; text-decoration: none; display: block; transition: background 0.2s; flex: 1; }
+  .side-post:hover { background: var(--pop-light); }
+  .side-post .date { font-size: 0.6rem; color: var(--pop); letter-spacing: 0.06em; margin-bottom: 8px; text-transform: uppercase; font-weight: 500; }
+  .side-post h3 { font-family: 'Playfair Display', serif; font-size: 0.95rem; font-weight: 700; line-height: 1.35; color: var(--text); }
+
+  /* GRID */
+  .posts-label { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.16em; color: var(--muted); font-weight: 500; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+  .posts-label::before { content: ''; width: 20px; height: 2px; background: var(--pop); flex-shrink: 0; }
+
+  .posts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--border); }
+
+  .grid-post { background: var(--surface); text-decoration: none; display: block; transition: background 0.2s; overflow: hidden; }
+  .grid-post:hover { background: var(--pop-light); }
+  .grid-post-img { width: 100%; height: 140px; background: linear-gradient(135deg, var(--pop-light), #e8d0c8); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 4px; color: var(--muted); font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.1em; }
+  .grid-post-img svg { opacity: 0.35; }
+  .grid-post-body { padding: 18px 20px; }
+  .grid-post .date { font-size: 0.62rem; color: var(--pop); letter-spacing: 0.06em; margin-bottom: 8px; text-transform: uppercase; font-weight: 500; }
+  .grid-post h3 { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; line-height: 1.35; color: var(--text); margin-bottom: 6px; }
+  .grid-post p { font-size: 0.75rem; color: var(--muted); line-height: 1.6; }
+
+  footer { background: var(--ink); padding: 24px 48px; display: flex; justify-content: space-between; font-size: 0.72rem; color: rgba(255,255,255,0.35); }
+
+  @media (max-width: 900px) {
+    .masthead-inner, .featured-row { grid-template-columns: 1fr; }
+    .masthead-img { height: 240px; }
+    .masthead h1 { font-size: 2.8rem; }
+    .posts-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 640px) {
+    nav, .content, footer { padding-left: 20px; padding-right: 20px; }
+    .masthead { padding-left: 20px; padding-right: 20px; }
+    .featured-strip { padding-left: 20px; padding-right: 20px; }
+    .posts-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .masthead h1 { font-size: 2.2rem; }
+  }
+
+  /* Photo icon SVG helper */
+  .photo-icon { width: 28px; height: 28px; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-brand">Mari-Ann <span>Letnes</span></a>
+  <ul class="nav-links">
+    <li><a href="#">Om bloggen</a></li>
+    <li><a href="#">Forskning</a></li>
+    <li><a href="#">Publikasjoner</a></li>
+    <li><a href="#">Ressurser</a></li>
+    <li><a href="#">Mediekontakt</a></li>
+  </ul>
+</nav>
+
+<div class="masthead">
+  <div class="masthead-inner">
+    <div class="masthead-text">
+      <span class="issue-tag">Førsteamanuensis · NTNU</span>
+      <h1>Digital teknologi<br>i <em>pedagogisk</em><br>praksis</h1>
+      <p>Tanker og ressurser om barns og læreres møte med digitale verktøy — fra barnehage til høyere utdanning.</p>
+    </div>
+    <div class="masthead-img">
+      <img src="IMG_2739.JPG" class="img-placeholder" alt="Mari-Ann Letnes" style="object-position: center top;">
+    </div>
+  </div>
+</div>
+
+<div class="featured-strip">
+  <span class="strip-label">● Siste</span>
+  <h2>Hvordan lage læringsstier for studentaktiv læring</h2>
+  <a href="#">Les →</a>
+</div>
+
+<div class="content">
+  <div class="featured-row">
+    <a href="#" class="featured-main">
+      <div class="featured-main-img">
+        <svg class="photo-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="6" width="24" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="14" cy="15" r="5" stroke="currentColor" stroke-width="1.5"/></svg>
+        <span>Legg til bilde</span>
+      </div>
+      <div class="featured-main-body">
+        <div class="post-num">01</div>
+        <h2>Hvordan digitalisere undervisningen?</h2>
+        <p>Ikke om å bytte ut det analoge, men om å finne det sømløse skjæringspunktet mellom kropp, sanser og digitale verktøy.</p>
+      </div>
+    </a>
+    <div class="featured-side">
+      <a href="#" class="side-post">
+        <div class="date">1. april 2020</div>
+        <h3>Hvordan ta skjermopptak med QuickTime</h3>
+      </a>
+      <a href="#" class="side-post">
+        <div class="date">25. mars 2020</div>
+        <h3>Hvilke verktøy skal jeg velge til læringsvideoer?</h3>
+      </a>
+      <a href="#" class="side-post">
+        <div class="date">1. april 2020</div>
+        <h3>Hvordan bruke PowerPoint til skjermopptak</h3>
+      </a>
+    </div>
+  </div>
+
+  <div class="posts-label">Alle innlegg</div>
+  <div class="posts-grid">
+    <a href="#" class="grid-post">
+      <div class="grid-post-img"><svg class="photo-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="6" width="24" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="14" cy="15" r="5" stroke="currentColor" stroke-width="1.5"/></svg><span>Bilde</span></div>
+      <div class="grid-post-body">
+        <div class="date">29. okt 2018</div>
+        <h3>Introduksjon — animasjon i skolen</h3>
+        <p>Eleven som produsent: animasjon som pedagogisk verktøy.</p>
+      </div>
+    </a>
+    <a href="#" class="grid-post">
+      <div class="grid-post-img"><svg class="photo-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="6" width="24" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="14" cy="15" r="5" stroke="currentColor" stroke-width="1.5"/></svg><span>Bilde</span></div>
+      <div class="grid-post-body">
+        <div class="date">1. nov 2017</div>
+        <h3>Intervjuet av barnevakten.no</h3>
+        <p>Om barns møte med digital teknologi og hva voksne bør vite.</p>
+      </div>
+    </a>
+    <a href="#" class="grid-post">
+      <div class="grid-post-img"><svg class="photo-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="6" width="24" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="14" cy="15" r="5" stroke="currentColor" stroke-width="1.5"/></svg><span>Bilde</span></div>
+      <div class="grid-post-body">
+        <div class="date">24. okt 2017</div>
+        <h3>Legende læring med digitale medier</h3>
+        <p>Boken oversatt til dansk — lekbasert læring i barnehagen.</p>
+      </div>
+    </a>
+    <a href="#" class="grid-post">
+      <div class="grid-post-img"><svg class="photo-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="6" width="24" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="14" cy="15" r="5" stroke="currentColor" stroke-width="1.5"/></svg><span>Bilde</span></div>
+      <div class="grid-post-body">
+        <div class="date">22. okt 2017</div>
+        <h3>Omvendt klasserom</h3>
+        <p>Elever lager historievideoer — flipped classroom i praksis.</p>
+      </div>
+    </a>
+    <a href="#" class="grid-post">
+      <div class="grid-post-img"><svg class="photo-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="6" width="24" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="14" cy="15" r="5" stroke="currentColor" stroke-width="1.5"/></svg><span>Bilde</span></div>
+      <div class="grid-post-body">
+        <div class="date">28. feb 2017</div>
+        <h3>Barn lager film</h3>
+        <p>Barnehagebarns eget dokumentarfilmprosjekt og kinopremiére.</p>
+      </div>
+    </a>
+    <a href="#" class="grid-post">
+      <div class="grid-post-img"><svg class="photo-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="6" width="24" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="14" cy="15" r="5" stroke="currentColor" stroke-width="1.5"/></svg><span>Bilde</span></div>
+      <div class="grid-post-body">
+        <div class="date">13. okt 2016</div>
+        <h3>Ny bok</h3>
+        <p>Om barns møte med digital teknologi — ny publikasjon.</p>
+      </div>
+    </a>
+  </div>
+</div>
+
+<footer>
+  <span>© Mari-Ann Letnes · Førsteamanuensis, NTNU</span>
+  <span>mariannletnes.com</span>
+</footer>
+
+</body>
+</html>
