@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fra PhD-avhandling til bøker — Mari-Ann Letnes</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f8f6f2;
+    --text: #111110;
+    --muted: #78736c;
+    --border: rgba(0,0,0,0.08);
+    --ink: #1c1a17;
+    --pop: #b84a2e;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); font-family: 'Inter', sans-serif; color: var(--text); }
+
+  nav { background: var(--ink); padding: 0 48px; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+  .nav-brand { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: #fff; text-decoration: none; }
+  .nav-brand span { color: var(--pop); font-style: italic; }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.5); text-decoration: none; }
+  .nav-links a:hover { color: #fff; }
+
+  .post-header { background: var(--ink); padding: 0 48px; }
+  .post-header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    align-items: stretch;
+    min-height: 360px;
+  }
+  .post-header-text {
+    padding: 56px 56px 56px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.45);
+    text-decoration: none;
+    margin-bottom: 24px;
+  }
+  .back-link::before { content: '←'; }
+  .back-link:hover { color: #fff; }
+
+  .post-category {
+    display: inline-block;
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    padding: 4px 10px;
+    background: var(--pop);
+    color: #fff;
+    border-radius: 2px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    align-self: flex-start;
+  }
+  .post-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    font-weight: 900;
+    line-height: 1.15;
+    color: #fff;
+    margin-bottom: 14px;
+  }
+  .post-ingress {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.56);
+    line-height: 1.7;
+    max-width: 520px;
+    margin-bottom: 18px;
+  }
+  .post-meta { font-size: 0.72rem; color: rgba(255,255,255,0.4); letter-spacing: 0.04em; }
+  .post-meta span { color: rgba(255,255,255,0.64); }
+
+  .post-header-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(145deg, #231e1b, #34241d);
+    overflow: hidden;
+  }
+  .post-header-img svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .breadcrumb-strip {
+    background: var(--pop);
+    padding: 12px 48px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.68rem;
+    color: rgba(255,255,255,0.7);
+  }
+  .breadcrumb-strip a { color: rgba(255,255,255,0.78); text-decoration: none; }
+  .breadcrumb-strip .sep { opacity: 0.5; }
+
+  .article-wrap { max-width: 760px; margin: 0 auto; padding: 56px 48px 96px; }
+  .ingress {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.22rem;
+    line-height: 1.62;
+    margin-bottom: 42px;
+    padding-bottom: 38px;
+    border-bottom: 1px solid var(--border);
+  }
+  .article-body p { font-size: 1rem; line-height: 1.82; margin-bottom: 18px; }
+  .article-body h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    margin: 38px 0 14px;
+    line-height: 1.25;
+  }
+  .article-body a { color: var(--pop); text-decoration: none; }
+  .article-body a:hover { text-decoration: underline; }
+
+  footer { background: var(--ink); padding: 24px 48px; display: flex; justify-content: space-between; font-size: 0.72rem; color: rgba(255,255,255,0.35); }
+
+  @media (max-width: 900px) {
+    .post-header-inner { grid-template-columns: 1fr; }
+    .post-header-img { min-height: 180px; }
+    .post-header h1 { font-size: 1.95rem; }
+  }
+  @media (max-width: 640px) {
+    nav, .breadcrumb-strip, footer { padding-left: 20px; padding-right: 20px; }
+    .post-header { padding-left: 20px; padding-right: 20px; }
+    .article-wrap { padding: 40px 20px 60px; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="Index.html" class="nav-brand">Mari-Ann <span>Letnes</span></a>
+  <ul class="nav-links">
+    <li><a href="omside.html">Om hjemmesiden</a></li>
+    <li><a href="forskning.html">Forskning</a></li>
+    <li><a href="publikasjoner.html">Publikasjoner</a></li>
+  </ul>
+</nav>
+
+<div class="post-header">
+  <div class="post-header-inner">
+    <div class="post-header-text">
+      <a href="Index.html" class="back-link">Tilbake til forsiden</a>
+      <span class="post-category">Barnehage · Digital danning</span>
+      <h1>Fra PhD-avhandling til bøker: om barns lekende møter med digital teknologi</h1>
+      <p class="post-ingress">Et faglig spor fra avhandling til bokutgivelser i Norge og Danmark, med fokus på lek, meningsskaping og multimodale uttrykk.</p>
+      <div class="post-meta">7. mars 2026 · <span>Mari-Ann Letnes</span></div>
+    </div>
+    <div class="post-header-img">
+      <svg viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <pattern id="bg-grid" width="36" height="36" patternUnits="userSpaceOnUse">
+            <path d="M 36 0 L 0 0 0 36" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/>
+          </pattern>
+        </defs>
+        <rect width="400" height="280" fill="url(#bg-grid)"/>
+        <!-- Back book -->
+        <rect x="168" y="88" width="80" height="108" rx="2" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1.2"/>
+        <line x1="176" y1="88" x2="176" y2="196" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+        <line x1="184" y1="100" x2="240" y2="100" stroke="rgba(255,255,255,0.08)" stroke-width="0.8"/>
+        <line x1="184" y1="110" x2="236" y2="110" stroke="rgba(255,255,255,0.08)" stroke-width="0.8"/>
+        <line x1="184" y1="120" x2="238" y2="120" stroke="rgba(255,255,255,0.08)" stroke-width="0.8"/>
+        <line x1="184" y1="130" x2="232" y2="130" stroke="rgba(255,255,255,0.08)" stroke-width="0.8"/>
+        <!-- Front book (slightly offset) -->
+        <rect x="152" y="80" width="80" height="108" rx="2" fill="#1f1b18" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
+        <line x1="161" y1="80" x2="161" y2="188" stroke="rgba(184,74,46,0.6)" stroke-width="2"/>
+        <!-- Text lines in front book -->
+        <line x1="170" y1="97" x2="224" y2="97" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+        <line x1="170" y1="107" x2="222" y2="107" stroke="rgba(255,255,255,0.2)" stroke-width="0.8"/>
+        <line x1="170" y1="115" x2="218" y2="115" stroke="rgba(255,255,255,0.2)" stroke-width="0.8"/>
+        <line x1="170" y1="123" x2="224" y2="123" stroke="rgba(255,255,255,0.2)" stroke-width="0.8"/>
+        <line x1="170" y1="131" x2="214" y2="131" stroke="rgba(255,255,255,0.2)" stroke-width="0.8"/>
+        <line x1="170" y1="143" x2="224" y2="143" stroke="rgba(255,255,255,0.14)" stroke-width="0.8"/>
+        <line x1="170" y1="151" x2="220" y2="151" stroke="rgba(255,255,255,0.14)" stroke-width="0.8"/>
+        <!-- Third book leaning -->
+        <rect x="137" y="92" width="72" height="100" rx="2" fill="none" stroke="rgba(255,255,255,0.14)" stroke-width="1" transform="rotate(-8 173 142)"/>
+        <!-- Subtle arc suggestion of open book -->
+        <path d="M 152 188 Q 192 200 232 188" fill="none" stroke="rgba(184,74,46,0.35)" stroke-width="1.2"/>
+        <!-- Ambient dots -->
+        <circle cx="100" cy="70" r="1.5" fill="rgba(255,255,255,0.15)"/>
+        <circle cx="310" cy="65" r="1.5" fill="rgba(255,255,255,0.15)"/>
+        <circle cx="320" cy="210" r="2" fill="rgba(255,255,255,0.10)"/>
+        <circle cx="80" cy="200" r="1.5" fill="rgba(255,255,255,0.10)"/>
+        <circle cx="290" cy="230" r="1.2" fill="rgba(184,74,46,0.35)"/>
+        <circle cx="110" cy="235" r="1.2" fill="rgba(184,74,46,0.35)"/>
+        <!-- PhD hat (minimal) -->
+        <rect x="183" y="54" width="18" height="3" rx="1" fill="rgba(255,255,255,0.45)"/>
+        <polygon points="192,46 200,54 184,54" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1"/>
+        <line x1="200" y1="54" x2="202" y2="61" stroke="rgba(184,74,46,0.6)" stroke-width="1.2"/>
+        <circle cx="202" cy="63" r="2" fill="rgba(184,74,46,0.7)"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<div class="breadcrumb-strip">
+  <a href="Index.html">Hjem</a>
+  <span class="sep">›</span>
+  <a href="#">Barnehage</a>
+  <span class="sep">›</span>
+  Fra PhD-avhandling til bøker
+</div>
+
+<main class="article-wrap">
+  <p class="ingress">Noen faglige spor følger deg lenge. De endrer form, får nye språk og nye lesere, men springer ut av de samme grunnspørsmålene. For meg gjelder det arbeidet med barns møter med digital teknologi.</p>
+
+  <div class="article-body">
+    <p>I doktoravhandlingen <a href="https://mariannletnes.com/wp-content/uploads/2010/11/digital-dannelse-i-barnehagen-avhandling-2014.pdf" target="_blank" rel="noopener">Digital dannelse i barnehagen</a> undersøkte jeg barnehagebarns meningsskaping i arbeid med multimodal fortelling. Jeg var opptatt av hva som skjer når barn og pedagoger skaper digitale og multimodale uttrykk sammen, og hvordan dette kan åpne for interaktive og meningsskapende prosesser i barnehagens pedagogiske praksis.</p>
+
+    <p>Avhandlingen var også et arbeid med å forstå digital dannelse som noe mer enn teknisk ferdighet. Det handlet om barnas møter med verden, med hverandre og med ulike former for uttrykk og skapende arbeid.</p>
+
+    <h2>Fra avhandling til fagbok</h2>
+    <p>Senere ble dette arbeidet videreført i boka <a href="https://www.universitetsforlaget.no/barns-moter-med-digital-teknologi-1" target="_blank" rel="noopener">Barns møter med digital teknologi</a>. Her løftes digital teknologi fram som en pedagogisk ressurs i barnehagebarns lek, opplevelse og læring.</p>
+
+    <p>Boka spør hvordan digital teknologi kan legge til rette for meningsfulle læringsprosesser mellom barn og voksne i barnehagen, og viser hvordan barn og pedagoger kan skape digitale medieuttrykk sammen, ofte i møte med kunst og estetiske prosesser.</p>
+
+    <h2>Videre til dansk kontekst</h2>
+    <p>Det samme faglige sporet lever videre i den danske utgivelsen <a href="https://www.akademika.no/en/legende-laering-med-digitale-medier/9788750050728?srsltid=AfmBOoqsPMa6F2FKrh-xE8y5gGI0BGct1alNXZwdnwq6LSXaV8HFL2T8" target="_blank" rel="noopener">Legende læring med digitale medier</a> (2017). Også her er den didaktiske interessen den samme: hvordan barn og pedagoger sammen kan skape multimodale og digitale medieuttrykk i pedagogisk praksis.</p>
+
+    <p>Når jeg ser disse arbeidene samlet, er det ikke bare snakk om bøker om samme tema. Det handler om hvordan et forskningsarbeid kan leve videre fra avhandling, til norsk fagbok, og videre til en dansk utgivelse. Den røde tråden er barns lek, meningsskaping og skapende møter med digitale medier.</p>
+
+    <p>Barn vokser opp i en verden der digitale medier er en del av hverdagen. Da trenger vi ikke bare diskusjoner om skjerm og verktøy, men også kunnskap om lek, uttrykk, relasjoner og pedagogisk praksis. Det er i dette landskapet disse bøkene hører hjemme.</p>
+  </div>
+</main>
+
+<footer>
+  <span>© Mari-Ann Letnes · Førsteamanuensis, NTNU</span>
+  <span>mariannletnes.com</span>
+</footer>
+
+</body>
+</html>

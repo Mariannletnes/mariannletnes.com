@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Om hjemmesiden — Mari-Ann Letnes</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f8f6f2;
+    --text: #111110;
+    --muted: #78736c;
+    --border: rgba(0,0,0,0.08);
+    --ink: #1c1a17;
+    --pop: #b84a2e;
+    --surface: #fff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); font-family: 'Inter', sans-serif; color: var(--text); }
+
+  nav {
+    background: var(--ink);
+    padding: 0 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+  }
+  .nav-brand { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: #fff; text-decoration: none; }
+  .nav-brand span { color: var(--pop); font-style: italic; }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.5); text-decoration: none; }
+  .nav-links a:hover, .nav-links a.active { color: #fff; }
+
+  .hero {
+    background: var(--ink);
+    padding: 56px 48px 60px;
+  }
+  .hero-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 36px;
+  }
+  .hero-copy { min-width: 0; }
+  .hero-tag {
+    display: inline-block;
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    padding: 4px 10px;
+    background: var(--pop);
+    color: #fff;
+    border-radius: 2px;
+    margin-bottom: 18px;
+    font-weight: 500;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    line-height: 1.1;
+    color: #fff;
+    margin-bottom: 14px;
+  }
+  .hero-avatar {
+    width: 260px;
+    max-width: 36vw;
+    display: block;
+    margin: 0;
+    border-radius: 999px;
+    justify-self: end;
+  }
+  .hero p {
+    max-width: 680px;
+    color: rgba(255,255,255,0.58);
+    line-height: 1.8;
+    font-size: 0.95rem;
+  }
+
+  .content {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 56px 48px 80px;
+  }
+  .content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin: 0 0 12px;
+  }
+  .content p {
+    line-height: 1.85;
+    font-size: 1rem;
+    margin-bottom: 18px;
+  }
+  .highlight {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--pop);
+    padding: 22px 24px;
+    margin: 26px 0;
+  }
+  .highlight p { margin: 0; color: var(--muted); }
+
+  footer {
+    background: var(--ink);
+    padding: 24px 48px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.35);
+  }
+
+  @media (max-width: 640px) {
+    nav, .hero, .content, footer { padding-left: 20px; padding-right: 20px; }
+    .nav-links { display: none; }
+    .hero h1 { font-size: 2.2rem; }
+    .hero-inner { grid-template-columns: 1fr; gap: 20px; }
+    .hero-avatar { width: 180px; max-width: 60vw; justify-self: start; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="Index.html" class="nav-brand">Mari-Ann <span>Letnes</span></a>
+  <ul class="nav-links">
+    <li><a href="omside.html" class="active">Om hjemmesiden</a></li>
+    <li><a href="forskning.html">Forskning</a></li>
+    <li><a href="publikasjoner.html">Publikasjoner</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <span class="hero-tag">Velkommen</span>
+      <h1>Om hjemmesiden</h1>
+      <p>Velkommen til denne hjemmesiden. Her deler jeg forskning, faglige innlegg og ressurser om digital kompetanse, profesjonsutvikling og pedagogisk praksis.</p>
+    </div>
+    <img src="Bilder/Ikon_mariann.png" alt="Portrett av Mari-Ann Letnes" class="hero-avatar">
+  </div>
+</section>
+
+<main class="content">
+  <h2>Faglig retning</h2>
+  <p>Jeg heter <a href="https://www.ntnu.no/ansatte/mari.ann.letnes" target="_blank" rel="noopener">Mari-Ann Letnes og er førsteamanuensis ved NTNU</a>. Jeg arbeider med digital kompetanse, pedagogisk praksis og profesjonsutvikling i barnehage, skole og lærerutdanning.</p>
+  <p>Denne hjemmesiden samler forskning, faglige refleksjoner og ressurser fra dette arbeidet. Et gjennomgående tema er hvordan digital teknologi kan inngå i meningsfulle læringsprosesser, og hvordan utviklingsarbeid kan forankres i profesjonsfellesskapet over tid.</p>
+  <p>Jeg publiserer både aktuelle refleksjoner, prosjektarbeid og praktiske ressurser som kan brukes i undervisning og kompetanseutvikling.</p>
+
+  <div class="highlight">
+    <p>Målet med siden er å gjøre forskning og praksiserfaringer mer tilgjengelige, og samtidig bidra med konkrete innganger til videre arbeid i feltet.</p>
+  </div>
+
+  <p>Du finner siste innlegg på forsiden, meritter og artikler under publikasjoner, og utvalgte verktøy og eksempler i ressursinnleggene.</p>
+  <p>Ta gjerne kontakt med meg på <a href="mailto:mari.ann.letnes@ntnu.no">mari.ann.letnes@ntnu.no</a> eller 41419295.</p>
+</main>
+
+<footer>
+  <span>© Mari-Ann Letnes · Førsteamanuensis, NTNU</span>
+  <span>mariannletnes.com</span>
+</footer>
+
+</body>
+</html>
