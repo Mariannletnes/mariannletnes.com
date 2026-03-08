@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Publikasjoner — Mari-Ann Letnes</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f8f6f2;
+    --text: #111110;
+    --muted: #78736c;
+    --border: rgba(0,0,0,0.08);
+    --ink: #1c1a17;
+    --pop: #b84a2e;
+    --pop-light: #fdf0ec;
+    --surface: #fff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); font-family: 'Inter', sans-serif; color: var(--text); }
+
+  nav { background: var(--ink); padding: 0 48px; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+  .nav-brand { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: #fff; text-decoration: none; }
+  .nav-brand span { color: var(--pop); font-style: italic; }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: #fff; }
+
+  .page-header { background: var(--ink); padding: 56px 48px; }
+  .page-header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 28px;
+    align-items: center;
+  }
+  .page-header-copy { min-width: 0; }
+  .page-header-img { width: 100%; height: auto; display: block; border-radius: 4px; }
+  .page-header .label { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--pop); font-weight: 500; margin-bottom: 16px; }
+  .page-header h1 { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 900; color: #fff; line-height: 1.1; margin-bottom: 16px; }
+  .page-header p { font-size: 0.88rem; color: rgba(255,255,255,0.5); max-width: 520px; line-height: 1.7; }
+
+  .content { max-width: 860px; margin: 0 auto; padding: 64px 48px 100px; }
+
+  .type-filter { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 48px; }
+  .type-filter button {
+    font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em;
+    padding: 5px 12px; border: 1px solid var(--border); background: var(--surface);
+    color: var(--muted); border-radius: 2px; cursor: pointer; transition: all 0.15s;
+    font-family: 'Inter', sans-serif;
+  }
+  .type-filter button:hover, .type-filter button.active { background: var(--pop); border-color: var(--pop); color: #fff; }
+
+  .year-group { margin-bottom: 48px; }
+  .year-heading {
+    font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900;
+    color: var(--pop-light); line-height: 1; margin-bottom: 12px;
+    display: flex; align-items: baseline; gap: 16px;
+  }
+  .year-heading::after { content: ''; flex: 1; height: 1px; background: var(--border); margin-bottom: 4px; }
+
+  .pub-list { display: flex; flex-direction: column; }
+
+  .pub-item {
+    background: var(--surface);
+    padding: 14px 20px 14px 14px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    border-bottom: 1px solid var(--border);
+  }
+  .pub-item:first-child { border-top: 1px solid var(--border); }
+
+  .pub-type-tag {
+    font-size: 0.55rem; text-transform: uppercase; letter-spacing: 0.08em;
+    padding: 3px 7px; border-radius: 2px; flex-shrink: 0; margin-top: 2px; font-weight: 500;
+    width: 72px; text-align: center;
+  }
+  .tag-article    { background: var(--pop-light); color: var(--pop); }
+  .tag-book       { background: #e8f0fe; color: #2a5298; }
+  .tag-chapter    { background: #f0f4e8; color: #3d6b1a; }
+  .tag-report     { background: #f5f0fe; color: #6b3db5; }
+  .tag-editorial  { background: #fff8e8; color: #a07010; }
+  .tag-dissertation { background: #1c1a17; color: #fff; }
+
+  .pub-body { flex: 1; min-width: 0; }
+
+  /* APA 7 hanging indent style */
+  .pub-ref {
+    font-size: 0.88rem;
+    line-height: 1.75;
+    color: var(--text);
+    text-indent: -1.5em;
+    margin-left: 1.5em;
+  }
+  .pub-ref em { font-style: italic; }
+  .pub-ref a {
+    color: var(--pop);
+    text-decoration: none;
+    word-break: break-all;
+  }
+  .pub-ref a:hover { text-decoration: underline; }
+
+  .oa-link {
+    display: inline-block;
+    font-size: 0.72rem;
+    color: var(--pop);
+    text-decoration: none;
+    margin-top: 6px;
+    margin-left: 1.5em;
+    font-weight: 500;
+    border-bottom: 1px solid var(--pop-light);
+    padding-bottom: 1px;
+  }
+  .oa-link:hover { border-bottom-color: var(--pop); }
+
+  footer { background: var(--ink); padding: 24px 48px; display: flex; justify-content: space-between; font-size: 0.72rem; color: rgba(255,255,255,0.35); }
+
+  @media (max-width: 900px) {
+    .page-header-inner { grid-template-columns: 1fr; }
+    .page-header-img { max-width: 520px; }
+  }
+  @media (max-width: 640px) {
+    nav, .page-header, .content, footer { padding-left: 20px; padding-right: 20px; }
+    .nav-links { display: none; }
+    .page-header h1 { font-size: 2.2rem; }
+    .pub-item { flex-direction: column; gap: 6px; }
+    .pub-type-tag { width: auto; }
+    .oa-link { margin-left: 0; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">Mari-Ann <span>Letnes</span></a>
+  <ul class="nav-links">
+    <li><a href="omside.html">Om hjemmesiden</a></li>
+    <li><a href="forskning.html">Forskning</a></li>
+    <li><a href="publikasjoner.html" class="active">Publikasjoner</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="page-header-copy">
+      <div class="label">Førsteamanuensis · NTNU</div>
+      <h1>Publikasjoner</h1>
+      <p>Referanseliste i APA 7-format. Artikler og bøker med åpen tilgang er lenket direkte.</p>
+    </div>
+    <img src="Bilder/Publikasjoner.png" alt="Publikasjoner" class="page-header-img">
+  </div>
+</div>
+
+<div class="content">
+
+  <div class="type-filter">
+    <button class="active" onclick="filterAll(this)">Alle</button>
+    <button onclick="filterType('article', this)">Artikler</button>
+    <button onclick="filterType('book', this)">Bøker</button>
+    <button onclick="filterType('chapter', this)">Bokkapitler</button>
+    <button onclick="filterType('report', this)">Rapporter</button>
+    <button onclick="filterType('editorial', this)">Redaktørarbeid</button>
+    <button onclick="filterType('dissertation', this)">Avhandling</button>
+  </div>
+
+  <!-- 2026 -->
+  <div class="year-group">
+    <div class="year-heading">2026</div>
+    <div class="pub-list">
+      <div class="pub-item" data-type="article">
+        <span class="pub-type-tag tag-article">Artikkel</span>
+        <div class="pub-body">
+          <p class="pub-ref">Arstorp, A.-T., Amdam, S. H., Nagel, I., Letnes, M.-A., &amp; Tømte, C. E. (2026). Bildung at a crossroads: Teacher education in the age of GenAI. <em>Teaching Education</em>, 1–19. <a href="https://doi.org/10.1080/10476210.2026.2625721" target="_blank">https://doi.org/10.1080/10476210.2026.2625721</a></p>
+          <a href="https://www.tandfonline.com/doi/full/10.1080/10476210.2026.2625721" class="oa-link" target="_blank">Les fulltekst (åpen tilgang) →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2025 -->
+  <div class="year-group">
+    <div class="year-heading">2025</div>
+    <div class="pub-list">
+      <div class="pub-item" data-type="article">
+        <span class="pub-type-tag tag-article">Artikkel</span>
+        <div class="pub-body">
+          <p class="pub-ref">Letnes, M.-A. (2025). The ICT coordinator as a mediating actor in the development of professional digital competence within a school-based activity system. <em>European Journal of Teacher Education</em>. <a href="https://doi.org/10.1080/02619768.2025.2565634" target="_blank">https://doi.org/10.1080/02619768.2025.2565634</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2024 -->
+  <div class="year-group">
+    <div class="year-heading">2024</div>
+    <div class="pub-list">
+      <div class="pub-item" data-type="book">
+        <span class="pub-type-tag tag-book">Bok</span>
+        <div class="pub-body">
+          <p class="pub-ref">Letnes, M. A., Haug, G. E., Steen, T., &amp; Sundet, T. S. (2024). <em>Tverrfaglig, kreativ og elevaktiv læring: Med digital teknologi</em>. Universitetsforlaget.</p>
+        </div>
+      </div>
+      <div class="pub-item" data-type="chapter">
+        <span class="pub-type-tag tag-chapter">Bokkapittel</span>
+        <div class="pub-body">
+          <p class="pub-ref">Chaudron, S., Di Gioia, R., Aliagas Marin, C., Kotrla Topić, M., Letnes, M.-A., Lobe, B., Matsumoto, M., Mifsud, C. L., Poveda, D., &amp; Velicu, A. (2024). Studying the media education practices of young children at home: Methodological lessons from a cross-national qualitative study on digital activities at home. I [red.], <em>Media literacy and media education research methods</em>. Taylor &amp; Francis.</p>
+        </div>
+      </div>
+      <div class="pub-item" data-type="article">
+        <span class="pub-type-tag tag-article">Artikkel</span>
+        <div class="pub-body">
+          <p class="pub-ref">Jones, M.-A. M., Skaalvik, C., Letnes, M.-A., Dons, C. F., &amp; Meidell, M. (2024). Mer enn tips og triks: Hvordan få det beste ut av Dekomsamarbeid? <em>Skolelederen</em>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2023 -->
+  <div class="year-group">
+    <div class="year-heading">2023</div>
+    <div class="pub-list">
+      <div class="pub-item" data-type="article">
+        <span class="pub-type-tag tag-article">Artikkel</span>
+        <div class="pub-body">
+          <p class="pub-ref">Letnes, M.-A., Rasmussen, I., Ní Bhroin, N., Stänicke, L. I., &amp; Veelo, N. C. (2023). Socio-digital divides in Norwegian education: How variation in parental mediation and pedagogical approaches influenced experiences of remote schooling during the Covid-19 pandemic. <em>Nordic Journal of Digital Literacy</em>, <em>18</em>(3), 201–213. <a href="https://doi.org/10.18261/njdl.18.3.6" target="_blank">https://doi.org/10.18261/njdl.18.3.6</a></p>
+          <a href="https://ntnuopen.ntnu.no/ntnu-xmlui/handle/11250/3120573" class="oa-link" target="_blank">Les fulltekst (NTNU Open) →</a>
+        </div>
+      </div>
+      <div class="pub-item" data-type="article">
+        <span class="pub-type-tag tag-article">Artikkel</span>
+        <div class="pub-body">
+          <p class="pub-ref">Madsen, A. A., Lund, A., &amp; Letnes, M.-A. (2023). «Estetisk uke» som didaktisk design for lærerstudenters utvikling av profesjonell identitet. <em>Nordisk tidsskrift for utdanning og praksis</em>, <em>17</em>(1), 1–17.</p>
+          <a href="https://utdanningogpraksis.no/index.php/up/article/view/3351" class="oa-link" target="_blank">Les fulltekst (åpen tilgang) →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2022 -->
+  <div class="year-group">
+    <div class="year-heading">2022</div>
+    <div class="pub-list">
+      <div class="pub-item" data-type="editorial">
+        <span class="pub-type-tag tag-editorial">Redaktør</span>
+        <div class="pub-body">
+          <p class="pub-ref">Letnes, M.-A., &amp; Røkenes, F. M. (red.). (2022). <em>Digital teknologi for læring og undervisning i skolen</em>. Universitetsforlaget.</p>
+        </div>
+      </div>
+      <div class="pub-item" data-type="chapter">
+        <span class="pub-type-tag tag-chapter">Bokkapittel</span>
+        <div class="pub-body">
+          <p class="pub-ref">Letnes, M.-A. (2022). Skapende, meningsskapende og kunnskapende medieproduksjon i skolen. I M.-A. Letnes &amp; F. M. Røkenes (red.), <em>Digital teknologi for læring og undervisning i skolen</em> (s. 269–288). Universitetsforlaget.</p>
+        </div>
+      </div>
+      <div class="pub-item" data-type="chapter">
+        <span class="pub-type-tag tag-chapter">Bokkapittel</span>
+        <div class="pub-body">
+          <p class="pub-ref">Letnes, M.-A., &amp; Røkenes, F. M. (2022). Digital teknologi i skolesammenheng. I M.-A. Letnes &amp; F. M. Røkenes (red.), <em>Digital teknologi for læring og undervisning i skolen</em> (s. 15–31). Universitetsforlaget.</p>
+        </div>
+      </div>
+      <div class="pub-item" data-type="article">
+        <span class="pub-type-tag tag-article">Artikkel</span>
+        <div class="pub-body">
+          <p class="pub-ref">Røkenes, F. M., Grüters, R., Skaalvik, C., Lie, T. G., Østerlie, O., Järnerot, A., Humphrey, K., Gjøvik, Ø., &amp; Letnes, M.-A. (2022). Teacher educators' professional digital competence in primary and lower secondary school teacher education. <em>Nordic Journal of Digital Literacy</em>, <em>17</em>(1), 46–60. <a href="https://doi.org/10.18261/njdl.17.1.4" target="_blank">https://doi.org/10.18261/njdl.17.1.4</a></p>
+          <a href="https://ntnuopen.ntnu.no/ntnu-xmlui/handle/11250/3044632" class="oa-link" target="_blank">Les fulltekst (NTNU Open) →</a>
+        </div>
+      </div>
+      <div class="pub-item" data-type="report">
+        <span class="pub-type-tag tag-report">Rapport</span>
+        <div class="pub-body">
+          <p class="pub-ref">Øyum, L., Fjørtoft, S. O., Letnes, M.-A., Dahl, T., &amp; Caspersen, J. (2022). <em>Fagfornyelsen, profesjonsfellesskap og partssamarbeid</em> [Rapport]. SINTEF Digital.</p>
+        </div>
+      </div>
+      <div class="pub-item" data-type="report">
+        <span class="pub-type-tag tag-report">Rapport</span>
+        <div class="pub-body">
+          <p class="pub-ref">Cyvin, J. B., Lønne, T. F., Karlsen, H., Berntsen, A., Nubdal, M., Økland, K. E., Letnes, M.-A., Prasolova-Førland, E., Plissonneau, M. C., Seland, A., &amp; Bergset, M. (2022). <em>Emerging education – Emerging technology: Exploring the emerging university</em> [Rapport].</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2021 -->
+  <div class="year-group">
+    <div class="year-heading">2021</div>
+    <div class="pub-list">
+      <div class="pub-item" data-type="book">
+        <span class="pub-type-tag tag-book">Bok</span>
+        <div class="pub-body">
+          <p class="pub-ref">Bandlien, B.-T., Olaussen, I. O., Letnes, M.-A., &amp; Angelo, E. (2021). <em>Utdanning i kunstfag: Samarbeid, kvalitet og spenninger</em>. Cappelen Damm Akademisk. <a href="https://doi.org/10.23865/noasp.152" target="_blank">https://doi.org/10.23865/noasp.152</a></p>
+          <a href="https://press.nordicopenaccess.no/cdf/catalog/book/152" class="oa-link" target="_blank">Les fulltekst (åpen tilgang, NOASP) →</a>
+        </div>
+      </div>
+      <div class="pub-item" data-type="article">
+        <span class="pub-type-tag tag-article">Artikkel</span>
+        <div class="pub-body">
+          <p class="pub-ref">Letnes, M.-A., Killerud, A. E., &amp; Kalfoss, I. G. (2021). Studenter og underviseres forventning og erfaring med bruk av læringsplattformen Blackboard ved NTNU. <em>Nordisk tidsskrift for utdanning og praksis</em>, <em>15</em>(1), 33–50. <a href="https://doi.org/10.23865/up.v15.2308" target="_blank">https://doi.org/10.23865/up.v15.2308</a></p>
+          <a href="https://utdanningogpraksis.no/index.php/up/article/view/2308" class="oa-link" target="_blank">Les fulltekst (åpen tilgang) →</a>
+        </div>
+      </div>
+      <div class="pub-item" data-type="chapter">
+        <span class="pub-type-tag tag-chapter">Bokkapittel</span>
+        <div class="pub-body">
+          <p class="pub-ref">Letnes, M.-A. (2021). Digitalt mangfold – digitale skiller. I M. B. Postholm, P. Haug, R. J. Krumsvik &amp; E. Munthe (red.), <em>Elev i skolen 1–7: Mangfold og mestring</em> (s. 231–253). Cappelen Damm.</p>
+        </div>
+      </div>
+      <div class="pub-item" data-type="report">
+        <span class="pub-type-tag tag-report">Rapport</span>
+        <div class="pub-body">
+          <p class="pub-ref">Letnes, M.-A., Veelo, N., Stänicke, L., Ní Bhroin, N., &amp; Rasmussen, I. (2021). <em>Kids' digital lives during COVID-19 times: Digital practices, safety and well-being of 6- to 12-year-olds – A qualitative study</em> [Rapport].</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2020 -->
+  <div class="year-group">
+    <div class="year-heading">2020</div>
+    <div class="pub-list">
+      <div class="pub-item" data-type="article">
+        <span class="pub-type-tag tag-article">Artikkel</span>
+        <div class="pub-body">
+          <p class="pub-ref">Letnes, M.-A. (2020). Kvalitet og kunstnerisk kvalitet i kulturskolens fagplan for visuell kunst. <em>FORMakademisk</em>, <em>13</em>(1). <a href="https://doi.org/10.7577/formakademisk.3484" target="_blank">https://doi.org/10.7577/formakademisk.3484</a></p>
+          <a href="https://journals.oslomet.no/index.php/formakademisk/article/view/3484" class="oa-link" target="_blank">Les fulltekst (åpen tilgang) →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2019 -->
+  <div class="year-group">
+    <div class="year-heading">2019</div>
+    <div class="pub-list">
+      <div class="pub-item" data-type="chapter">
+        <span class="pub-type-tag tag-chapter">Bokkapittel</span>
+        <div class="pub-body">
+          <p class="pub-ref">Letnes, M. A. (2019). Multimodal media production: Children's meaning making when producing animation in a play-based pedagogy. I C. Gray &amp; I. Palaiologou (red.), <em>Early learning in the digital age</em> (s. 180–195). SAGE Publications.</p>
+        </div>
+      </div>
+      <div class="pub-item" data-type="chapter">
+        <span class="pub-type-tag tag-chapter">Bokkapittel</span>
+        <div class="pub-body">
+          <p class="pub-ref">Letnes, M. A., Røkenes, F. M., &amp; Krumsvik, R. J. (2019). Profesjonsfaglig digital kompetanse i skole og lærerutdanning 1–7. I Postholm (red.), <em>Lærer i skolen 1–7: Lærerarbeid og læringsmiljø</em>. Cappelen Damm Akademisk.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2018 -->
+  <div class="year-group">
+    <div class="year-heading">2018</div>
+    <div class="pub-list">
+      <div class="pub-item" data-type="editorial">
+        <span class="pub-type-tag tag-editorial">Redaktør</span>
+        <div class="pub-body">
+          <p class="pub-ref">Frisch, N. S., Letnes, M. A., &amp; Moe, J. (red.). (2018). <em>Boka om kunst og håndverk i barnehagen</em>. Universitetsforlaget.</p>
+        </div>
+      </div>
+      <div class="pub-item" data-type="chapter">
+        <span class="pub-type-tag tag-chapter">Bokkapittel</span>
+        <div class="pub-body">
+          <p class="pub-ref">Letnes, M. A. (2018). Barns bruk av multimodale medieprodukter og digital teknologi. I N. S. Frisch, M. A. Letnes &amp; J. Moe (red.), <em>Boka om kunst og håndverk i barnehagen</em> (s. 229–242). Universitetsforlaget.</p>
+        </div>
+      </div>
+      <div class="pub-item" data-type="chapter">
+        <span class="pub-type-tag tag-chapter">Bokkapittel</span>
+        <div class="pub-body">
+          <p class="pub-ref">Letnes, M. A. (2018). Barns estetiske erfaring, lek og læring. I N. S. Frisch, M. A. Letnes &amp; J. Moe (red.), <em>Boka om kunst og håndverk i barnehagen</em> (s. 65–76). Universitetsforlaget.</p>
+        </div>
+      </div>
+      <div class="pub-item" data-type="chapter">
+        <span class="pub-type-tag tag-chapter">Bokkapittel</span>
+        <div class="pub-body">
+          <p class="pub-ref">Letnes, M. A. (2018). Form, innhold og komposisjon. I N. S. Frisch, M. A. Letnes &amp; J. Moe (red.), <em>Boka om kunst og håndverk i barnehagen</em> (s. 273–291). Universitetsforlaget.</p>
+        </div>
+      </div>
+      <div class="pub-item" data-type="chapter">
+        <span class="pub-type-tag tag-chapter">Bokkapittel</span>
+        <div class="pub-body">
+          <p class="pub-ref">Letnes, M. A. (2018). Rammeplanene fortid – nåtid – fremtid. I N. S. Frisch, M. A. Letnes &amp; J. Moe (red.), <em>Boka om kunst og håndverk i barnehagen</em> (s. 53–64). Universitetsforlaget.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2017 -->
+  <div class="year-group">
+    <div class="year-heading">2017</div>
+    <div class="pub-list">
+      <div class="pub-item" data-type="book">
+        <span class="pub-type-tag tag-book">Monografi</span>
+        <div class="pub-body">
+          <p class="pub-ref">Letnes, M.-A. (2017). <em>Legende læring med digitale medier: Multimodale forløb i dagtilbud</em>. Akademisk Forlag.</p>
+        </div>
+      </div>
+      <div class="pub-item" data-type="article">
+        <span class="pub-type-tag tag-article">Artikkel</span>
+        <div class="pub-body">
+          <p class="pub-ref">Letnes, M.-A. (2017). Visualisering som drivkraft i kunnskapskonstruksjon undersøkt gjennom et A/r/tografisk blikk. <em>Journal for Research in Arts and Sports Education</em>, <em>1</em>(5). <a href="https://doi.org/10.23865/jased.v1.913" target="_blank">https://doi.org/10.23865/jased.v1.913</a></p>
+          <a href="https://jased.net/index.php/jased/article/view/913" class="oa-link" target="_blank">Les fulltekst (åpen tilgang) →</a>
+        </div>
+      </div>
+      <div class="pub-item" data-type="editorial">
+        <span class="pub-type-tag tag-editorial">Redaktør</span>
+        <div class="pub-body">
+          <p class="pub-ref">Østern, T. P., &amp; Letnes, M. A. (red.). (2017). Et temanummer som undersøker hva det innebærer å forske med kunsten. <em>Journal for Research in Arts and Sports Education</em>, <em>1</em>(2017), 1–6.</p>
+          <a href="https://jased.net/index.php/jased/article/view/1082" class="oa-link" target="_blank">Les fulltekst (åpen tilgang) →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2016 -->
+  <div class="year-group">
+    <div class="year-heading">2016</div>
+    <div class="pub-list">
+      <div class="pub-item" data-type="book">
+        <span class="pub-type-tag tag-book">Monografi</span>
+        <div class="pub-body">
+          <p class="pub-ref">Letnes, M.-A. (2016). <em>Barns møter med digital teknologi: Digital teknologi som pedagogisk ressurs i barnehagebarns lek, opplevelse og læring</em>. Universitetsforlaget.</p>
+        </div>
+      </div>
+      <div class="pub-item" data-type="report">
+        <span class="pub-type-tag tag-report">Rapport</span>
+        <div class="pub-body">
+          <p class="pub-ref">Letnes, M. A., &amp; Sando, S. (2016). <em>Småbarn og digitale medier 2016: En kvalitativ undersøkelse om norske 0–8-åringers bruk av digitale (online) medier</em> [Rapport]. Medietilsynet.</p>
+        </div>
+      </div>
+      <div class="pub-item" data-type="report">
+        <span class="pub-type-tag tag-report">Rapport</span>
+        <div class="pub-body">
+          <p class="pub-ref">Letnes, M. A., Sando, S., &amp; Hardersen, B. (2016). <em>Young children (0–8) and digital technology: A qualitative exploratory study – National report Norway</em> [Rapport]. Medietilsynet.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2014 -->
+  <div class="year-group">
+    <div class="year-heading">2014</div>
+    <div class="pub-list">
+      <div class="pub-item" data-type="dissertation">
+        <span class="pub-type-tag tag-dissertation">Avhandling</span>
+        <div class="pub-body">
+          <p class="pub-ref">Letnes, M.-A. (2014). <em>Digital dannelse i barnehagen: Barns meningsskaping i arbeid med multimodale fortellinger</em> [Doktoravhandling, NTNU].</p>
+        </div>
+      </div>
+      <div class="pub-item" data-type="editorial">
+        <span class="pub-type-tag tag-editorial">Redaktør</span>
+        <div class="pub-body">
+          <p class="pub-ref">Brostrøm, S., Lafton, T., &amp; Letnes, M. (red.). (2014). <em>Barnehagedidaktikk: En dynamisk og flerfaglig tilnærming</em>. Fagbokforlaget.</p>
+        </div>
+      </div>
+      <div class="pub-item" data-type="chapter">
+        <span class="pub-type-tag tag-chapter">Bokkapittel</span>
+        <div class="pub-body">
+          <p class="pub-ref">Lafton, T., &amp; Letnes, M. (2014). Introduksjon. I S. Brostrøm, T. Lafton &amp; M. Letnes (red.), <em>Barnehagedidaktikk: En dynamisk og flerfaglig tilnærming</em>. Fagbokforlaget.</p>
+        </div>
+      </div>
+      <div class="pub-item" data-type="chapter">
+        <span class="pub-type-tag tag-chapter">Bokkapittel</span>
+        <div class="pub-body">
+          <p class="pub-ref">Olaussen, I. O., &amp; Letnes, M. (2014). Mot en multimodal didaktikk i barnehagens pedagogiske praksis. I S. Brostrøm, T. Lafton &amp; M. Letnes (red.), <em>Barnehagedidaktikk: En dynamisk og flerfaglig tilnærming</em>. Fagbokforlaget.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2013 -->
+  <div class="year-group">
+    <div class="year-heading">2013</div>
+    <div class="pub-list">
+      <div class="pub-item" data-type="chapter">
+        <span class="pub-type-tag tag-chapter">Bokkapittel</span>
+        <div class="pub-body">
+          <p class="pub-ref">Letnes, M.-A. (2013). Barnehagebarns kunstmøte i digitalestetisk praksis. I A.-L. Østern, E. Angelo &amp; G. Stavik-Karlsen (red.), <em>Kunstpedagogikk og kunnskapsutvikling</em> (s. 129–149). Universitetsforlaget.</p>
+        </div>
+      </div>
+      <div class="pub-item" data-type="chapter">
+        <span class="pub-type-tag tag-chapter">Bokkapittel</span>
+        <div class="pub-body">
+          <p class="pub-ref">Letnes, M.-A. (2013). Barns meningsskaping i arbeid med animasjon. I M. Bakken &amp; S. B. Hommersand (red.), <em>Barn, kunst og kultur</em> (s. 219–232). Universitetsforlaget.</p>
+        </div>
+      </div>
+      <div class="pub-item" data-type="chapter">
+        <span class="pub-type-tag tag-chapter">Konferanse</span>
+        <div class="pub-body">
+          <p class="pub-ref">Letnes, M.-A., &amp; Olaussen, I. O. (2013). Tell it with colors. I J. Reitan m. fl. (red.), <em>Design learning for tomorrow: Design education from kindergarten to Ph.D.</em> (Vol. 4, s. 1298–1313). DRS CUMULUS.</p>
+        </div>
+      </div>
+      <div class="pub-item" data-type="article">
+        <span class="pub-type-tag tag-article">Populærvit.</span>
+        <div class="pub-body">
+          <p class="pub-ref">Letnes, M. (2013). Digital dannelse i barnehagen: Pedagogiske muligheter. <em>Barnehagefolk</em>, <em>30</em>(4), 29–32.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2011 -->
+  <div class="year-group">
+    <div class="year-heading">2011</div>
+    <div class="pub-list">
+      <div class="pub-item" data-type="chapter">
+        <span class="pub-type-tag tag-chapter">Bokkapittel</span>
+        <div class="pub-body">
+          <p class="pub-ref">Pareliussen, I., Letnes, M.-A., &amp; Nakken, A. H. (2011). Mellom virtualitet og virkelighet: Matematikkundervisning i et tverrfaglig prosjekt i førskolelærerutdanningen. I M. Stene &amp; E. Marnburg (red.), <em>Forskning Trøndelag 2011</em> (s. 165–178). Tapir akademisk forlag.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2008 -->
+  <div class="year-group">
+    <div class="year-heading">2008</div>
+    <div class="pub-list">
+      <div class="pub-item" data-type="chapter">
+        <span class="pub-type-tag tag-chapter">Bokkapittel</span>
+        <div class="pub-body">
+          <p class="pub-ref">Letnes, M.-A., &amp; Jæger, H. (2008). Bilde + tekst = språklig vekst. I S. Kibsgård (red.), <em>GLSM i barnehagen</em> (s. 161–175). Universitetsforlaget.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <span>© Mari-Ann Letnes · Førsteamanuensis, NTNU</span>
+  <span>mariannletnes.com</span>
+</footer>
+
+<script>
+  function filterAll(btn) {
+    document.querySelectorAll('.pub-item').forEach(el => el.style.display = 'flex');
+    document.querySelectorAll('.type-filter button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+  function filterType(type, btn) {
+    document.querySelectorAll('.pub-item').forEach(el => {
+      el.style.display = el.dataset.type === type ? 'flex' : 'none';
+    });
+    document.querySelectorAll('.type-filter button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+</script>
+
+</body>
+</html>

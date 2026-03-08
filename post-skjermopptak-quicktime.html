@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hvordan ta skjermopptak med QuickTime — Mari-Ann Letnes</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f8f6f2;
+    --text: #111110;
+    --muted: #78736c;
+    --border: rgba(0,0,0,0.08);
+    --ink: #1c1a17;
+    --pop: #b84a2e;
+    --pop-dark: #8f3820;
+    --pop-light: #fdf0ec;
+    --surface: #fff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); font-family: 'Inter', sans-serif; color: var(--text); }
+
+  nav { background: var(--ink); padding: 0 48px; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+  .nav-brand { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: #fff; text-decoration: none; }
+  .nav-brand span { color: var(--pop); font-style: italic; }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover { color: #fff; }
+
+  .post-header { background: var(--ink); padding: 0 48px; }
+  .post-header-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 380px;
+    gap: 0; align-items: stretch; min-height: 320px;
+  }
+  .post-header-text {
+    padding: 56px 56px 56px 0;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .post-category {
+    display: inline-block; font-size: 0.62rem; text-transform: uppercase;
+    letter-spacing: 0.14em; padding: 4px 10px; background: var(--pop);
+    color: #fff; border-radius: 2px; margin-bottom: 20px; font-weight: 500;
+    align-self: flex-start;
+  }
+  .post-header h1 {
+    font-family: 'Playfair Display', serif; font-size: 2.6rem; font-weight: 900;
+    line-height: 1.1; color: #fff; margin-bottom: 20px;
+  }
+  .post-meta { font-size: 0.72rem; color: rgba(255,255,255,0.4); letter-spacing: 0.04em; }
+  .post-meta span { color: rgba(255,255,255,0.6); }
+
+  /* Header illustration panel */
+  .post-header-img {
+    position: relative; overflow: hidden; background: #1c1a17;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .screen-icon {
+    opacity: 0.18;
+  }
+
+  /* ARTICLE */
+  .article { max-width: 720px; margin: 0 auto; padding: 56px 48px 100px; }
+
+  .article p {
+    font-size: 1rem; line-height: 1.8; color: var(--text); margin-bottom: 28px;
+  }
+
+  /* VIDEO EMBED */
+  .video-wrap {
+    margin: 8px 0 40px;
+    border-radius: 4px;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+    background: #000;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+  }
+  .video-wrap iframe {
+    width: 100%; height: 100%; border: none; display: block;
+  }
+  .video-caption {
+    font-size: 0.78rem; color: var(--muted); margin-top: 10px; margin-bottom: 40px;
+    font-style: italic;
+  }
+
+  /* RELATED */
+  .related-section {
+    border-top: 2px solid var(--ink); padding-top: 40px; margin-top: 16px;
+  }
+  .related-label {
+    font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.16em;
+    color: var(--muted); font-weight: 500; margin-bottom: 20px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .related-label::before { content: ''; width: 20px; height: 2px; background: var(--pop); flex-shrink: 0; }
+  .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--border); }
+  .related-post {
+    background: var(--surface); padding: 20px; text-decoration: none;
+    display: block; transition: background 0.2s;
+  }
+  .related-post:hover { background: var(--pop-light); }
+  .related-post .date { font-size: 0.6rem; color: var(--pop); letter-spacing: 0.06em; margin-bottom: 8px; text-transform: uppercase; font-weight: 500; }
+  .related-post h3 { font-family: 'Playfair Display', serif; font-size: 0.95rem; font-weight: 700; line-height: 1.35; color: var(--text); }
+
+  .back-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.45); text-decoration: none; margin-bottom: 24px;
+    transition: color 0.2s;
+  }
+  .back-link:hover { color: #fff; }
+  .back-link::before { content: '←'; }
+
+  footer { background: var(--ink); padding: 24px 48px; display: flex; justify-content: space-between; font-size: 0.72rem; color: rgba(255,255,255,0.35); }
+
+  @media (max-width: 900px) {
+    .post-header-inner { grid-template-columns: 1fr; }
+    .post-header-img { height: 200px; }
+    .post-header h1 { font-size: 2rem; }
+  }
+  @media (max-width: 640px) {
+    nav, .article, footer { padding-left: 20px; padding-right: 20px; }
+    .post-header { padding-left: 20px; padding-right: 20px; }
+    .nav-links { display: none; }
+    .related-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">Mari-Ann <span>Letnes</span></a>
+  <ul class="nav-links">
+    <li><a href="omside.html">Om hjemmesiden</a></li>
+    <li><a href="forskning.html">Forskning</a></li>
+    <li><a href="publikasjoner.html">Publikasjoner</a></li>
+  </ul>
+</nav>
+
+<div class="post-header">
+  <div class="post-header-inner">
+    <div class="post-header-text">
+      <a href="index.html" class="back-link">Tilbake til forsiden</a>
+      <span class="post-category">Læringsressurs · Video</span>
+      <h1>Hvordan ta skjermopptak med QuickTime</h1>
+      <div class="post-meta">
+        <span>1. april 2020</span> · Mari-Ann Letnes
+      </div>
+    </div>
+    <div class="post-header-img">
+      <!-- Screen recording icon -->
+      <svg class="screen-icon" width="200" height="140" viewBox="0 0 200 140" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="10" y="10" width="180" height="110" rx="8" stroke="white" stroke-width="3"/>
+        <rect x="25" y="25" width="150" height="78" rx="2" fill="white" opacity="0.08"/>
+        <circle cx="100" cy="64" r="22" stroke="white" stroke-width="2.5" opacity="0.9"/>
+        <path d="M93 56 L113 64 L93 72 Z" fill="white" opacity="0.9"/>
+        <rect x="80" y="120" width="40" height="4" rx="2" fill="white" opacity="0.4"/>
+        <rect x="92" y="116" width="16" height="4" rx="2" fill="white" opacity="0.3"/>
+        <circle cx="30" cy="15" r="2" fill="white" opacity="0.4"/>
+        <circle cx="38" cy="15" r="2" fill="white" opacity="0.25"/>
+        <circle cx="46" cy="15" r="2" fill="white" opacity="0.15"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<article class="article">
+
+  <p>I denne læringsfilmen viser jeg hvordan du kan bruke QuickTime for å ta skjermopptak.</p>
+
+  <div class="video-wrap">
+    <iframe
+      src="https://videopress.com/embed/E6j0KPlp?preloadContent=metadata&hd=1"
+      allowfullscreen
+      allow="clipboard-write"
+      title="Skjermopptak i QuickTime — instruksjonsvideo">
+    </iframe>
+  </div>
+  <p class="video-caption">Skjermopptak i QuickTime · Varighet: ca. 4 min</p>
+
+  <div class="related-section">
+    <div class="related-label">Les også</div>
+    <div class="related-grid">
+      <a href="#" class="related-post">
+        <div class="date">25. mars 2020</div>
+        <h3>Hvilke verktøy skal jeg velge til læringsvideoer?</h3>
+      </a>
+      <a href="#" class="related-post">
+        <div class="date">1. april 2020</div>
+        <h3>Hvordan bruke PowerPoint til skjermopptak</h3>
+      </a>
+    </div>
+  </div>
+
+</article>
+
+<footer>
+  <span>© Mari-Ann Letnes · Førsteamanuensis, NTNU</span>
+  <span>mariannletnes.com</span>
+</footer>
+
+</body>
+</html>

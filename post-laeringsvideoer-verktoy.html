@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hvilke verktøy skal jeg velge til læringsvideoer? — Mari-Ann Letnes</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f8f6f2;
+    --text: #111110;
+    --muted: #78736c;
+    --border: rgba(0,0,0,0.08);
+    --ink: #1c1a17;
+    --pop: #b84a2e;
+    --pop-dark: #8f3820;
+    --pop-light: #fdf0ec;
+    --surface: #fff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); font-family: 'Inter', sans-serif; color: var(--text); }
+
+  nav { background: var(--ink); padding: 0 48px; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+  .nav-brand { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: #fff; text-decoration: none; }
+  .nav-brand span { color: var(--pop); font-style: italic; }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover { color: #fff; }
+
+  .post-header { background: var(--ink); padding: 0 48px; }
+  .post-header-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 520px;
+    gap: 0; align-items: stretch; min-height: 300px;
+  }
+  .post-header-text {
+    padding: 56px 56px 56px 0;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .post-category {
+    display: inline-block; font-size: 0.62rem; text-transform: uppercase;
+    letter-spacing: 0.14em; padding: 4px 10px; background: var(--pop);
+    color: #fff; border-radius: 2px; margin-bottom: 20px; font-weight: 500;
+    align-self: flex-start;
+  }
+  .post-header h1 {
+    font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 900;
+    line-height: 1.1; color: #fff; margin-bottom: 20px;
+  }
+  .post-meta { font-size: 0.72rem; color: rgba(255,255,255,0.4); letter-spacing: 0.04em; }
+  .post-meta span { color: rgba(255,255,255,0.6); }
+
+  .post-header-img {
+    position: relative; overflow: hidden; background: #111;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .post-header-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  .back-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.45); text-decoration: none; margin-bottom: 24px;
+    transition: color 0.2s;
+  }
+  .back-link:hover { color: #fff; }
+  .back-link::before { content: '←'; }
+
+  /* ARTICLE */
+  .article { max-width: 760px; margin: 0 auto; padding: 56px 48px 100px; }
+
+  .article p { font-size: 1rem; line-height: 1.8; color: var(--text); margin-bottom: 24px; }
+
+  .article ul {
+    margin: 0 0 28px 0; padding-left: 0; list-style: none;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .article ul li {
+    padding: 10px 16px; background: var(--pop-light);
+    border-left: 3px solid var(--pop); font-size: 0.9rem; line-height: 1.5;
+  }
+
+  /* TOOL TABLE */
+  .tool-table-wrap {
+    overflow-x: auto;
+    margin: 8px 0 36px;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+  }
+  table {
+    width: 100%; border-collapse: collapse;
+    font-size: 0.85rem; background: var(--surface);
+  }
+  th, td { padding: 12px 16px; border-bottom: 1px solid var(--border); vertical-align: top; text-align: left; }
+  thead th { background: var(--ink); color: #fff; font-weight: 500; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:hover td { background: var(--pop-light); }
+  td:first-child { font-weight: 600; font-size: 0.8rem; color: var(--ink); white-space: nowrap; }
+  table a { color: var(--pop); text-decoration: none; }
+  table a:hover { text-decoration: underline; }
+
+  /* RELATED */
+  .related-section { border-top: 2px solid var(--ink); padding-top: 40px; margin-top: 16px; }
+  .related-label {
+    font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.16em;
+    color: var(--muted); font-weight: 500; margin-bottom: 20px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .related-label::before { content: ''; width: 20px; height: 2px; background: var(--pop); flex-shrink: 0; }
+  .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--border); }
+  .related-post {
+    background: var(--surface); padding: 20px; text-decoration: none;
+    display: block; transition: background 0.2s;
+  }
+  .related-post:hover { background: var(--pop-light); }
+  .related-post .date { font-size: 0.6rem; color: var(--pop); letter-spacing: 0.06em; margin-bottom: 8px; text-transform: uppercase; font-weight: 500; }
+  .related-post h3 { font-family: 'Playfair Display', serif; font-size: 0.95rem; font-weight: 700; line-height: 1.35; color: var(--text); }
+
+  footer { background: var(--ink); padding: 24px 48px; display: flex; justify-content: space-between; font-size: 0.72rem; color: rgba(255,255,255,0.35); }
+
+  @media (max-width: 900px) {
+    .post-header-inner { grid-template-columns: 1fr; }
+    .post-header-img { height: 220px; }
+    .post-header h1 { font-size: 2rem; }
+  }
+  @media (max-width: 640px) {
+    nav, .article, footer { padding-left: 20px; padding-right: 20px; }
+    .post-header { padding-left: 20px; padding-right: 20px; }
+    .nav-links { display: none; }
+    .related-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">Mari-Ann <span>Letnes</span></a>
+  <ul class="nav-links">
+    <li><a href="omside.html">Om hjemmesiden</a></li>
+    <li><a href="forskning.html">Forskning</a></li>
+    <li><a href="publikasjoner.html">Publikasjoner</a></li>
+  </ul>
+</nav>
+
+<div class="post-header">
+  <div class="post-header-inner">
+    <div class="post-header-text">
+      <a href="index.html" class="back-link">Tilbake til forsiden</a>
+      <span class="post-category">Læringsressurs · Oversikt</span>
+      <h1>Hvilke verktøy skal jeg velge når jeg lager læringsvideoer?</h1>
+      <div class="post-meta">
+        <span>25. mars 2020</span> · Mari-Ann Letnes
+      </div>
+    </div>
+    <div class="post-header-img">
+      <img src="Bilder/laeringsvideo-programmer-top-cropped.png" alt="Verktøy for læringsvideo: Screencast-O-Matic, Flip, Canva, PowerPoint og videoredigering">
+    </div>
+  </div>
+</div>
+
+<article class="article">
+
+  <p>Når jeg lager læringsvideoer deler jeg prosessen inn i:</p>
+
+  <ul>
+    <li>Opptak / skjermopptak</li>
+    <li>Videoredigering</li>
+    <li>Publisering</li>
+    <li>Innbygging i en læringsplattform</li>
+    <li>Didaktisk kontekst (student/elevaktiviteter)</li>
+  </ul>
+
+  <p>Det er et vell av verktøy en kan bruke når en skal lage enkle læringsvideoer. Her har jeg forsøkt å samle noen aktuelle som vi har tilgjengelig ved NTNU og på mange andre utdanningsinstitusjoner.</p>
+
+  <div class="tool-table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Steg</th>
+          <th>PC</th>
+          <th>Mac</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Skjermopptak</td>
+          <td>
+            Zoom<br>
+            <a href="https://ntnu.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=a4250166-942e-49ba-8093-ab9000db5192" target="_blank">PowerPoint</a><br>
+            <a href="post-skjermopptak-quicktime.html">QuickTime</a><br>
+            Mediasite capture<br>
+            <a href="https://innsida.ntnu.no/wiki/-/wiki/Norsk/Panopto+undervisningsopptak" target="_blank">Panopto</a>
+          </td>
+          <td>
+            Zoom.us<br>
+            <a href="post-skjermopptak-quicktime.html">QuickTime</a><br>
+            <a href="https://support.apple.com/no-no/HT208721" target="_blank">Skift-Kommando-5</a><br>
+            <a href="https://innsida.ntnu.no/wiki/-/wiki/Norsk/Panopto+undervisningsopptak" target="_blank">Panopto</a>
+          </td>
+        </tr>
+        <tr>
+          <td>Videoredigering</td>
+          <td>QuickTime<br>Premiere Pro</td>
+          <td>iMovie<br>QuickTime<br>Premiere Pro</td>
+        </tr>
+        <tr>
+          <td>Publisering</td>
+          <td>
+            <a href="https://mediasite.ntnu.no/Mediasite/Play/b8f38d07884b4ae3a802a18c0e22b89f1d" target="_blank">Mediasite</a><br>
+            <a href="https://innsida.ntnu.no/wiki/-/wiki/Norsk/Panopto+undervisningsopptak" target="_blank">Panopto</a>
+          </td>
+          <td>
+            <a href="https://mediasite.ntnu.no/Mediasite/Play/b8f38d07884b4ae3a802a18c0e22b89f1d" target="_blank">Mediasite</a><br>
+            <a href="https://innsida.ntnu.no/wiki/-/wiki/Norsk/Panopto+undervisningsopptak" target="_blank">Panopto</a>
+          </td>
+        </tr>
+        <tr>
+          <td>Bygg inn i læringsplattformen</td>
+          <td><a href="https://mediasite.ntnu.no/Mediasite/Play/b8f38d07884b4ae3a802a18c0e22b89f1d" target="_blank">HTML embed</a></td>
+          <td><a href="https://mediasite.ntnu.no/Mediasite/Play/b8f38d07884b4ae3a802a18c0e22b89f1d" target="_blank">HTML embed</a></td>
+        </tr>
+        <tr>
+          <td>Didaktisk kontekst</td>
+          <td>
+            <a href="https://www.statped.no/laringsressurs/teknologitema/padlet/" target="_blank">Padlet</a><br>
+            <a href="https://utenenrodtraad.com/2018/10/20/7-tips-for-bruk-av-mentimeter-i-klasserommet/" target="_blank">Menti</a><br>
+            <a href="https://www.uio.no/tjenester/it/adm-app/nettskjema/" target="_blank">Nettskjema</a><br>
+            Forum · Teams · Forms
+          </td>
+          <td>
+            <a href="https://www.statped.no/laringsressurs/teknologitema/padlet/" target="_blank">Padlet</a><br>
+            <a href="https://utenenrodtraad.com/2018/10/20/7-tips-for-bruk-av-mentimeter-i-klasserommet/" target="_blank">Menti</a><br>
+            <a href="https://www.uio.no/tjenester/it/adm-app/nettskjema/" target="_blank">Nettskjema</a><br>
+            Forum · Teams · Forms
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Jeg har nå lenket til andre filmer som viser hvordan disse verktøyene brukes, og etter hvert skal jeg lage læringsvideoer for alle disse komponentene — slik at du finner alt du trenger for å komme i gang.</p>
+
+  <div class="related-section">
+    <div class="related-label">Se instruksjonsvideoer</div>
+    <div class="related-grid">
+      <a href="post-skjermopptak-quicktime.html" class="related-post">
+        <div class="date">1. april 2020</div>
+        <h3>Hvordan ta skjermopptak med QuickTime</h3>
+      </a>
+      <a href="post-skjermopptak-powerpoint.html" class="related-post">
+        <div class="date">1. april 2020</div>
+        <h3>Hvordan bruke PowerPoint til skjermopptak</h3>
+      </a>
+    </div>
+  </div>
+
+</article>
+
+<footer>
+  <span>© Mari-Ann Letnes · Førsteamanuensis, NTNU</span>
+  <span>mariannletnes.com</span>
+</footer>
+
+</body>
+</html>

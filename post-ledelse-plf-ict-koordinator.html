@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ledelse for profesjonsfaglig digital kompetanse — Mari-Ann Letnes</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f8f6f2;
+    --text: #111110;
+    --muted: #78736c;
+    --border: rgba(0,0,0,0.08);
+    --ink: #1c1a17;
+    --pop: #b84a2e;
+    --pop-light: #fdf0ec;
+    --surface: #fff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); font-family: 'Inter', sans-serif; color: var(--text); }
+
+  nav { background: var(--ink); padding: 0 48px; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+  .nav-brand { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: #fff; text-decoration: none; }
+  .nav-brand span { color: var(--pop); font-style: italic; }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.5); text-decoration: none; }
+  .nav-links a:hover { color: #fff; }
+
+  .post-header { background: var(--ink); padding: 0 48px; }
+  .post-header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    align-items: stretch;
+    min-height: 390px;
+  }
+  .post-header-text {
+    padding: 56px 56px 56px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.45);
+    text-decoration: none;
+    margin-bottom: 24px;
+  }
+  .back-link::before { content: '←'; }
+  .back-link:hover { color: #fff; }
+
+  .post-category {
+    display: inline-block;
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    padding: 4px 10px;
+    background: var(--pop);
+    color: #fff;
+    border-radius: 2px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    align-self: flex-start;
+  }
+  .post-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.55rem;
+    font-weight: 900;
+    line-height: 1.12;
+    color: #fff;
+    margin-bottom: 16px;
+  }
+  .post-header h1 em { font-style: italic; color: var(--pop); font-weight: 400; }
+  .post-ingress {
+    font-size: 0.92rem;
+    color: rgba(255,255,255,0.58);
+    line-height: 1.7;
+    max-width: 520px;
+    margin-bottom: 20px;
+  }
+  .post-meta { font-size: 0.72rem; color: rgba(255,255,255,0.4); letter-spacing: 0.04em; }
+  .post-meta span { color: rgba(255,255,255,0.64); }
+
+  .post-header-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(145deg, #231e1b, #34241d);
+    overflow: hidden;
+  }
+
+  .post-header-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+  }
+
+  .breadcrumb-strip {
+    background: var(--pop);
+    padding: 12px 48px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.68rem;
+    color: rgba(255,255,255,0.7);
+  }
+  .breadcrumb-strip a { color: rgba(255,255,255,0.78); text-decoration: none; }
+  .breadcrumb-strip a:hover { color: #fff; }
+  .breadcrumb-strip .sep { opacity: 0.5; }
+
+  .article-wrap { max-width: 760px; margin: 0 auto; padding: 56px 48px 96px; }
+
+  .ingress {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.24rem;
+    line-height: 1.62;
+    margin-bottom: 44px;
+    padding-bottom: 42px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .article-body h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.45rem;
+    margin: 44px 0 14px;
+    line-height: 1.25;
+  }
+
+  .article-body p {
+    font-size: 1rem;
+    line-height: 1.82;
+    margin-bottom: 18px;
+  }
+
+  .leadership-grid {
+    margin: 20px 0 34px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .mechanism {
+    background: var(--surface);
+    padding: 24px 22px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+  }
+
+  .mechanism .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    line-height: 1;
+    color: #ecd9d1;
+    margin-bottom: 8px;
+    font-weight: 900;
+  }
+
+  .mechanism h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.04rem;
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+
+  .mechanism p {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 0;
+  }
+
+  .leaders-toolbox {
+    background: var(--pop-light);
+    border-radius: 4px;
+    padding: 24px 28px;
+    margin: 28px 0 32px;
+  }
+
+  .leaders-toolbox .label {
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--pop);
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+
+  .leaders-toolbox ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .leaders-toolbox li {
+    display: grid;
+    grid-template-columns: 18px 1fr;
+    gap: 10px;
+    line-height: 1.7;
+    font-size: 0.92rem;
+  }
+
+  .leaders-toolbox li::before {
+    content: '•';
+    color: var(--pop);
+    font-weight: 700;
+  }
+
+  .pull-quote {
+    border-left: 3px solid var(--pop);
+    padding: 4px 0 4px 24px;
+    margin: 34px 0;
+  }
+
+  .pull-quote p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.18rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .source-box {
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+    padding-top: 20px;
+    font-size: 0.84rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  .source-box a { color: var(--pop); text-decoration: none; }
+  .source-box a:hover { text-decoration: underline; }
+
+  footer { background: var(--ink); padding: 24px 48px; display: flex; justify-content: space-between; font-size: 0.72rem; color: rgba(255,255,255,0.35); }
+
+  @media (max-width: 900px) {
+    .post-header-inner { grid-template-columns: 1fr; }
+    .post-header-img { min-height: 220px; }
+    .post-header h1 { font-size: 2rem; }
+    .leadership-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 640px) {
+    nav, .breadcrumb-strip, footer { padding-left: 20px; padding-right: 20px; }
+    .post-header { padding-left: 20px; padding-right: 20px; }
+    .article-wrap { padding: 40px 20px 60px; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">Mari-Ann <span>Letnes</span></a>
+  <ul class="nav-links">
+    <li><a href="omside.html">Om hjemmesiden</a></li>
+    <li><a href="forskning.html">Forskning</a></li>
+    <li><a href="publikasjoner.html">Publikasjoner</a></li>
+  </ul>
+</nav>
+
+<div class="post-header">
+  <div class="post-header-inner">
+    <div class="post-header-text">
+      <a href="index.html" class="back-link">Tilbake til forsiden</a>
+      <span class="post-category">Ledelse · PLF · Skoleutvikling</span>
+      <h1>Hvordan kan skoleledere bygge <em>profesjonsfaglig digital kompetanse</em> i et PLF?</h1>
+      <p class="post-ingress">Med utgangspunkt i artikkelen om IKT-koordinatoren som medierende aktør peker jeg på fire mekanismer ledere kan bruke for å styrke kollektiv kompetanseutvikling i personalet.</p>
+      <div class="post-meta">7. mars 2026 · <span>Mari-Ann Letnes</span></div>
+    </div>
+    <div class="post-header-img">
+      <img src="Bilder/Lederes arbeid med skolens PFL.png" alt="Lederes arbeid med skolens profesjonsfaglige digitale kompetanse">
+    </div>
+  </div>
+</div>
+
+<div class="breadcrumb-strip">
+  <a href="index.html">Hjem</a>
+  <span class="sep">›</span>
+  <a href="#">Ledelse</a>
+  <span class="sep">›</span>
+  Fire mekanismer for PLF
+</div>
+
+<main class="article-wrap">
+  <p class="ingress">Hvis vi tenker profesjonsutvikling som et profesjonelt læringsfellesskap (PLF), er ikke spørsmålet bare <em>hvilke verktøy</em> lærere skal bruke, men <em>hvordan skolen organiserer læring over tid</em>. Her er fire mekanismer som kan hjelpe ledere å gjøre utviklingsarbeidet kollektivt, forpliktende og praksisnært.</p>
+
+  <div class="article-body">
+    <h2>Fra koordinatorrolle til ledelsespraksis</h2>
+    <p>I artikkelen om IKT-koordinatoren viser jeg hvordan utvikling av profesjonsfaglig digital kompetanse skjer i samspillet mellom mennesker, strukturer og lokale praksiser. For skoleledere betyr dette at kompetanseutvikling må designes som et felles systemarbeid, ikke som enkeltstående kurs.</p>
+
+    <div class="leadership-grid">
+      <section class="mechanism">
+        <div class="num">01</div>
+        <h3>Felles retning og eierskap</h3>
+        <p>Bygg en tydelig felles retning for hvorfor digital kompetanse er viktig i akkurat deres skole, og fordel eierskapet i hele personalet.</p>
+      </section>
+      <section class="mechanism">
+        <div class="num">02</div>
+        <h3>Kollektiv læring</h3>
+        <p>Organiser kollektive læringsprosesser der lærere planlegger, prøver ut og analyserer praksis sammen, framfor individuell implementering.</p>
+      </section>
+      <section class="mechanism">
+        <div class="num">03</div>
+        <h3>Kritisk refleksjon</h3>
+        <p>Skap rom for systematisk refleksjon over valg, begrunnelser og konsekvenser, slik at utviklingen blir faglig forankret og ikke bare teknisk.</p>
+      </section>
+      <section class="mechanism">
+        <div class="num">04</div>
+        <h3>Organisatorisk støtte</h3>
+        <p>Sikre strukturell støtte gjennom tid, rolleavklaringer, oppfølging og prioriteringer i ledelsen, slik at læringsarbeidet faktisk kan vare.</p>
+      </section>
+    </div>
+
+    <h2>Et lederperspektiv på PLF i praksis</h2>
+    <p>For ledere handler dette om å gå fra tiltak til infrastruktur: å etablere rammer som gjør kollegial læring mulig i hverdagen. Når disse fire mekanismene henger sammen, øker sjansen for at utviklingsarbeidet setter spor i undervisningen og i skolens kollektive kapasitet.</p>
+
+    <div class="leaders-toolbox">
+      <div class="label">Ledergrep du kan starte med neste uke</div>
+      <ul>
+        <li>Sett av fast tid i teammøter til erfaringsdeling om undervisningsdesign med digitale verktøy.</li>
+        <li>Avtal en felles observasjons- og refleksjonsstruktur med fokus på elevers læring, ikke bare verktøybruk.</li>
+        <li>Definer tydelige roller mellom skoleledelse, IKT-koordinator og lærerteam i oppfølgingen av utviklingsarbeid.</li>
+        <li>Koble lokale utviklingsmål til skolens overordnede strategi for profesjonsfaglig digital kompetanse.</li>
+      </ul>
+    </div>
+
+    <div class="pull-quote">
+      <p>«PLF blir kraftfullt når ledelsen gjør felles læring til en del av skolens struktur, ikke et tillegg når det er tid.»</p>
+    </div>
+
+    <h2>Hvorfor dette betyr noe nå</h2>
+    <p>I en tid der skolen møter raske teknologiske endringer, trenger vi ledelse som bygger varig profesjonskapasitet. De fire mekanismene gir et konkret rammeverk for å forstå hva som skal til for at kompetanseutvikling faktisk blir bærekraftig i personalet.</p>
+
+    <div class="source-box">
+      <strong>Kilde:</strong><br>
+      Letnes, M.-A. (2025). <em>The ICT coordinator as a mediating actor in the development of professional digital competence within a school-based activity system</em>. European Journal of Teacher Education. DOI: <a href="https://doi.org/10.1080/02619768.2025.2565634" target="_blank" rel="noopener">10.1080/02619768.2025.2565634</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <span>© Mari-Ann Letnes · Førsteamanuensis, NTNU</span>
+  <span>mariannletnes.com</span>
+</footer>
+
+</body>
+</html>
