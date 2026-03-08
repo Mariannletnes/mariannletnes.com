@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Akademisk poster — hva gjør en god poster? — Mari-Ann Letnes</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f8f6f2;
+    --text: #111110;
+    --muted: #78736c;
+    --border: rgba(0,0,0,0.08);
+    --ink: #1c1a17;
+    --pop: #b84a2e;
+    --pop-dark: #8f3820;
+    --pop-light: #fdf0ec;
+    --surface: #fff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); font-family: 'Inter', sans-serif; color: var(--text); }
+
+  nav { background: var(--ink); padding: 0 48px; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+  .nav-brand { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: #fff; text-decoration: none; }
+  .nav-brand span { color: var(--pop); font-style: italic; }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover { color: #fff; }
+
+  /* POST HEADER */
+  .post-header { background: var(--ink); padding: 0 48px; }
+  .post-header-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 380px;
+    gap: 0; align-items: stretch; min-height: 360px;
+  }
+  .post-header-text {
+    padding: 56px 56px 56px 0;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .post-category {
+    display: inline-block; font-size: 0.62rem; text-transform: uppercase;
+    letter-spacing: 0.14em; padding: 4px 10px; background: var(--pop);
+    color: #fff; border-radius: 2px; margin-bottom: 20px; font-weight: 500;
+    align-self: flex-start;
+  }
+  .post-header h1 {
+    font-family: 'Playfair Display', serif; font-size: 2.6rem; font-weight: 900;
+    line-height: 1.1; color: #fff; margin-bottom: 16px;
+  }
+  .post-header .ingress {
+    font-size: 0.92rem; color: rgba(255,255,255,0.55); line-height: 1.7; max-width: 480px;
+    margin-bottom: 20px;
+  }
+  .post-meta { font-size: 0.72rem; color: rgba(255,255,255,0.4); letter-spacing: 0.04em; }
+  .post-meta span { color: rgba(255,255,255,0.6); }
+
+  .post-header-img {
+    position: relative; overflow: hidden; background: #1c1a17;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .back-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.45); text-decoration: none; margin-bottom: 24px;
+    transition: color 0.2s;
+  }
+  .back-link:hover { color: #fff; }
+  .back-link::before { content: '←'; }
+
+  /* ARTICLE */
+  .article { max-width: 720px; margin: 0 auto; padding: 56px 48px 100px; }
+
+  .article h2 {
+    font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700;
+    color: var(--text); margin: 48px 0 16px; line-height: 1.2;
+  }
+  .article h3 {
+    font-size: 0.88rem; font-weight: 600; color: var(--pop);
+    text-transform: uppercase; letter-spacing: 0.08em;
+    margin: 32px 0 10px;
+  }
+  .article p { font-size: 1rem; line-height: 1.8; color: var(--text); margin-bottom: 22px; }
+  .article p:last-of-type { margin-bottom: 0; }
+
+  /* VIDEO PLACEHOLDER */
+  .video-coming {
+    margin: 8px 0 40px;
+    aspect-ratio: 16/9;
+    background: var(--ink);
+    border-radius: 4px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 12px;
+    color: rgba(255,255,255,0.4);
+  }
+  .video-coming svg { opacity: 0.5; }
+  .video-coming span { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em; }
+
+  /* PRINCIPLE CARDS */
+  .principles { display: flex; flex-direction: column; gap: 2px; margin: 8px 0 36px; }
+  .principle {
+    background: var(--surface);
+    display: grid; grid-template-columns: 64px 1fr;
+    align-items: stretch;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .principle-num {
+    background: var(--ink); color: var(--pop-light);
+    font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 900;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .principle-body { padding: 16px 20px; }
+  .principle-body strong { display: block; font-size: 0.88rem; font-weight: 600; margin-bottom: 5px; color: var(--ink); }
+  .principle-body p { font-size: 0.82rem; line-height: 1.6; color: var(--muted); margin: 0; }
+
+  /* QUOTE BLOCK */
+  .pull-quote {
+    margin: 40px 0;
+    padding: 28px 32px;
+    border-left: 4px solid var(--pop);
+    background: var(--pop-light);
+  }
+  .pull-quote p {
+    font-family: 'Playfair Display', serif; font-size: 1.15rem; font-style: italic;
+    line-height: 1.6; color: var(--ink); margin: 0;
+  }
+
+  /* CHECKLIST */
+  .checklist { margin: 8px 0 36px; display: flex; flex-direction: column; gap: 8px; }
+  .check-item {
+    display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: baseline;
+    font-size: 0.88rem; line-height: 1.6; padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .check-item:last-child { border-bottom: none; }
+  .check-icon { color: var(--pop); font-weight: 700; font-size: 1rem; }
+
+  /* RELATED */
+  .related-section { border-top: 2px solid var(--ink); padding-top: 40px; margin-top: 56px; }
+  .related-label {
+    font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.16em;
+    color: var(--muted); font-weight: 500; margin-bottom: 20px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .related-label::before { content: ''; width: 20px; height: 2px; background: var(--pop); flex-shrink: 0; }
+  .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--border); }
+  .related-post {
+    background: var(--surface); padding: 20px; text-decoration: none;
+    display: block; transition: background 0.2s;
+  }
+  .related-post:hover { background: var(--pop-light); }
+  .related-post .date { font-size: 0.6rem; color: var(--pop); letter-spacing: 0.06em; margin-bottom: 8px; text-transform: uppercase; font-weight: 500; }
+  .related-post h3 { font-family: 'Playfair Display', serif; font-size: 0.95rem; font-weight: 700; line-height: 1.35; color: var(--text); }
+
+  footer { background: var(--ink); padding: 24px 48px; display: flex; justify-content: space-between; font-size: 0.72rem; color: rgba(255,255,255,0.35); }
+
+  @media (max-width: 900px) {
+    .post-header-inner { grid-template-columns: 1fr; }
+    .post-header-img { height: 200px; }
+    .post-header h1 { font-size: 2rem; }
+  }
+  @media (max-width: 640px) {
+    nav, .article, footer { padding-left: 20px; padding-right: 20px; }
+    .post-header { padding-left: 20px; padding-right: 20px; }
+    .nav-links { display: none; }
+    .related-grid { grid-template-columns: 1fr; }
+    .principle { grid-template-columns: 48px 1fr; }
+    .principle-num { font-size: 1.4rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">Mari-Ann <span>Letnes</span></a>
+  <ul class="nav-links">
+    <li><a href="omside.html">Om hjemmesiden</a></li>
+    <li><a href="forskning.html">Forskning</a></li>
+    <li><a href="publikasjoner.html">Publikasjoner</a></li>
+  </ul>
+</nav>
+
+<div class="post-header">
+  <div class="post-header-inner">
+    <div class="post-header-text">
+      <a href="index.html" class="back-link">Tilbake til forsiden</a>
+      <span class="post-category">Forskning · Formidling</span>
+      <h1>Akademisk poster: hva gjør en god poster?</h1>
+      <p class="ingress">En akademisk poster er ikke en sammentrykket artikkel på plakat. Det er en selvstendig formidlingsform — og den krever andre valg enn det skrevne fagspråket.</p>
+      <div class="post-meta">
+        <span>2026</span> · Mari-Ann Letnes
+      </div>
+    </div>
+    <div class="post-header-img">
+      <img src="Bilder/akademisk poster.png" alt="Akademisk poster" style="width:100%;height:100%;object-fit:cover;display:block;">
+    </div>
+  </div>
+</div>
+
+<article class="article">
+
+  <p>Mange bruker en uke på å skrive en konferanseartikkel — og en ettermiddag på posteren. Det er gjerne feil vei rundt. En poster som fungerer, krever faktisk mer bevisste valg enn den løpende teksten, fordi du har mye mindre plass og bare noen sekunder til å fange oppmerksomheten til forbipasserende.</p>
+
+  <p>Her er det jeg har lært etter mange år med akademiske postere — som forsker, som veileder og som deltaker på konferanser.</p>
+
+  <h2>Hva er egentlig en akademisk poster?</h2>
+
+  <p>En poster er ikke en miniaturversjon av en artikkel. Det er en <em>invitasjon til samtale</em>. Formålet er å vekke interesse, formidle én klar idé, og starte en dialog med de som stopper opp. Den beste posteren er én du kan forklare på 90 sekunder — og som gjør at noen stiller deg et spørsmål.</p>
+
+  <div class="pull-quote">
+    <p>«Én poster, ett budskap. Ikke alt du vet — men det viktigste du vil at noen skal huske.»</p>
+  </div>
+
+  <h2>Seks prinsipper for en god poster</h2>
+
+  <div class="principles">
+    <div class="principle">
+      <div class="principle-num">1</div>
+      <div class="principle-body">
+        <strong>Én klar problemstilling — synlig øverst</strong>
+        <p>Tittelen og/eller et spørsmål skal gjøre det umiddelbart klart hva posteren handler om. Forbipasserende bestemmer på to sekunder om de stopper.</p>
+      </div>
+    </div>
+    <div class="principle">
+      <div class="principle-num">2</div>
+      <div class="principle-body">
+        <strong>Visuelt hierarki — ikke jevn grå tekstmasse</strong>
+        <p>Øyet trenger en vei gjennom posteren. Bruk størrelse, farge og hvitt rom bevisst: stor tittel → ett nøkkelbilde eller -funn → støttetekst.</p>
+      </div>
+    </div>
+    <div class="principle">
+      <div class="principle-num">3</div>
+      <div class="principle-body">
+        <strong>Minst én sterk visuell</strong>
+        <p>Et godt bilde, en tydelig figur eller en enkel modell kommuniserer raskere enn fem avsnitt. Figuren skal stå alene — med forklarende tekst under.</p>
+      </div>
+    </div>
+    <div class="principle">
+      <div class="principle-num">4</div>
+      <div class="principle-body">
+        <strong>Kort tekst — kortest mulig</strong>
+        <p>En poster er ikke stedet for lange resonnement. Kulepunkter og korte setninger. Tommelfingerregel: maks 300–500 ord totalt på hele posteren.</p>
+      </div>
+    </div>
+    <div class="principle">
+      <div class="principle-num">5</div>
+      <div class="principle-body">
+        <strong>Funn tydelig frem — ikke begravd i metode</strong>
+        <p>Det viktigste spørsmålet for den som stopper: «Hva fant du?» Svaret skal være lett å se. Metode og teori kan komprimeres kraftig.</p>
+      </div>
+    </div>
+    <div class="principle">
+      <div class="principle-num">6</div>
+      <div class="principle-body">
+        <strong>Kontaktinfo og QR-kode</strong>
+        <p>Legg inn e-post, institusjonstilhørighet og gjerne en QR-kode til artikkelen, ORCID-profilen eller en utvidet ressurs. Folk vil følge opp etterpå.</p>
+      </div>
+    </div>
+  </div>
+
+  <h2>En typisk struktur som fungerer</h2>
+
+  <p>Det finnes ingen universell mal, men denne strukturen er godt innarbeidet i de fleste fagfelt:</p>
+
+  <div class="checklist">
+    <div class="check-item">
+      <span class="check-icon">→</span>
+      <span><strong>Tittel og forfattere</strong> — tydelig øverst, lesbar på 3–4 meters avstand</span>
+    </div>
+    <div class="check-item">
+      <span class="check-icon">→</span>
+      <span><strong>Bakgrunn / Problemstilling</strong> — hvorfor er dette viktig? Kort.</span>
+    </div>
+    <div class="check-item">
+      <span class="check-icon">→</span>
+      <span><strong>Metode</strong> — hva gjorde du? Noen setninger eller en enkel figur.</span>
+    </div>
+    <div class="check-item">
+      <span class="check-icon">→</span>
+      <span><strong>Funn / Resultater</strong> — det viktigste, visuelt fremhevet</span>
+    </div>
+    <div class="check-item">
+      <span class="check-icon">→</span>
+      <span><strong>Diskusjon / Konklusjon</strong> — hva betyr dette? Hva er implikasjonen?</span>
+    </div>
+    <div class="check-item">
+      <span class="check-icon">→</span>
+      <span><strong>Referanser</strong> — et knippe nøkkelreferanser, ikke en fullstendig liste</span>
+    </div>
+    <div class="check-item">
+      <span class="check-icon">→</span>
+      <span><strong>Kontaktinfo + QR-kode</strong> — lett å finne</span>
+    </div>
+  </div>
+
+  <h2>Presentasjonen er halvparten av jobben</h2>
+
+  <p>En poster henger ikke alene — du står ved siden av den. Forbered en 90-sekunders muntlig presentasjon der du peker på de viktigste elementene. Øv den inn slik at den sitter. De beste poster-presentasjonene er dem der du ser at noen tenker seg om, stiller et spørsmål og dere ender opp i en samtale som varer ti minutter.</p>
+
+  <p>Husk: det er ikke forelesning, det er dialog. Posteren er samtalestarteren.</p>
+
+  <h2>Slik setter du opp posteren i PowerPoint</h2>
+
+  <p>PowerPoint er faktisk et utmerket verktøy til akademisk poster — du har full kontroll over layout, kan plassere tekst og bilder nøyaktig der du vil, og alle har tilgang til det. Det viktigste er å sette riktig sidestørrelse fra starten av.</p>
+
+  <div class="checklist">
+    <div class="check-item">
+      <span class="check-icon">01</span>
+      <span><strong>Sett riktig format:</strong> Gå til <em>Design → Lysbildestørrelse → Egendefinert</em>. Velg A0 (84,1 × 118,9 cm) eller A1 (59,4 × 84,1 cm) i liggende eller stående format — sjekk hva konferansen krever.</span>
+    </div>
+    <div class="check-item">
+      <span class="check-icon">02</span>
+      <span><strong>Jobb i kolonner:</strong> Del lysbildet inn i 2–3 vertikale kolonner med hjelpelinjer (<em>Vis → Hjelpelinjer</em>). Øyet leser naturlig ovenfra og ned, kolonne for kolonne.</span>
+    </div>
+    <div class="check-item">
+      <span class="check-icon">03</span>
+      <span><strong>Bruk tekstbokser, ikke tabeller:</strong> Tekstbokser er mye lettere å flytte og justere. Unngå å lime inn tekst direkte fra Word.</span>
+    </div>
+    <div class="check-item">
+      <span class="check-icon">04</span>
+      <span><strong>Skriftstørrelser:</strong> Tittel: minst 72–90 pt · Overskrifter: 36–48 pt · Brødtekst: 24–28 pt. Posteren skal leses på 1–2 meters avstand.</span>
+    </div>
+    <div class="check-item">
+      <span class="check-icon">05</span>
+      <span><strong>Lagre som PDF til trykk:</strong> <em>Fil → Eksporter → PDF</em>. Velg høy kvalitet. Send PDF til trykkeriet — ikke PowerPoint-filen.</span>
+    </div>
+  </div>
+
+  <div class="related-section">
+    <div class="related-label">Se også</div>
+    <div class="related-grid">
+      <a href="post-akademisk-poster.html" class="related-post">
+        <div class="date">13. oktober 2016</div>
+        <h3>Slik lager du akademisk poster i PowerPoint — instruksjonsvideo</h3>
+      </a>
+      <a href="post-fra-verktoey-til-danning.html" class="related-post">
+        <div class="date">6. mars 2026</div>
+        <h3>Fra verktøy til danning: Når det sanselige møter det digitale</h3>
+      </a>
+    </div>
+  </div>
+
+</article>
+
+<footer>
+  <span>© Mari-Ann Letnes · Førsteamanuensis, NTNU</span>
+  <span>mariannletnes.com</span>
+</footer>
+
+</body>
+</html>
