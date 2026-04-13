@@ -173,7 +173,11 @@
   .grid-post h3 { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; line-height: 1.35; color: var(--text); margin-bottom: 6px; }
   .grid-post p { font-size: 0.75rem; color: var(--muted); line-height: 1.6; }
 
-  footer { background: var(--ink); padding: 24px 48px; display: flex; justify-content: space-between; font-size: 0.72rem; color: rgba(255,255,255,0.35); }
+  .nav-subscribe { font-size: 0.7rem; font-weight: 600; background: var(--pop); color: #fff; text-decoration: none; padding: 7px 16px; border-radius: 3px; transition: background 0.2s; white-space: nowrap; }
+  .nav-subscribe:hover { background: var(--pop-dark); }
+  footer { background: var(--ink); padding: 24px 48px; display: flex; justify-content: space-between; align-items: center; font-size: 0.72rem; color: rgba(255,255,255,0.35); }
+  .footer-subscribe { font-size: 0.72rem; font-weight: 600; background: var(--pop); color: #fff; text-decoration: none; padding: 7px 16px; border-radius: 3px; transition: background 0.2s; }
+  .footer-subscribe:hover { background: var(--pop-dark); }
 
   @media (max-width: 900px) {
     .masthead-inner, .featured-row { grid-template-columns: 1fr; }
@@ -202,6 +206,7 @@
     <li><a href="omside.html">Om hjemmesiden</a></li>
     <li><a href="forskning.html">Forskning</a></li>
     <li><a href="publikasjoner.html">Publikasjoner</a></li>
+    <li><a href="https://mariletn.substack.com" target="_blank" rel="noopener" class="nav-subscribe">Abonner</a></li>
   </ul>
 </nav>
 
@@ -220,55 +225,53 @@
 
 <div class="featured-strip">
   <span class="strip-label">● Siste innlegg</span>
-  <h2>Generativ KI i skole og barnehage, muligheter, rammer og dannelsesperspektiv</h2>
-  <a href="post-ki-i-skole-og-barnehage.html">Les →</a>
+  <h2>Viktigste Leder 2026 — foredrag om GenAI og skolens samfunnsmandat</h2>
+  <a href="post-viktigste-leder-2026.html">Les →</a>
 </div>
 
 <div class="content">
   <div class="featured-row">
-    <a href="post-ki-i-skole-og-barnehage.html" class="featured-main">
+    <a href="post-viktigste-leder-2026.html" class="featured-main">
       <div class="featured-main-img" style="padding:0; background:var(--ink); overflow:hidden;">
         <svg viewBox="0 0 600 280" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-          <defs><pattern id="plf-bg" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.035)" stroke-width="0.5"/></pattern></defs>
-          <rect width="600" height="280" fill="url(#plf-bg)"/>
-          <circle cx="300" cy="140" r="90" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1" stroke-dasharray="5 8"/>
-          <!-- 6 member nodes on ring -->
-          <circle cx="300" cy="50" r="9" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1.2"/><circle cx="300" cy="50" r="3" fill="rgba(255,255,255,0.6)"/>
-          <circle cx="378" cy="95" r="9" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1.2"/><circle cx="378" cy="95" r="3" fill="rgba(255,255,255,0.6)"/>
-          <circle cx="378" cy="185" r="9" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1.2"/><circle cx="378" cy="185" r="3" fill="rgba(255,255,255,0.6)"/>
-          <circle cx="300" cy="230" r="9" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1.2"/><circle cx="300" cy="230" r="3" fill="rgba(255,255,255,0.6)"/>
-          <circle cx="222" cy="185" r="9" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1.2"/><circle cx="222" cy="185" r="3" fill="rgba(255,255,255,0.6)"/>
-          <circle cx="222" cy="95" r="9" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1.2"/><circle cx="222" cy="95" r="3" fill="rgba(255,255,255,0.6)"/>
-          <!-- Spokes to center -->
-          <line x1="300" y1="59" x2="300" y2="122" stroke="rgba(255,255,255,0.14)" stroke-width="1"/>
-          <line x1="370" y1="100" x2="312" y2="130" stroke="rgba(255,255,255,0.14)" stroke-width="1"/>
-          <line x1="370" y1="180" x2="312" y2="150" stroke="rgba(255,255,255,0.14)" stroke-width="1"/>
-          <line x1="300" y1="221" x2="300" y2="158" stroke="rgba(255,255,255,0.14)" stroke-width="1"/>
-          <line x1="230" y1="180" x2="288" y2="150" stroke="rgba(255,255,255,0.14)" stroke-width="1"/>
-          <line x1="230" y1="100" x2="288" y2="130" stroke="rgba(255,255,255,0.14)" stroke-width="1"/>
-          <!-- Ring edges -->
-          <line x1="300" y1="59" x2="370" y2="100" stroke="rgba(255,255,255,0.07)" stroke-width="0.8"/>
-          <line x1="370" y1="100" x2="370" y2="180" stroke="rgba(255,255,255,0.07)" stroke-width="0.8"/>
-          <line x1="370" y1="180" x2="300" y2="221" stroke="rgba(255,255,255,0.07)" stroke-width="0.8"/>
-          <line x1="300" y1="221" x2="230" y2="180" stroke="rgba(255,255,255,0.07)" stroke-width="0.8"/>
-          <line x1="230" y1="180" x2="230" y2="100" stroke="rgba(255,255,255,0.07)" stroke-width="0.8"/>
-          <line x1="230" y1="100" x2="300" y2="59" stroke="rgba(255,255,255,0.07)" stroke-width="0.8"/>
-          <!-- Central node -->
-          <circle cx="300" cy="140" r="24" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="1.5"/>
-          <circle cx="300" cy="140" r="15" fill="none" stroke="rgba(184,74,46,0.5)" stroke-width="1"/>
-          <circle cx="300" cy="140" r="6" fill="rgba(184,74,46,0.9)"/>
+          <defs><pattern id="vl-bg" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.035)" stroke-width="0.5"/></pattern></defs>
+          <rect width="600" height="280" fill="url(#vl-bg)"/>
+          <!-- Presentasjons-illustrasjon: projektor/skjerm + publikum -->
+          <rect x="180" y="60" width="240" height="140" rx="6" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
+          <rect x="192" y="72" width="216" height="116" rx="3" fill="rgba(255,255,255,0.03)"/>
+          <!-- Tre kolonner på skjerm -->
+          <rect x="204" y="84" width="58" height="88" rx="3" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
+          <rect x="271" y="84" width="58" height="88" rx="3" fill="none" stroke="rgba(184,74,46,0.5)" stroke-width="1"/>
+          <rect x="338" y="84" width="58" height="88" rx="3" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
+          <line x1="300" y1="200" x2="300" y2="216" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+          <line x1="260" y1="216" x2="340" y2="216" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+          <!-- Publikum-dots -->
+          <circle cx="200" cy="240" r="5" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+          <circle cx="220" cy="245" r="5" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+          <circle cx="240" cy="240" r="5" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+          <circle cx="260" cy="245" r="5" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+          <circle cx="300" cy="240" r="5" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+          <circle cx="320" cy="245" r="5" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+          <circle cx="340" cy="240" r="5" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+          <circle cx="360" cy="245" r="5" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+          <circle cx="380" cy="240" r="5" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+          <circle cx="400" cy="245" r="5" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
           <circle cx="80" cy="55" r="1.5" fill="rgba(255,255,255,0.15)"/><circle cx="520" cy="50" r="1.5" fill="rgba(255,255,255,0.15)"/>
-          <circle cx="150" cy="35" r="1.2" fill="rgba(184,74,46,0.35)"/><circle cx="455" cy="255" r="1.2" fill="rgba(184,74,46,0.35)"/>
+          <circle cx="150" cy="35" r="1.2" fill="rgba(184,74,46,0.35)"/>
         </svg>
       </div>
       <div class="featured-main-body">
         <div class="post-num">01</div>
-        <div style="font-size:0.62rem;color:var(--pop);text-transform:uppercase;letter-spacing:0.1em;font-weight:500;margin-bottom:10px;">8. mars 2026</div>
-        <h2>Generativ KI i skole og barnehage, muligheter, rammer og dannelsesperspektiv</h2>
-        <p>Hva betyr kunstig intelligens for barn og unges dannelse? En gjennomgang av seks KI-kategorier for skolen og fire for barnehagen, med vekt på epistemisk infrastruktur, kategorial dannelse og pedagogisk ansvar.</p>
+        <div style="font-size:0.62rem;color:var(--pop);text-transform:uppercase;letter-spacing:0.1em;font-weight:500;margin-bottom:10px;">14. april 2026</div>
+        <h2>Viktigste Leder 2026 — GenAI og skolens samfunnsmandat</h2>
+        <p>Foredrag på Gardermoen for rektorer. Hvordan utnytte generativ KI for å realisere skolens samfunnsmandat om både danning og utdanning? Se hele presentasjonen her.</p>
       </div>
     </a>
     <div class="featured-side">
+      <a href="post-ki-i-skole-og-barnehage.html" class="side-post">
+        <div class="date">8. mars 2026</div>
+        <h3>Generativ KI i skole og barnehage, muligheter, rammer og dannelsesperspektiv</h3>
+      </a>
       <a href="post-ledelse-plf-ict-koordinator.html" class="side-post">
         <div class="date">7. mars 2026</div>
         <h3>Hvordan kan skoleledere bygge profesjonsfaglig digital kompetanse i et PLF?</h3>
@@ -277,7 +280,6 @@
         <div class="date">7. mars 2026</div>
         <h3>Digital transformasjon i skolen og elevers grunnleggende digitale ferdigheter</h3>
       </a>
-      <a href="post-fra-verktoey-til-danning.html" class="side-post">
         <div class="date">6. mars 2026</div>
         <h3>Fra verktøy til danning: Når det sanselige møter det digitale</h3>
       </a>
@@ -568,6 +570,7 @@
 
 <footer>
   <span>© Mari-Ann Letnes · Førsteamanuensis, NTNU</span>
+  <a href="https://mariletn.substack.com" target="_blank" rel="noopener" class="footer-subscribe">Abonner på nye innlegg →</a>
   <span>mariannletnes.com</span>
 </footer>
 

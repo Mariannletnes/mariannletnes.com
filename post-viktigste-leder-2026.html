@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Viktigste Leder 2026 — Mari-Ann Letnes</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231c1a17'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='16' font-weight='bold' fill='%23b84a2e' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #181614;
+    --text: #e8e4de;
+    --muted: #9a9088;
+    --border: rgba(255,255,255,0.07);
+    --ink: #1c1a17;
+    --pop: #b84a2e;
+    --pop-dark: #8f3820;
+    --pop-light: rgba(184,74,46,0.15);
+    --surface: #242220;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); font-family: 'Inter', sans-serif; color: var(--text); }
+
+  nav {
+    background: var(--ink);
+    padding: 0 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+  }
+  .nav-brand { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: #fff; text-decoration: none; }
+  .nav-brand span { color: var(--pop); font-style: italic; }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover { color: #fff; }
+
+  .post-hero {
+    background: var(--ink);
+    padding: 56px 48px 48px;
+  }
+  .post-hero-inner { max-width: 800px; margin: 0 auto; }
+  .post-tag { display: inline-block; font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.14em; padding: 4px 10px; background: var(--pop); color: #fff; border-radius: 2px; margin-bottom: 20px; font-weight: 500; }
+  .post-date { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px; }
+  .post-title { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 900; line-height: 1.1; color: #fff; margin-bottom: 18px; }
+  .post-intro { font-size: 1rem; color: rgba(255,255,255,0.55); line-height: 1.75; max-width: 660px; }
+
+  .post-body { max-width: 800px; margin: 0 auto; padding: 48px 48px 80px; }
+
+  /* CTA-boks */
+  .cta-box {
+    background: var(--surface);
+    border: 1px solid rgba(184,74,46,0.4);
+    border-radius: 8px;
+    padding: 28px 32px;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .cta-box p { font-size: 0.95rem; color: var(--text); line-height: 1.6; }
+  .cta-box p strong { color: #fff; }
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--pop);
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: 4px;
+    white-space: nowrap;
+    transition: background 0.2s;
+    flex-shrink: 0;
+  }
+  .cta-btn:hover { background: var(--pop-dark); }
+
+  h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: #fff; margin: 36px 0 14px; }
+  p { font-size: 0.88rem; color: var(--muted); line-height: 1.85; margin-bottom: 16px; }
+  p strong { color: var(--text); }
+
+  /* Innholdsstruktur */
+  .outline { background: var(--surface); border-radius: 6px; padding: 24px 28px; margin: 28px 0; }
+  .outline-title { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--pop); font-weight: 600; margin-bottom: 16px; }
+  .outline-item { display: flex; align-items: baseline; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 0.83rem; color: var(--muted); }
+  .outline-item:last-child { border-bottom: none; }
+  .outline-num { font-family: 'Playfair Display', serif; font-size: 0.75rem; color: var(--pop); font-weight: 700; min-width: 24px; }
+  .outline-item span { color: var(--text); }
+
+  .nav-subscribe { font-size: 0.7rem; font-weight: 600; background: var(--pop); color: #fff; text-decoration: none; padding: 7px 16px; border-radius: 3px; transition: background 0.2s; }
+  .nav-subscribe:hover { background: var(--pop-dark); }
+  footer { background: var(--ink); padding: 24px 48px; display: flex; justify-content: space-between; align-items: center; font-size: 0.72rem; color: rgba(255,255,255,0.35); }
+  .footer-subscribe { font-size: 0.72rem; font-weight: 600; background: var(--pop); color: #fff; text-decoration: none; padding: 7px 16px; border-radius: 3px; transition: background 0.2s; }
+  .footer-subscribe:hover { background: var(--pop-dark); }
+
+  @media (max-width: 640px) {
+    nav, .post-hero, .post-body, footer { padding-left: 20px; padding-right: 20px; }
+    .post-title { font-size: 2rem; }
+    .cta-box { flex-direction: column; align-items: flex-start; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">Mari-Ann <span>Letnes</span></a>
+  <ul class="nav-links">
+    <li><a href="omside.html">Om hjemmesiden</a></li>
+    <li><a href="forskning.html">Forskning</a></li>
+    <li><a href="publikasjoner.html">Publikasjoner</a></li>
+    <li><a href="https://mariletn.substack.com" target="_blank" rel="noopener" class="nav-subscribe">Abonner</a></li>
+  </ul>
+</nav>
+
+<div class="post-hero">
+  <div class="post-hero-inner">
+    <span class="post-tag">Foredrag · Skoleledelse</span>
+    <div class="post-date">14. april 2026 · Gardermoen</div>
+    <h1 class="post-title">Hvordan utnytte GenAI for å realisere skolens samfunnsmandat om både danning og utdanning?</h1>
+    <p class="post-intro">Foredrag holdt på konferansen Viktigste Leder 2026 for rektorer. En gjennomgang av hva generativ KI gjør med læreprosessen, lærerens profesjonelle rolle og hvilke beslutninger rektor må ta.</p>
+  </div>
+</div>
+
+<div class="post-body">
+
+  <div class="cta-box">
+    <p><strong>Se hele presentasjonen</strong><br>Interaktiv presentasjon med alle slides, quiz og forskningsfunn.</p>
+    <a class="cta-btn" href="https://mariannletnes.github.io/ledelse-ki-2026/" target="_blank" rel="noopener">Åpne presentasjonen →</a>
+  </div>
+
+  <h2>Bakgrunn</h2>
+  <p>Konferansen Viktigste Leder samler rektorer fra hele landet. Foredraget tok utgangspunkt i et sentralt spørsmål: Kan KI true skolens danningsoppdrag — eller kan det forsterke det?</p>
+  <p>Med utgangspunkt i <strong>ICILS 2023</strong> (40 % av norske 9.-klassinger på laveste digitale nivå), <strong>LK20</strong> og Udirs rammeverk for digital kompetanse, og egne forskningsfunn fra DIGIT-prosjektet ved NTNU, argumenterer foredraget for at svaret avhenger av de valgene skoleledere tar — nå.</p>
+
+  <h2>Presentasjonens innhold</h2>
+
+  <div class="outline">
+    <div class="outline-title">Struktur</div>
+    <div class="outline-item"><span class="outline-num">01</span><span>KI-teknologi-quiz — hvilke verktøy bruker du allerede i dag?</span></div>
+    <div class="outline-item"><span class="outline-num">02</span><span>Teknologi som trussel — fra Gessner (1548) til Sokrates</span></div>
+    <div class="outline-item"><span class="outline-num">03</span><span>Situasjonsanalyse — ICILS 2023 og LK20-rammeverket</span></div>
+    <div class="outline-item"><span class="outline-num">04</span><span>Profesjonsfaglig digital kompetanse — PDC og tre uløste problemer</span></div>
+    <div class="outline-item"><span class="outline-num">05</span><span>KI som læringsressurs — sju dimensjoner for læring</span></div>
+    <div class="outline-item"><span class="outline-num">06</span><span>Hva forskningen viser — elevenes egne ord fra podcastprosjektet</span></div>
+    <div class="outline-item"><span class="outline-num">07</span><span>KI-løsninger i norsk skole — Copilot, NDLA og Kommunal KI-portal</span></div>
+    <div class="outline-item"><span class="outline-num">08</span><span>Tre hovedpoenger for rektorer</span></div>
+  </div>
+
+  <h2>Tre poenger til rektorer</h2>
+  <p><strong>Balanse er alt.</strong> KI kan være gode verktøy for utdanning, men den tilstedeværende læreren er og blir den avgjørende garantisten for danningsprosjektet og læreprosesser.</p>
+  <p><strong>Mennesket i sentrum.</strong> Vi må utvikle og designe KI-løsninger som er pedagogisk forankret, og der elever og lærere har reell kontroll og eierskap.</p>
+  <p><strong>Legg bort KI-skammen.</strong> Vi må bygge en åpen, nysgjerrig og kritisk kultur rundt KI i skolen, der vi tør å snakke ærlig om både muligheter og utfordringer.</p>
+
+  <h2>Referanser og ressurser</h2>
+  <p>Letnes, M.-A. (2025). <em>Artikkelen i European Journal of Teacher Education (EJTE).</em> <a href="https://www.tandfonline.com/doi/full/10.1080/02619768.2025.2565634" target="_blank" style="color:var(--pop);">Les artikkelen →</a></p>
+  <p>Tømte, C., Kårstein, A. & Olsen, D.S. (2013). PDC-rammeverket for profesjonsfaglig digital kompetanse.</p>
+  <p>Udir (2024). <a href="https://www.udir.no/kvalitet-og-kompetanse/digitalisering-skole/kunstig-intelligens-ki-i-skolen/personvern-ki/" target="_blank" style="color:var(--pop);">Ta hensyn til personvernet ved bruk av KI →</a></p>
+
+</div>
+
+<footer>
+  <span>© Mari-Ann Letnes · Førsteamanuensis, NTNU</span>
+  <a href="https://mariletn.substack.com" target="_blank" rel="noopener" class="footer-subscribe">Abonner på nye innlegg →</a>
+  <span>mariannletnes.com</span>
+</footer>
+
+</body>
+</html>
