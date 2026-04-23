@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KI og vurdering — IPL NTNU · Mari-Ann Letnes</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231c1a17'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='16' font-weight='bold' fill='%23b84a2e' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #181614; --text: #e8e4de; --muted: #9a9088; --border: rgba(255,255,255,0.07);
+    --ink: #1c1a17; --pop: #b84a2e; --pop-dark: #8f3820; --pop-light: rgba(184,74,46,0.15); --surface: #242220;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); font-family: 'Inter', sans-serif; color: var(--text); }
+
+  nav { background: var(--ink); padding: 0 48px; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+  .nav-brand { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: #fff; text-decoration: none; }
+  .nav-brand span { color: var(--pop); font-style: italic; }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover { color: #fff; }
+  .nav-subscribe { font-size: 0.7rem; font-weight: 600; background: var(--pop); color: #fff; text-decoration: none; padding: 7px 16px; border-radius: 3px; transition: background 0.2s; white-space: nowrap; }
+  .nav-subscribe:hover { background: var(--pop-dark); }
+
+  .post-header { background: var(--ink); padding: 64px 48px 56px; }
+  .post-header-inner { max-width: 780px; margin: 0 auto; }
+  .post-meta { display: flex; gap: 12px; align-items: center; margin-bottom: 20px; flex-wrap: wrap; }
+  .post-tag { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.12em; padding: 4px 10px; background: var(--pop); color: #fff; border-radius: 2px; font-weight: 500; }
+  .post-tag.secondary { background: transparent; border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.55); }
+  .post-date { font-size: 0.7rem; color: var(--muted); letter-spacing: 0.06em; }
+  .post-header h1 { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 900; line-height: 1.1; color: #fff; margin-bottom: 20px; }
+  .post-header h1 em { color: var(--pop); font-weight: 400; font-style: italic; }
+  .post-header .lead { font-size: 1rem; color: rgba(255,255,255,0.6); line-height: 1.7; max-width: 600px; }
+
+  .post-cta {
+    background: var(--pop);
+    padding: 28px 48px;
+    display: flex; align-items: center; gap: 32px; flex-wrap: wrap;
+  }
+  .post-cta p { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: #fff; }
+  .post-cta a {
+    display: inline-block; background: #fff; color: var(--pop);
+    font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+    padding: 12px 28px; border-radius: 3px; text-decoration: none;
+    transition: background 0.2s; white-space: nowrap;
+  }
+  .post-cta a:hover { background: #f0ece6; }
+
+  .post-body { max-width: 780px; margin: 0 auto; padding: 56px 48px 80px; }
+
+  .post-body h2 { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--text); margin: 40px 0 16px; }
+  .post-body h2:first-child { margin-top: 0; }
+  .post-body p { font-size: 0.88rem; color: var(--muted); line-height: 1.8; margin-bottom: 14px; }
+  .post-body strong { color: var(--text); font-weight: 500; }
+
+  .structure-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 0 0 10px; }
+  .two-col-grid { grid-template-columns: repeat(2, 1fr); margin-bottom: 10px; }
+  .stacked-grid { align-items: start; }
+  .stack { display: flex; flex-direction: column; gap: 10px; }
+  .structure-card {
+    background: var(--surface); border-radius: 4px; padding: 18px 16px;
+    display: flex; flex-direction: column; gap: 8px;
+    border-top: 2px solid var(--border);
+  }
+  .structure-card.disc { border-top-color: var(--pop); }
+  .structure-card .num {
+    font-family: 'Playfair Display', serif; font-size: 1.4rem;
+    font-weight: 900; color: var(--pop); line-height: 1;
+  }
+  .structure-card .disc-icon { font-size: 1.2rem; color: var(--pop); }
+  .structure-card strong { font-size: 0.88rem; color: var(--text); font-weight: 600; }
+  .structure-card p { font-size: 0.76rem; color: var(--muted); line-height: 1.55; margin: 0; }
+
+  .disc-block {
+    border-left: 3px solid var(--pop);
+    padding: 14px 18px;
+    background: var(--surface);
+    border-radius: 0 4px 4px 0;
+    margin: 16px 0;
+  }
+  .disc-block .disc-label { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--pop); font-weight: 600; margin-bottom: 6px; }
+  .disc-block p { font-size: 0.82rem; color: var(--muted); line-height: 1.65; margin-bottom: 0; }
+
+  footer { background: var(--ink); padding: 24px 48px; display: flex; justify-content: space-between; align-items: center; font-size: 0.72rem; color: rgba(255,255,255,0.35); }
+  .footer-subscribe { font-size: 0.72rem; font-weight: 600; background: var(--pop); color: #fff; text-decoration: none; padding: 7px 16px; border-radius: 3px; transition: background 0.2s; }
+  .footer-subscribe:hover { background: var(--pop-dark); }
+
+  @media (max-width: 640px) {
+    nav, .post-body, footer { padding-left: 20px; padding-right: 20px; }
+    .post-header, .post-cta { padding-left: 20px; padding-right: 20px; }
+    .post-header h1 { font-size: 2rem; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">Mari-Ann <span>Letnes</span></a>
+  <ul class="nav-links">
+    <li><a href="omside.html">Om hjemmesiden</a></li>
+    <li><a href="forskning.html">Forskning</a></li>
+    <li><a href="publikasjoner.html">Publikasjoner</a></li>
+    <li><a href="https://mariletn.substack.com" target="_blank" rel="noopener" class="nav-subscribe">Abonner</a></li>
+  </ul>
+</nav>
+
+<div class="post-header">
+  <div class="post-header-inner">
+    <div class="post-meta">
+      <span class="post-tag">Foredrag</span>
+      <span class="post-tag secondary">Vurdering · KI</span>
+      <span class="post-date">April 2026 · IPL, NTNU</span>
+    </div>
+    <h1>KI og <em>vurdering</em> — IPL NTNU</h1>
+    <p class="lead">Foredrag for Institutt for pedagogikk og livslang læring. Når KI bryter koblingen mellom produkt og forståelse — hva betyr det for underviserens vurderingspraksis?</p>
+  </div>
+</div>
+
+<div class="post-cta">
+  <p>Se hele presentasjonen — interaktiv, med fordypning og diskusjonsstopp</p>
+  <a href="https://mariannletnes.github.io/KIogvurderingIPL/" target="_blank">Åpne presentasjonen →</a>
+</div>
+
+<div class="post-body">
+
+  <h2>Bakgrunn</h2>
+  <p>Generativ KI har brutt en grunnleggende forutsetning vi lenge har tatt for gitt: at et ferdig produkt er et pålitelig bevis på studentens forståelse. KI kan nå generere besvarelser som ser ut som høy kompetanse — uten at studenten forstår noe som helst. Det tvinger oss til å tenke nytt om hva vurdering er, hva den skal måle, og hvem som skal gjøre den.</p>
+  <p>Foredraget ble holdt for faglig ansatte ved <strong>Institutt for pedagogikk og livslang læring (IPL) ved NTNU</strong>, og er bygget opp som en interaktiv workshop med tre diskusjonsstopp.</p>
+
+  <h2>Presentasjonens innhold</h2>
+  <!-- Rad 1: to bokser -->
+  <div class="structure-grid two-col-grid">
+    <div class="structure-card">
+      <span class="num">01</span>
+      <strong>To perspektiver</strong>
+      <p>Formativ og summativ vurdering — hvorfor skillet betyr mer nå enn før</p>
+    </div>
+    <div class="structure-card">
+      <span class="num">02</span>
+      <strong>Læreprosessen</strong>
+      <p>Hvordan designe læring som synliggjør studentens forståelse</p>
+    </div>
+  </div>
+  <!-- Rad 2: tre kolonner, hver med innhold + diskusjon stablet -->
+  <div class="structure-grid stacked-grid">
+    <div class="stack">
+      <div class="structure-card">
+        <strong>VuKI — studentperspektiv</strong>
+        <p>Fem nivåer for studentens KI-bruk i vurdering (Perkins et al., 2024)</p>
+      </div>
+      <div class="structure-card disc">
+        <span class="disc-icon">💬</span>
+        <strong>Diskusjon 1</strong>
+        <p>Hvordan designer du læring når KI er tilgjengelig?</p>
+      </div>
+    </div>
+    <div class="stack">
+      <div class="structure-card">
+        <strong>Validitet og reliabilitet</strong>
+        <p>Hva teller som gyldig bevis på læring i en KI-tid?</p>
+      </div>
+      <div class="structure-card disc">
+        <span class="disc-icon">💬</span>
+        <strong>Diskusjon 2</strong>
+        <p>Hva er et gyldig bevis på læring i ditt fag?</p>
+      </div>
+    </div>
+    <div class="stack">
+      <div class="structure-card">
+        <strong>VuKI — sensor og underviser</strong>
+        <p>KI i vurderingsarbeidet, regelverk og dataklassifisering ved NTNU</p>
+      </div>
+      <div class="structure-card disc">
+        <span class="disc-icon">💬</span>
+        <strong>Diskusjon 3</strong>
+        <p>Hva kan og bør automatiseres i vurderingsarbeidet?</p>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+
+<footer>
+  <span>© Mari-Ann Letnes · Førsteamanuensis, NTNU</span>
+  <a href="https://mariletn.substack.com" target="_blank" rel="noopener" class="footer-subscribe">Abonner på nye innlegg →</a>
+</footer>
+
+</body>
+</html>
