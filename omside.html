@@ -1,168 +1,231 @@
 <!DOCTYPE html>
-<html lang="no">
+<html lang="nb">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Om hjemmesiden — Mari-Ann Letnes</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Om meg — Mari-Ann Letnes</title>
+<meta name="description" content="Mari-Ann Letnes er førsteamanuensis ved NTNU og arbeider med digital kompetanse, pedagogisk praksis og profesjonsutvikling i barnehage, skole og lærerutdanning.">
+<meta property="og:title" content="Om meg — Mari-Ann Letnes">
+<meta property="og:description" content="Førsteamanuensis ved NTNU. Digital kompetanse, pedagogisk praksis og profesjonsutvikling.">
+<meta property="og:image" content="https://mariannletnes.com/portrett-mork.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mariannletnes.com/omside.html">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%23332830'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='15' fill='%23F8F4F1' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #f8f6f2;
-    --text: #111110;
-    --muted: #78736c;
-    --border: rgba(0,0,0,0.08);
-    --ink: #1c1a17;
-    --pop: #b84a2e;
-    --surface: #fff;
+  /* Palett: to nøytrale trinn, én mørk forankring, én aksent.
+     papir F8F4F1 · stein EDE7E2 · mørk 332830 · plomme 6E4B57 */
+  :root{
+    --paper:#F8F4F1;
+    --stone:#EDE7E2;
+    --dark:#332830;
+    --plum:#6E4B57;
+    --plum-soft:#B79BA4;
+    --ink:#4A3C43;
+    --body:#5E4F55;
+    --quiet:#7E6F74;
+    --hair:#E1D8D1;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    background:var(--paper);color:var(--body);
+    font-family:'Jost',system-ui,sans-serif;
+    font-size:1.15rem;font-weight:400;line-height:1.72;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  :focus-visible{outline:2px solid var(--plum);outline-offset:4px}
+
+  .plane-stone{background:var(--stone)}
+  .plane-dark{background:var(--dark)}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 48px}
+
+  /* ---------- topp ---------- */
+  .top{
+    display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
+    gap:16px 28px;padding:34px 0 28px;
+  }
+  .signature{
+    font-family:'Cormorant Garamond',Georgia,serif;font-size:2rem;font-weight:400;
+    color:#F7F1F2;text-decoration:none;line-height:1.1;letter-spacing:.01em;
+  }
+  .menu{display:flex;flex-wrap:wrap;gap:32px;list-style:none;align-items:center}
+  .menu a{
+    font-size:1.04rem;color:#DCCDD3;text-decoration:none;padding-bottom:4px;
+    box-shadow:inset 0 -1px 0 transparent;
+    transition:color .22s ease,box-shadow .22s ease;
+  }
+  .menu a:hover{color:#F7F1F2;box-shadow:inset 0 -1px 0 #F7F1F2}
+  .menu a.active{color:#F7F1F2;box-shadow:inset 0 -1px 0 var(--plum-soft)}
+  .menu .sub{color:var(--plum-soft);box-shadow:inset 0 -1px 0 #6B545E}
+  .menu .sub:hover{color:#F7F1F2;box-shadow:inset 0 -2px 0 #F7F1F2}
+
+  /* ---------- hero ---------- */
+  .hero{
+    display:grid;grid-template-columns:1fr 380px;gap:64px;align-items:end;
+    padding:40px 0 90px;
+  }
+  .role{font-size:1.04rem;color:var(--plum-soft);margin-bottom:26px}
+  .hero h1{
+    font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;
+    font-size:clamp(3rem,7vw,5.2rem);line-height:1.04;color:#F7F1F2;
+    margin-bottom:30px;
+  }
+  .hero .lede{font-size:1.3rem;line-height:1.7;color:#D6C5CB;max-width:42ch}
+
+  .portrait{display:block;text-decoration:none}
+  .shots{display:block;position:relative;line-height:0}
+  .shots img{width:100%;height:auto}
+  .shots .lys{position:absolute;inset:0;opacity:0;transition:opacity .45s ease}
+  .portrait:hover .shots .lys,
+  .portrait:focus-visible .shots .lys{opacity:1}
+  .portrait-label{
+    display:block;margin-top:18px;text-align:center;
+    font-size:1.02rem;color:var(--plum-soft);transition:color .3s ease;
+  }
+  .portrait:hover .portrait-label,
+  .portrait:focus-visible .portrait-label{color:#F7F1F2}
+
+  /* ---------- tekst ---------- */
+  .prose{max-width:680px;padding:92px 0 96px}
+  .prose h2{
+    font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-size:2.2rem;
+    line-height:1.16;color:var(--ink);margin-bottom:20px;
+  }
+  .prose h2+p{margin-top:0}
+  .prose p{font-size:1.2rem;line-height:1.8;margin-bottom:24px}
+  .prose p:last-child{margin-bottom:0}
+  .prose a{
+    color:var(--plum);text-decoration:none;
+    box-shadow:inset 0 -1px 0 #CBB4BC;transition:box-shadow .2s ease;
+  }
+  .prose a:hover{box-shadow:inset 0 -2px 0 var(--plum)}
+  .prose .spacer{margin-top:64px}
+
+  /* ---------- uthevet ---------- */
+  .statement{padding:84px 0 88px}
+  .statement p{
+    font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;
+    font-size:clamp(1.9rem,4.2vw,2.9rem);line-height:1.26;color:var(--ink);
+    max-width:22ch;
   }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: var(--bg); font-family: 'Inter', sans-serif; color: var(--text); }
+  /* ---------- kontakt ---------- */
+  .contact{
+    display:grid;grid-template-columns:1fr auto;gap:56px;align-items:center;
+    padding:92px 0 96px;
+  }
+  .contact h2{
+    font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-size:2.8rem;
+    line-height:1.1;color:#F7F1F2;margin-bottom:14px;
+  }
+  .contact p{color:var(--plum-soft);font-size:1.16rem;max-width:44ch}
+  .contact p a{color:var(--plum-soft);text-decoration:none;box-shadow:inset 0 -1px 0 #7B626C}
+  .contact p a:hover{color:#F7F1F2;box-shadow:inset 0 -1px 0 #F7F1F2}
+  .button{
+    display:inline-block;background:var(--paper);color:var(--dark);
+    text-decoration:none;font-size:1.06rem;padding:18px 42px;white-space:nowrap;
+    transition:background .2s;
+  }
+  .button:hover{background:#fff}
 
-  nav {
-    background: var(--ink);
-    padding: 0 48px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 56px;
+  footer{
+    display:flex;flex-wrap:wrap;gap:12px 36px;justify-content:space-between;
+    padding:36px 0 64px;font-size:1rem;color:var(--quiet);
   }
-  .nav-brand { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: #fff; text-decoration: none; }
-  .nav-brand span { color: var(--pop); font-style: italic; }
-  .nav-links { display: flex; gap: 28px; list-style: none; }
-  .nav-links a { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.5); text-decoration: none; }
-  .nav-links a:hover, .nav-links a.active { color: #fff; }
+  footer a{color:var(--quiet)}
 
-  .hero {
-    background: var(--ink);
-    padding: 56px 48px 60px;
+  @media (max-width:940px){
+    .wrap{padding:0 32px}
+    .hero{grid-template-columns:1fr;gap:48px;align-items:start}
+    .portrait{max-width:300px;order:-1}
+    .contact{grid-template-columns:1fr;gap:32px}
   }
-  .hero-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: center;
-    gap: 36px;
+  @media (max-width:620px){
+    .wrap{padding:0 22px}
+    .prose,.statement,.contact{padding:60px 0 66px}
   }
-  .hero-copy { min-width: 0; }
-  .hero-tag {
-    display: inline-block;
-    font-size: 0.62rem;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    padding: 4px 10px;
-    background: var(--pop);
-    color: #fff;
-    border-radius: 2px;
-    margin-bottom: 18px;
-    font-weight: 500;
-  }
-  .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem;
-    line-height: 1.1;
-    color: #fff;
-    margin-bottom: 14px;
-  }
-  .hero-avatar {
-    width: 260px;
-    max-width: 36vw;
-    display: block;
-    margin: 0;
-    border-radius: 999px;
-    justify-self: end;
-  }
-  .hero p {
-    max-width: 680px;
-    color: rgba(255,255,255,0.58);
-    line-height: 1.8;
-    font-size: 0.95rem;
-  }
-
-  .content {
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 56px 48px 80px;
-  }
-  .content h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    margin: 0 0 12px;
-  }
-  .content p {
-    line-height: 1.85;
-    font-size: 1rem;
-    margin-bottom: 18px;
-  }
-  .highlight {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-left: 3px solid var(--pop);
-    padding: 22px 24px;
-    margin: 26px 0;
-  }
-  .highlight p { margin: 0; color: var(--muted); }
-
-  footer {
-    background: var(--ink);
-    padding: 24px 48px;
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.72rem;
-    color: rgba(255,255,255,0.35);
-  }
-
-  @media (max-width: 640px) {
-    nav, .hero, .content, footer { padding-left: 20px; padding-right: 20px; }
-    .nav-links { display: none; }
-    .hero h1 { font-size: 2.2rem; }
-    .hero-inner { grid-template-columns: 1fr; gap: 20px; }
-    .hero-avatar { width: 180px; max-width: 60vw; justify-self: start; }
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none!important;animation:none!important}
+    .portrait:hover .shots .lys{opacity:1}
   }
 </style>
 </head>
 <body>
 
-<nav>
-  <a href="index.html" class="nav-brand">Mari-Ann <span>Letnes</span></a>
-  <ul class="nav-links">
-    <li><a href="omside.html" class="active">Om hjemmesiden</a></li>
-    <li><a href="forskning.html">Forskning</a></li>
-    <li><a href="publikasjoner.html">Publikasjoner</a></li>
-  </ul>
-</nav>
+<div class="plane-dark">
+  <div class="wrap">
+  <header class="top">
+    <a href="index.html" class="signature">Mari-Ann Letnes</a>
+    <nav aria-label="Hovedmeny">
+      <ul class="menu">
+        <li><a href="omside.html" class="active" aria-current="page">Om meg</a></li>
+        <li><a href="forskning.html">Forskning</a></li>
+        <li><a href="publikasjoner.html">Publikasjoner</a></li>
+        <li><a href="https://mariletn.substack.com" target="_blank" rel="noopener" class="sub">Abonner</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<section class="hero">
-  <div class="hero-inner">
-    <div class="hero-copy">
-      <span class="hero-tag">Velkommen</span>
-      <h1>Om hjemmesiden</h1>
-      <p>Velkommen til denne hjemmesiden. Her deler jeg forskning, faglige innlegg og ressurser om digital kompetanse, profesjonsutvikling og pedagogisk praksis.</p>
+  <section class="hero">
+    <div>
+      <p class="role">Førsteamanuensis ved NTNU</p>
+      <h1>Om meg</h1>
+      <p class="lede">Jeg arbeider med digital kompetanse, pedagogisk praksis og profesjonsutvikling i barnehage, skole og lærerutdanning.</p>
     </div>
-    <img src="Bilder/Ikon_mariann.png" alt="Portrett av Mari-Ann Letnes" class="hero-avatar">
+    <a href="https://www.ntnu.no/ansatte/mari.ann.letnes" target="_blank" rel="noopener" class="portrait">
+      <span class="shots">
+        <img src="portrett-mork.jpg" alt="Portrett av Mari-Ann Letnes" width="900" height="1124" loading="eager">
+        <img src="portrett-lys.jpg" alt="" aria-hidden="true" class="lys" width="900" height="1124" loading="eager">
+      </span>
+      <span class="portrait-label">Se profilen min hos NTNU</span>
+    </a>
+  </section>
   </div>
-</section>
+</div>
 
-<main class="content">
-  <h2>Faglig retning</h2>
-  <p>Jeg heter <a href="https://www.ntnu.no/ansatte/mari.ann.letnes" target="_blank" rel="noopener">Mari-Ann Letnes og er førsteamanuensis ved NTNU</a>. Jeg arbeider med digital kompetanse, pedagogisk praksis og profesjonsutvikling i barnehage, skole og lærerutdanning.</p>
-  <p>Denne hjemmesiden samler forskning, faglige refleksjoner og ressurser fra dette arbeidet. Et gjennomgående tema er hvordan digital teknologi kan inngå i meningsfulle læringsprosesser, og hvordan utviklingsarbeid kan forankres i profesjonsfellesskapet over tid.</p>
-  <p>Jeg publiserer både aktuelle refleksjoner, prosjektarbeid og praktiske ressurser som kan brukes i undervisning og kompetanseutvikling.</p>
+<div class="wrap">
+  <div class="prose">
+    <h2>Faglig retning</h2>
+    <p>Et gjennomgående tema i arbeidet mitt er hvordan digital teknologi kan inngå i meningsfulle læringsprosesser — ikke som et tillegg til det pedagogiske, men som en del av det.</p>
+    <p>Et annet er hvordan utviklingsarbeid kan forankres i profesjonsfellesskapet over tid. Digital kompetanse utvikles sjelden av enkeltpersoner på kurs. Den utvikles kollektivt, i en organisasjon som har bestemt seg for noe og holder fast ved det over flere år.</p>
 
-  <div class="highlight">
-    <p>Målet med siden er å gjøre forskning og praksiserfaringer mer tilgjengelige, og samtidig bidra med konkrete innganger til videre arbeid i feltet.</p>
+    <h2 class="spacer">Hva du finner her</h2>
+    <p>De siste innleggene ligger på <a href="index.html">forsiden</a>. Prosjektene jeg arbeider i, både pågående og avsluttede, ligger under <a href="forskning.html">forskning</a>. Artikler og bøker finner du under <a href="publikasjoner.html">publikasjoner</a>.</p>
+    <p>Noen av innleggene er praktiske ressurser du kan bruke direkte i undervisning eller kompetanseutvikling — veiledninger, maler og verktøyoversikter. De er skrevet for å kunne deles videre.</p>
   </div>
+</div>
 
-  <p>Du finner siste innlegg på forsiden, meritter og artikler under publikasjoner, og utvalgte verktøy og eksempler i ressursinnleggene.</p>
-  <p>Ta gjerne kontakt med meg på <a href="mailto:mari.ann.letnes@ntnu.no">mari.ann.letnes@ntnu.no</a> eller 41419295.</p>
-</main>
+<div class="plane-stone">
+  <div class="wrap">
+    <section class="statement">
+      <p>Målet er å gjøre forskning og praksiserfaringer tilgjengelige, og samtidig gi konkrete innganger til videre arbeid i feltet.</p>
+    </section>
+  </div>
+</div>
 
-<footer>
-  <span>© Mari-Ann Letnes · Førsteamanuensis, NTNU</span>
-  <span>mariannletnes.com</span>
-</footer>
-<script data-goatcounter="https://mariannletnes.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
+<div class="plane-dark">
+  <div class="wrap">
+    <section class="contact">
+      <div>
+        <h2>Ta gjerne kontakt</h2>
+        <p>Jeg svarer på <a href="mailto:mari.ann.letnes@ntnu.no">mari.ann.letnes@ntnu.no</a> eller på telefon <a href="tel:+4741419295">414 19 295</a>.</p>
+      </div>
+      <a href="mailto:mari.ann.letnes@ntnu.no" class="button">Send e-post</a>
+    </section>
+  </div>
+</div>
+
+<div class="wrap">
+  <footer>
+    <span>© Mari-Ann Letnes, førsteamanuensis ved NTNU</span>
+    <a href="index.html">Til forsiden</a>
+  </footer>
+</div>
+
 </body>
 </html>

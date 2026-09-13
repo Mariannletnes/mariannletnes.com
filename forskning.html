@@ -1,242 +1,294 @@
 <!DOCTYPE html>
-<html lang="no">
+<html lang="nb">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Forskning — Mari-Ann Letnes</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<meta name="description" content="Pågående og ferdigstilte forskningsprosjekter fra Mari-Ann Letnes, førsteamanuensis ved NTNU — kunstig intelligens, profesjonsfaglig digital kompetanse og digital danning.">
+<meta property="og:title" content="Forskning — Mari-Ann Letnes">
+<meta property="og:description" content="Pågående og ferdigstilte forskningsprosjekter.">
+<meta property="og:image" content="https://mariannletnes.com/portrett-mork.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mariannletnes.com/forskning.html">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%23332830'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='15' fill='%23F8F4F1' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #f8f6f2;
-    --text: #111110;
-    --muted: #78736c;
-    --border: rgba(0,0,0,0.08);
-    --ink: #1c1a17;
-    --pop: #b84a2e;
-    --surface: #fff;
+  /* Palett: to nøytrale trinn, én mørk forankring, én aksent.
+     papir F8F4F1 · stein EDE7E2 · mørk 332830 · plomme 6E4B57 */
+  :root{
+    --paper:#F8F4F1;
+    --stone:#EDE7E2;
+    --dark:#332830;
+    --plum:#6E4B57;
+    --plum-soft:#B79BA4;
+    --ink:#4A3C43;
+    --body:#5E4F55;
+    --quiet:#7E6F74;
+    --hair:#E1D8D1;
+    --hair-stone:#DBD1C9;
   }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: var(--bg); font-family: 'Inter', sans-serif; color: var(--text); }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    background:var(--paper);color:var(--body);
+    font-family:'Jost',system-ui,sans-serif;
+    font-size:1.15rem;font-weight:400;line-height:1.72;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  :focus-visible{outline:2px solid var(--plum);outline-offset:4px}
 
-  nav { background: var(--ink); padding: 0 48px; display: flex; align-items: center; justify-content: space-between; height: 56px; }
-  .nav-brand { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: #fff; text-decoration: none; }
-  .nav-brand span { color: var(--pop); font-style: italic; }
-  .nav-links { display: flex; gap: 28px; list-style: none; }
-  .nav-links a { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.5); text-decoration: none; }
-  .nav-links a:hover, .nav-links a.active { color: #fff; }
+  .plane-stone{background:var(--stone)}
+  .plane-dark{background:var(--dark)}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 48px}
 
-  .hero { background: var(--ink); padding: 56px 48px; }
-  .top-stripe { height: 18px; background: var(--pop); }
-  .hero-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 360px;
-    gap: 28px;
-    align-items: center;
+  /* ---------- topp ---------- */
+  .top{
+    display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
+    gap:16px 28px;padding:34px 0 28px;
   }
-  .hero-copy { min-width: 0; }
-  .hero-img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 4px;
+  .signature{
+    font-family:'Cormorant Garamond',Georgia,serif;font-size:2rem;font-weight:400;
+    color:#F7F1F2;text-decoration:none;line-height:1.1;letter-spacing:.01em;
   }
-  .label { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--pop); font-weight: 500; margin-bottom: 14px; }
-  h1 { font-family: 'Playfair Display', serif; font-size: 3rem; line-height: 1.1; color: #fff; margin-bottom: 14px; }
-  .hero p { max-width: 720px; color: rgba(255,255,255,0.58); line-height: 1.8; font-size: 0.92rem; }
+  .menu{display:flex;flex-wrap:wrap;gap:32px;list-style:none;align-items:center}
+  .menu a{
+    font-size:1.04rem;color:#DCCDD3;text-decoration:none;padding-bottom:4px;
+    box-shadow:inset 0 -1px 0 transparent;
+    transition:color .22s ease,box-shadow .22s ease;
+  }
+  .menu a:hover{color:#F7F1F2;box-shadow:inset 0 -1px 0 #F7F1F2}
+  .menu a.active{color:#F7F1F2;box-shadow:inset 0 -1px 0 var(--plum-soft)}
+  .menu .sub{color:var(--plum-soft);box-shadow:inset 0 -1px 0 #6B545E}
+  .menu .sub:hover{color:#F7F1F2;box-shadow:inset 0 -2px 0 #F7F1F2}
 
-  .content { max-width: 1100px; margin: 0 auto; padding: 56px 48px 90px; }
-  .project-columns {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 18px;
-    align-items: start;
+  /* ---------- hero ---------- */
+  .hero{
+    display:grid;grid-template-columns:1fr 400px;gap:64px;align-items:center;
+    padding:40px 0 86px;
   }
-  .project-section {
-    background: transparent;
+  .role{font-size:1.04rem;color:var(--plum-soft);margin-bottom:26px}
+  .hero h1{
+    font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;
+    font-size:clamp(3rem,7vw,5.2rem);line-height:1.04;color:#F7F1F2;
+    margin-bottom:30px;
   }
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.35rem;
-    line-height: 1.2;
-    margin-bottom: 12px;
-  }
-  .project-list {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 14px;
-    align-items: stretch;
-  }
-  .project-link {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    text-decoration: none;
-    color: var(--text);
-    padding: 18px 20px;
-    display: flex;
-    flex-direction: column;
-    min-height: 136px;
-  }
-  .project-link.has-icon { flex-direction: row; gap: 12px; align-items: flex-start; }
-  .project-link.has-icon.icon-right { flex-direction: row-reverse; }
-  .project-icon {
-    width: 78px;
-    height: 78px;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 10px;
-    border: 1px solid var(--border);
-    background: #f2efea;
-    flex: 0 0 78px;
-  }
-  .project-copy { min-width: 0; }
-  .project-link:hover { background: #fdf1ec; border-color: #efcfbf; }
-  .project-link h3 { font-family: 'Playfair Display', serif; font-size: 1.05rem; margin-bottom: 6px; }
-  .project-link p { color: var(--muted); font-size: 0.88rem; line-height: 1.65; }
-  .project-link.is-draft { border-style: dashed; }
+  .hero .lede{font-size:1.3rem;line-height:1.7;color:#D6C5CB;max-width:44ch}
+  .hero figure img{width:100%;height:auto}
 
-  footer { background: var(--ink); padding: 24px 48px; display: flex; justify-content: space-between; font-size: 0.72rem; color: rgba(255,255,255,0.35); }
-  @media (max-width: 900px) {
-    .hero-inner { grid-template-columns: 1fr; }
-    .hero-img { max-width: 520px; }
+  /* ---------- seksjoner ---------- */
+  .section-head{
+    font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;
+    font-size:2.2rem;color:var(--ink);margin-bottom:8px;
   }
-  @media (max-width: 640px) {
-    nav, .hero, .content, footer { padding-left: 20px; padding-right: 20px; }
-    .nav-links { display: none; }
-    h1 { font-size: 2.2rem; }
-    .project-columns { grid-template-columns: 1fr; }
+  .section-note{font-size:1.1rem;color:var(--quiet);margin-bottom:34px;max-width:58ch}
+
+  .current{padding:92px 0 98px}
+  .done{padding:92px 0 98px}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:0 80px}
+
+  .project{
+    display:block;text-decoration:none;padding:38px 26px;margin:0 -26px;
+    border-top:1px solid var(--hair);transition:background .28s ease;
+  }
+  .project:hover{background:var(--stone)}
+  .plane-stone .project:hover{background:var(--paper)}
+  .plane-stone .project{border-top-color:var(--hair-stone)}
+  .project .status{font-size:1.06rem;color:var(--plum);margin-bottom:12px}
+  .project h3{
+    font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:2.15rem;
+    line-height:1.14;color:var(--ink);margin-bottom:12px;transition:color .22s ease;
+  }
+  .project:hover h3{color:var(--plum)}
+  .project p{font-size:1.16rem;line-height:1.7;color:var(--body);max-width:44ch}
+
+  .project.small{padding:30px 26px}
+  .project.small h3{font-size:1.72rem;margin-bottom:10px}
+  .project.small p{font-size:1.1rem;max-width:42ch}
+
+  /* ---------- avslutning ---------- */
+  .closing{
+    display:grid;grid-template-columns:1fr auto;gap:56px;align-items:center;
+    padding:92px 0 96px;
+  }
+  .closing h2{
+    font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-size:2.8rem;
+    line-height:1.1;color:#F7F1F2;margin-bottom:14px;max-width:17ch;
+  }
+  .closing p{color:var(--plum-soft);font-size:1.16rem;max-width:46ch}
+  .button{
+    display:inline-block;background:var(--paper);color:var(--dark);
+    text-decoration:none;font-size:1.06rem;padding:18px 42px;white-space:nowrap;
+    transition:background .2s;
+  }
+  .button:hover{background:#fff}
+
+  footer{
+    display:flex;flex-wrap:wrap;gap:12px 36px;justify-content:space-between;
+    padding:36px 0 64px;font-size:1rem;color:var(--quiet);
+  }
+  footer a{color:var(--quiet)}
+
+  @media (max-width:940px){
+    .wrap{padding:0 32px}
+    .hero{grid-template-columns:1fr;gap:44px}
+    .hero figure{max-width:420px;order:-1}
+    .grid-2{grid-template-columns:1fr;gap:0}
+    .closing{grid-template-columns:1fr;gap:32px}
+  }
+  @media (max-width:620px){
+    .wrap{padding:0 22px}
+    .current,.done,.closing{padding:60px 0 66px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none!important;animation:none!important}
   }
 </style>
 </head>
 <body>
-<nav>
-  <a href="index.html" class="nav-brand">Mari-Ann <span>Letnes</span></a>
-  <ul class="nav-links">
-    <li><a href="omside.html">Om hjemmesiden</a></li>
-    <li><a href="forskning.html" class="active">Forskning</a></li>
-    <li><a href="publikasjoner.html">Publikasjoner</a></li>
-  </ul>
-</nav>
 
-<section class="hero">
-  <div class="hero-inner">
-    <div class="hero-copy">
-      <div class="label">FoU og Prosjekter</div>
-      <h1>Forskning</h1>
-      <p>Her finner du sentrale forskningsprosjekter og prosjektspor fra bloggen. Klikk deg videre til de enkelte prosjektomtalene.</p>
+<div class="plane-dark">
+  <div class="wrap">
+    <header class="top">
+      <a href="index.html" class="signature">Mari-Ann Letnes</a>
+      <nav aria-label="Hovedmeny">
+        <ul class="menu">
+          <li><a href="omside.html">Om meg</a></li>
+          <li><a href="forskning.html" class="active" aria-current="page">Forskning</a></li>
+          <li><a href="publikasjoner.html">Publikasjoner</a></li>
+          <li><a href="https://mariletn.substack.com" target="_blank" rel="noopener" class="sub">Abonner</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div>
+        <p class="role">Forskning og utvikling</p>
+        <h1>Prosjektene</h1>
+        <p class="lede">Fra doktorgradsarbeidet om digital danning i barnehagen til pågående arbeid med kunstig intelligens i elevenes læringsprosesser.</p>
+      </div>
+      <figure>
+        <img src="Bilder/forskning-duo-mork.jpg" alt="" aria-hidden="true" loading="eager">
+      </figure>
+    </section>
+  </div>
+</div>
+
+<div class="wrap current">
+  <h2 class="section-head">Pågående</h2>
+  <p class="section-note">Fire prosjektspor jeg arbeider i nå.</p>
+
+  <div class="grid-2">
+    <a href="post-forskning-a-lare-med-maskiner.html" class="project">
+      <p class="status">Forskningslinje, tilknyttet AI-Learn</p>
+      <h3>Å lære med maskiner</h3>
+      <p>Kunstig intelligens i elevenes læringsprosesser, i undervisningsdesign og i vurderingspraksiser.</p>
+    </a>
+
+    <a href="post-forskning-leaddig.html" class="project">
+      <p class="status">Pågående, jeg deltar</p>
+      <h3>LeadDig</h3>
+      <p>Ledelse og læring for utvikling av lærernes profesjonsfaglige digitale kompetanse.</p>
+    </a>
+
+    <a href="post-forskning-digskoleforsk.html" class="project">
+      <p class="status">Følgeforskning på DigSkole</p>
+      <h3>DigSkoleForsk</h3>
+      <p>PfDK, elevenes læringsstrategier og sammenhengen mellom formelle og uformelle læringssituasjoner.</p>
+    </a>
+
+    <a href="post-prodicate-forskningssamarbeid.html" class="project">
+      <p class="status">Konsortium</p>
+      <h3>Prodicate</h3>
+      <p>Samarbeid om forskningsnære utviklingsprosesser og kunnskapsbasert innovasjon.</p>
+    </a>
+  </div>
+</div>
+
+<div class="plane-stone">
+  <div class="wrap done">
+    <h2 class="section-head">Ferdigstilte</h2>
+    <p class="section-note">Avsluttede prosjekter, nyeste først.</p>
+
+    <div class="grid-2">
+      <a href="post-forskning-kulturskolen-diskursanalyse.html" class="project small">
+        <p class="status">2020, kvalitetssikret</p>
+        <h3>Diskursanalyse av kulturskolens rammeplan</h3>
+        <p>Analyser av styringsdokumenter og faglige diskurser.</p>
+      </a>
+
+      <a href="post-forskning-fortell-det-med-farger.html" class="project small">
+        <p class="status">2017, kvalitetssikret</p>
+        <h3>Fortell det med farger</h3>
+        <p>Multidisiplinært arbeid med visuelle uttrykk og læringsprosesser.</p>
+      </a>
+
+      <a href="post-forskning-visualisering-som-drivkraft.html" class="project small">
+        <p class="status">2017</p>
+        <h3>Visualisering som drivkraft i forskning</h3>
+        <p>Om visualisering, meningsskaping og forskningsarbeid.</p>
+      </a>
+
+      <a href="post-forskning-phd-digital-danning.html" class="project small">
+        <p class="status">2014, doktorgradsarbeid</p>
+        <h3>Digital danning i barnehagen</h3>
+        <p>Prosjektstruktur, delstudier og dokumentasjon fra avhandlingen.</p>
+      </a>
+
+      <a href="post-forskning-mellom-virtualitet-og-virkelighet.html" class="project small">
+        <p class="status">2014</p>
+        <h3>Mellom virtualitet og virkelighet</h3>
+        <p>Digital fortelling i førskolelærerutdanningen.</p>
+      </a>
+
+      <a href="post-forskning-bilde-skaper-tekst.html" class="project small">
+        <p class="status">2009, kvalitetssikret</p>
+        <h3>Bilde skaper tekst, tekst skaper bilde</h3>
+        <p>Samspill mellom visuelle og verbale uttrykksformer i læringsarbeid.</p>
+      </a>
+
+      <a href="post-forskning-mellom-frihet-og-styring.html" class="project small">
+        <p class="status">2001</p>
+        <h3>Mellom frihet og styring</h3>
+        <p>Studie av kreativ problemløsning i pedagogisk kontekst.</p>
+      </a>
+
+      <a href="post-forskning-kidicoti.html" class="project small">
+        <p class="status">Internasjonalt, jeg ledet den norske delen</p>
+        <h3>KIDICOTI</h3>
+        <p>Barns digitale hverdagsliv, undersøkt på tvers av land.</p>
+      </a>
+
+      <a href="post-forskning-noteleb.html" class="project small">
+        <p class="status">Internasjonalt, jeg ledet NTNU-delen</p>
+        <h3>NOTELEB</h3>
+        <p>Lek, teknologi og danning i et internasjonalt samarbeid.</p>
+      </a>
     </div>
-    <img src="Bilder/Bilde-forskning.png" alt="Forskning" class="hero-img">
   </div>
-</section>
-<div class="top-stripe"></div>
+</div>
 
-<main class="content">
-  <div class="project-columns">
-    <section class="project-section">
-      <h2 class="section-title">Pågående prosjekter</h2>
-      <div class="project-list">
-        <a class="project-link has-icon" href="post-forskning-a-lare-med-maskiner.html">
-          <img src="Bilder/ÅLÆREMEDMASKINER.png" alt="Å lære med maskiner" class="project-icon">
-          <div class="project-copy">
-            <h3>Å lære med maskiner</h3>
-            <p>Forskningslinje om kunstig intelligens i elevers læringsprosesser, undervisningsdesign og vurderingspraksiser. Tilknyttet AI-Learn.</p>
-          </div>
-        </a>
-        <a class="project-link has-icon" href="post-forskning-leaddig.html">
-          <img src="Bilder/LeadDigLOGO-kopi.jpg" alt="LeadDig" class="project-icon">
-          <div class="project-copy">
-            <h3>LeadDig</h3>
-            <p>Leadership and learning for the development of teachers' professional digital competence. Pågående prosjekt der jeg deltar.</p>
-          </div>
-        </a>
-        <a class="project-link has-icon" href="post-forskning-digskoleforsk.html">
-          <img src="Bilder/DigSkole-forsk.png" alt="DigSkoleForsk" class="project-icon">
-          <div class="project-copy">
-            <h3>DigSkoleForsk</h3>
-            <p>Følgeforskningsprosjekt på DigSkole med fokus på PfDK, elevers læringsstrategier og sammenheng mellom formelle og uformelle læringssituasjoner.</p>
-          </div>
-        </a>
-        <a class="project-link has-icon" href="post-prodicate-forskningssamarbeid.html">
-          <img src="Bilder/prodicate.png" alt="Prodicate" class="project-icon">
-          <div class="project-copy">
-            <h3>Prodicate, et konsortium!</h3>
-            <p>Samarbeid om forskningsnære utviklingsprosesser og kunnskapsbasert innovasjon.</p>
-          </div>
-        </a>
+<div class="plane-dark">
+  <div class="wrap">
+    <section class="closing">
+      <div>
+        <h2>Nye innlegg rett i innboksen</h2>
+        <p>Jeg skriver om forskning, undervisning og digital teknologi i pedagogisk praksis.</p>
       </div>
-    </section>
-    <section class="project-section">
-      <h2 class="section-title">Ferdigstilte prosjekter</h2>
-      <div class="project-list">
-        <a class="project-link has-icon icon-right" href="post-forskning-mellom-frihet-og-styring.html">
-          <img src="Bilder/Mellom frihet og styring.png" alt="Mellom frihet og styring" class="project-icon">
-          <div class="project-copy">
-            <h3>Mellom frihet og styring</h3>
-            <p>Studie av kreativ problemløsning i pedagogisk kontekst. Ferdigstilt i 2001.</p>
-          </div>
-        </a>
-        <a class="project-link has-icon icon-right" href="post-forskning-mellom-virtualitet-og-virkelighet.html">
-          <img src="Bilder/mellomvirtualitet-og-virkelighet.png" alt="Mellom virtualitet og virkelighet" class="project-icon">
-          <div class="project-copy">
-            <h3>Mellom virtualitet og virkelighet</h3>
-            <p>Digital fortelling i førskolelærerutdanningen. Ferdigstilt i 2014.</p>
-          </div>
-        </a>
-        <a class="project-link has-icon icon-right" href="post-forskning-fortell-det-med-farger.html">
-          <img src="Bilder/Fortell det med farger.png" alt="Fortell det med farger" class="project-icon">
-          <div class="project-copy">
-            <h3>Fortell det med farger</h3>
-            <p>Multidisiplinært arbeid med visuelle uttrykk og læringsprosesser. Ferdigstilt i 2017. Kvalitetssikret.</p>
-          </div>
-        </a>
-        <a class="project-link has-icon icon-right" href="post-forskning-visualisering-som-drivkraft.html">
-          <img src="Bilder/Visualisering_som_drivkraft.png" alt="Visualisering som drivkraft i forskning" class="project-icon">
-          <div class="project-copy">
-            <h3>Visualisering som drivkraft i forskning</h3>
-            <p>Om visualisering, meningsskaping og forskningsarbeid. Ferdigstilt i 2017.</p>
-          </div>
-        </a>
-        <a class="project-link has-icon icon-right" href="post-forskning-kulturskolen-diskursanalyse.html">
-          <img src="Bilder/Kvalitet og kunstnerisk kvalitet.png" alt="Kvalitet og kunstnerisk kvalitet" class="project-icon">
-          <div class="project-copy">
-            <h3>Diskursanalyse av kulturskolens rammeplan</h3>
-            <p>Analyser av styringsdokumenter og faglige diskurser. Ferdigstilt i 2020. Kvalitetssikret.</p>
-          </div>
-        </a>
-        <a class="project-link has-icon icon-right" href="post-forskning-phd-digital-danning.html">
-          <img src="Bilder/Digital dannelse i barnehagen.png" alt="Digital dannelse i barnehagen" class="project-icon">
-          <div class="project-copy">
-            <h3>PhD-prosjekt: Digital danning i barnehagen</h3>
-            <p>Prosjektstruktur, delstudier og dokumentasjon fra doktorgradsarbeidet. Ferdigstilt i 2014.</p>
-          </div>
-        </a>
-        <a class="project-link" href="post-forskning-bilde-skaper-tekst.html">
-          <h3>Bilde skaper tekst, tekst skaper bilde</h3>
-          <p>Samspill mellom visuelle og verbale uttrykksformer i læringsarbeid. Ferdigstilt i 2009. Kvalitetssikret.</p>
-        </a>
-        <a class="project-link has-icon icon-right" href="post-forskning-kidicoti.html">
-          <img src="Bilder/KIDICOTI-bilde.png" alt="KIDICOTI" class="project-icon">
-          <div class="project-copy">
-            <h3>KIDICOTI</h3>
-            <p>Internasjonalt forskningsprosjekt om barns digitale hverdagsliv. Ferdigstilt. Jeg var leder for den norske delen.</p>
-          </div>
-        </a>
-        <a class="project-link" href="post-forskning-noteleb.html">
-          <h3>NOTELEB</h3>
-          <p>Internasjonalt prosjekt om lek, teknologi og danning. Ferdigstilt. Jeg var leder for NTNU sin del av prosjektet.</p>
-        </a>
-      </div>
+      <a href="https://mariletn.substack.com" target="_blank" rel="noopener" class="button">Abonner</a>
     </section>
   </div>
-</main>
+</div>
 
-<footer>
-  <span>© Mari-Ann Letnes · Førsteamanuensis, NTNU</span>
-  <span>mariannletnes.com</span>
-</footer>
+<div class="wrap">
+  <footer>
+    <span>© Mari-Ann Letnes, førsteamanuensis ved NTNU</span>
+    <a href="index.html">Til forsiden</a>
+  </footer>
+</div>
+
 </body>
 </html>
-
-<script data-goatcounter="https://mariannletnes.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>

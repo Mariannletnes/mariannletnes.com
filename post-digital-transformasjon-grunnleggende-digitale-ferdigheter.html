@@ -1,305 +1,261 @@
 <!DOCTYPE html>
-<html lang="no">
+<html lang="nb">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Digital transformasjon i skolen — Mari-Ann Letnes</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<meta name="description" content="Om ICILS 2023, varig utviklingsarbeid og hva som skal til for at digital transformasjon styrker elevenes grunnleggende digitale ferdigheter.">
+<meta property="og:title" content="Digital transformasjon i skolen">
+<meta property="og:description" content="Om ICILS 2023, varig utviklingsarbeid og hva som skal til for at digital transformasjon styrker elevenes grunnleggende digitale ferdigheter.">
+<meta property="og:image" content="https://mariannletnes.com/portrett-mork.jpg">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mariannletnes.com/post-digital-transformasjon-grunnleggende-digitale-ferdigheter.html">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%23332830'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='15' fill='%23F8F4F1' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #f8f6f2;
-    --text: #111110;
-    --muted: #78736c;
-    --border: rgba(0,0,0,0.08);
-    --ink: #1c1a17;
-    --pop: #b84a2e;
-    --surface: #fff;
+  /* Palett: to nøytrale trinn, én mørk forankring, én aksent.
+     papir F8F4F1 · stein EDE7E2 · mørk 332830 · plomme 6E4B57 */
+  :root{
+    --paper:#F8F4F1; --stone:#EDE7E2; --dark:#332830;
+    --plum:#6E4B57; --plum-soft:#B79BA4;
+    --ink:#4A3C43; --body:#5E4F55; --quiet:#7E6F74;
+    --hair:#E1D8D1; --hair-stone:#DBD1C9;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    background:var(--paper);color:var(--body);
+    font-family:'Jost',system-ui,sans-serif;
+    font-size:1.15rem;font-weight:400;line-height:1.72;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  :focus-visible{outline:2px solid var(--plum);outline-offset:4px}
+
+  .plane-stone{background:var(--stone)}
+  .plane-dark{background:var(--dark)}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 48px}
+  .col{max-width:760px}
+
+  .top{
+    display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
+    gap:16px 28px;padding:34px 0 28px;
+  }
+  .signature{
+    font-family:'Cormorant Garamond',Georgia,serif;font-size:2rem;font-weight:400;
+    color:#F7F1F2;text-decoration:none;line-height:1.1;letter-spacing:.01em;
+  }
+  .menu{display:flex;flex-wrap:wrap;gap:32px;list-style:none;align-items:center}
+  .menu a{
+    font-size:1.04rem;color:#DCCDD3;text-decoration:none;padding-bottom:4px;
+    box-shadow:inset 0 -1px 0 transparent;
+    transition:color .22s ease,box-shadow .22s ease;
+  }
+  .menu a:hover{color:#F7F1F2;box-shadow:inset 0 -1px 0 #F7F1F2}
+  .menu .sub{color:var(--plum-soft);box-shadow:inset 0 -1px 0 #6B545E}
+  .menu .sub:hover{color:#F7F1F2;box-shadow:inset 0 -2px 0 #F7F1F2}
+
+  .head{padding:40px 0 92px}
+  .head .meta{font-size:1.04rem;color:var(--plum-soft);margin-bottom:26px}
+  .head h1{
+    font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;
+    font-size:clamp(2.6rem,5.8vw,4.4rem);line-height:1.06;color:#F7F1F2;
+    max-width:18ch;margin-bottom:30px;
+  }
+  .head .lead{font-size:1.3rem;line-height:1.7;color:#D6C5CB;max-width:54ch}
+  .head .action{
+    display:inline-block;margin-top:38px;background:var(--paper);color:var(--dark);
+    text-decoration:none;font-size:1.06rem;padding:17px 38px;transition:background .2s;
+  }
+  .head .action:hover{background:#fff}
+  .head .action-note{font-size:1.02rem;color:var(--plum-soft);margin-top:14px;max-width:46ch}
+
+  .prose{padding:84px 0 88px}
+  .prose h2{
+    font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:2.2rem;
+    line-height:1.16;color:var(--ink);margin:0 0 20px;
+  }
+  .prose h2.spacer{margin-top:64px}
+  .prose p{font-size:1.2rem;line-height:1.84;margin-bottom:22px}
+  .prose p:last-child{margin-bottom:0}
+  .prose strong{color:var(--ink);font-weight:500}
+  .prose em{font-style:italic}
+  .prose ul,.prose ol{padding-left:1.3em;font-size:1.18rem;line-height:1.8;margin-bottom:24px}
+  .prose li{margin-bottom:12px}
+  .prose a{color:var(--plum);text-decoration:none;box-shadow:inset 0 -1px 0 #CBB4BC}
+  .prose a:hover{box-shadow:inset 0 -2px 0 var(--plum)}
+
+  .callout{border-left:2px solid var(--plum);padding:4px 0 4px 30px;margin:36px 0}
+  .callout .label{font-size:1.04rem;color:var(--plum);margin-bottom:14px}
+  .callout p{font-size:1.18rem;margin-bottom:0}
+  .callout ul,.callout ol{padding-left:1.3em;font-size:1.14rem;line-height:1.78;margin:0}
+  .callout li{margin-bottom:12px}
+  .callout li:last-child{margin-bottom:0}
+
+  .pull{
+    font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;font-style:italic;
+    font-size:clamp(1.6rem,3.2vw,2.2rem);line-height:1.32;color:var(--ink);
+    max-width:26ch;margin:48px 0;
   }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: var(--bg); font-family: 'Inter', sans-serif; color: var(--text); }
+  .note{font-size:1.04rem;color:var(--quiet);line-height:1.7;margin-bottom:22px}
+  .note a{color:var(--plum);text-decoration:none;box-shadow:inset 0 -1px 0 #CBB4BC}
 
-  nav { background: var(--ink); padding: 0 48px; display: flex; align-items: center; justify-content: space-between; height: 56px; }
-  .nav-brand { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: #fff; text-decoration: none; }
-  .nav-brand span { color: var(--pop); font-style: italic; }
-  .nav-links { display: flex; gap: 28px; list-style: none; }
-  .nav-links a { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.5); text-decoration: none; }
-  .nav-links a:hover { color: #fff; }
-
-  .post-header { background: var(--ink); padding: 0 48px; }
-  .post-header-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 500px;
-    min-height: 360px;
+  .source{
+    font-size:1.04rem;color:var(--quiet);line-height:1.72;
+    border-top:1px solid var(--hair);padding-top:26px;margin-top:64px;
   }
-  .post-header-text {
-    padding: 56px 56px 56px 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  .back-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: rgba(255,255,255,0.45);
-    text-decoration: none;
-    margin-bottom: 24px;
-  }
-  .back-link::before { content: '←'; }
-  .back-link:hover { color: #fff; }
+  .source a{color:var(--plum);text-decoration:none;box-shadow:inset 0 -1px 0 #CBB4BC}
 
-  .post-category {
-    display: inline-block;
-    font-size: 0.62rem;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    padding: 4px 10px;
-    background: var(--pop);
-    color: #fff;
-    border-radius: 2px;
-    margin-bottom: 20px;
-    font-weight: 500;
-    align-self: flex-start;
+  .steps{padding:88px 0 94px}
+  .steps h2{
+    font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:2.25rem;
+    color:var(--ink);margin-bottom:8px;
   }
-
-  .post-header h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.45rem;
-    font-weight: 900;
-    line-height: 1.14;
-    color: #fff;
-    margin-bottom: 14px;
+  .steps .intro{font-size:1.1rem;color:var(--quiet);margin-bottom:40px;max-width:58ch}
+  .step{
+    display:grid;grid-template-columns:64px 1fr;gap:28px;align-items:start;
+    padding:28px 0;border-top:1px solid var(--hair-stone);max-width:900px;
   }
-  .post-header h1 em { font-style: italic; color: var(--pop); font-weight: 400; }
-
-  .post-ingress {
-    font-size: 0.9rem;
-    color: rgba(255,255,255,0.56);
-    line-height: 1.7;
-    max-width: 520px;
-    margin-bottom: 18px;
+  .step .n{
+    font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;font-size:2.3rem;
+    color:var(--plum);line-height:1;
   }
-
-  .post-meta { font-size: 0.72rem; color: rgba(255,255,255,0.4); letter-spacing: 0.04em; }
-  .post-meta span { color: rgba(255,255,255,0.64); }
-
-  .post-header-img {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(145deg, #1f1b18, #2a1f1a);
-    overflow: hidden;
+  .step h3{
+    font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:1.55rem;
+    line-height:1.2;color:var(--ink);margin-bottom:10px;
   }
+  .step p{font-size:1.12rem;line-height:1.7;margin:0}
+  .step p a{color:var(--plum);text-decoration:none;box-shadow:inset 0 -1px 0 #CBB4BC}
 
-  .post-header-img::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse at center, rgba(184,74,46,0.18) 0%, rgba(184,74,46,0.05) 46%, rgba(0,0,0,0) 72%),
-      linear-gradient(90deg, rgba(26,22,19,0.84) 0%, rgba(43,30,24,0.82) 52%, rgba(22,19,18,0.88) 100%);
-    z-index: 0;
+  .video{margin:36px 0 14px;aspect-ratio:16/9;background:var(--stone)}
+  .video iframe{width:100%;height:100%;border:0;display:block}
+  .video-caption{font-size:1.04rem;color:var(--quiet);margin-bottom:44px}
+
+  .related{border-top:1px solid var(--hair);margin-top:72px;padding-top:14px}
+  .related .label{font-size:1.06rem;color:var(--plum);padding:16px 0 6px}
+  .related a{
+    display:block;text-decoration:none;padding:24px 26px;margin:0 -26px;
+    border-top:1px solid var(--hair);transition:background .26s ease;
   }
-
-  .post-header-img svg {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    display: block;
+  .related a:hover{background:var(--stone)}
+  .related .when{display:block;font-size:1rem;color:var(--quiet);margin-bottom:8px}
+  .related h3{
+    font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:1.55rem;
+    line-height:1.24;color:var(--ink);transition:color .22s ease;
   }
+  .related a:hover h3{color:var(--plum)}
 
-  .breadcrumb-strip {
-    background: var(--pop);
-    padding: 12px 48px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.68rem;
-    color: rgba(255,255,255,0.7);
+  .closing{
+    display:grid;grid-template-columns:1fr auto;gap:56px;align-items:center;
+    padding:92px 0 96px;
   }
-  .breadcrumb-strip a { color: rgba(255,255,255,0.78); text-decoration: none; }
-  .breadcrumb-strip .sep { opacity: 0.5; }
-
-  .article-wrap { max-width: 760px; margin: 0 auto; padding: 56px 48px 96px; }
-
-  .ingress {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.22rem;
-    line-height: 1.62;
-    margin-bottom: 42px;
-    padding-bottom: 38px;
-    border-bottom: 1px solid var(--border);
+  .closing h2{
+    font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-size:2.8rem;
+    line-height:1.1;color:#F7F1F2;margin-bottom:14px;max-width:17ch;
   }
-
-  .article-body p {
-    font-size: 1rem;
-    line-height: 1.82;
-    margin-bottom: 18px;
+  .closing p{color:var(--plum-soft);font-size:1.16rem;max-width:46ch}
+  .button{
+    display:inline-block;background:var(--paper);color:var(--dark);
+    text-decoration:none;font-size:1.06rem;padding:18px 42px;white-space:nowrap;
+    transition:background .2s;
   }
+  .button:hover{background:#fff}
 
-  .article-body ul {
-    margin: 10px 0 22px 18px;
+  footer{
+    display:flex;flex-wrap:wrap;gap:12px 36px;justify-content:space-between;
+    padding:36px 0 64px;font-size:1rem;color:var(--quiet);
   }
+  footer a{color:var(--quiet)}
 
-  .article-body li {
-    margin-bottom: 8px;
-    line-height: 1.72;
+  @media (max-width:940px){
+    .wrap{padding:0 32px}
+    .closing{grid-template-columns:1fr;gap:32px}
   }
-
-  .article-body h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.42rem;
-    margin: 40px 0 14px;
-    line-height: 1.25;
+  @media (max-width:620px){
+    .wrap{padding:0 22px}
+    .head{padding:30px 0 64px}
+    .prose,.steps,.closing{padding:60px 0 66px}
+    .step{grid-template-columns:44px 1fr;gap:18px}
+    .step .n{font-size:1.8rem}
   }
-
-  .highlight-question {
-    margin: 28px 0;
-    padding: 22px 24px;
-    background: #f2ebe7;
-    border-left: 3px solid var(--pop);
-    border-radius: 4px;
-    font-family: 'Playfair Display', serif;
-    font-size: 1.15rem;
-    line-height: 1.6;
-  }
-
-  footer { background: var(--ink); padding: 24px 48px; display: flex; justify-content: space-between; font-size: 0.72rem; color: rgba(255,255,255,0.35); }
-
-  @media (max-width: 900px) {
-    .post-header-inner { grid-template-columns: 1fr; }
-    .post-header-img { min-height: 220px; }
-    .post-header h1 { font-size: 2rem; }
-  }
-  @media (max-width: 640px) {
-    nav, .breadcrumb-strip, footer { padding-left: 20px; padding-right: 20px; }
-    .post-header { padding-left: 20px; padding-right: 20px; }
-    .article-wrap { padding: 40px 20px 60px; }
-    .nav-links { display: none; }
-  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
 <body>
 
-<nav>
-  <a href="index.html" class="nav-brand">Mari-Ann <span>Letnes</span></a>
-  <ul class="nav-links">
-    <li><a href="omside.html">Om hjemmesiden</a></li>
-    <li><a href="forskning.html">Forskning</a></li>
-    <li><a href="publikasjoner.html">Publikasjoner</a></li>
-  </ul>
-</nav>
+<div class="plane-dark">
+  <div class="wrap">
+    <header class="top">
+      <a href="index.html" class="signature">Mari-Ann Letnes</a>
+      <nav aria-label="Hovedmeny">
+        <ul class="menu">
+          <li><a href="omside.html">Om meg</a></li>
+          <li><a href="forskning.html">Forskning</a></li>
+          <li><a href="publikasjoner.html">Publikasjoner</a></li>
+          <li><a href="https://mariletn.substack.com" target="_blank" rel="noopener" class="sub">Abonner</a></li>
+        </ul>
+      </nav>
+    </header>
 
-<div class="post-header">
-  <div class="post-header-inner">
-    <div class="post-header-text">
-      <a href="index.html" class="back-link">Tilbake til forsiden</a>
-      <span class="post-category">Digital transformasjon · Skoleutvikling</span>
-      <h1>Digital transformasjon i skolen: <em>hva skal til</em> for å styrke elevers grunnleggende digitale ferdigheter?</h1>
-      <p class="post-ingress">Digitale ferdigheter er en grunnleggende ferdighet i skolen. Spørsmålet er hva som må være på plass for at digital transformasjon faktisk styrker elevenes kompetanse.</p>
-      <div class="post-meta">7. mars 2026 · <span>Mari-Ann Letnes</span></div>
-    </div>
-    <div class="post-header-img">
-      <svg viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <defs>
-          <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.035)" stroke-width="0.5"/>
-          </pattern>
-        </defs>
-        <rect width="400" height="280" fill="url(#grid)"/>
-        <!-- Orbit ring -->
-        <circle cx="200" cy="140" r="92" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1" stroke-dasharray="5 9"/>
-        <circle cx="200" cy="140" r="58" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1" stroke-dasharray="3 6"/>
-        <!-- Connections -->
-        <line x1="200" y1="122" x2="108" y2="85" stroke="rgba(255,255,255,0.14)" stroke-width="1"/>
-        <line x1="200" y1="122" x2="292" y2="85" stroke="rgba(255,255,255,0.14)" stroke-width="1"/>
-        <line x1="200" y1="158" x2="84" y2="178" stroke="rgba(255,255,255,0.10)" stroke-width="1"/>
-        <line x1="200" y1="158" x2="316" y2="178" stroke="rgba(255,255,255,0.10)" stroke-width="1"/>
-        <line x1="200" y1="158" x2="162" y2="226" stroke="rgba(255,255,255,0.10)" stroke-width="1"/>
-        <line x1="200" y1="158" x2="252" y2="220" stroke="rgba(255,255,255,0.10)" stroke-width="1"/>
-        <line x1="108" y1="85" x2="84" y2="178" stroke="rgba(255,255,255,0.06)" stroke-width="0.8"/>
-        <line x1="292" y1="85" x2="316" y2="178" stroke="rgba(255,255,255,0.06)" stroke-width="0.8"/>
-        <!-- Outer nodes -->
-        <circle cx="108" cy="85" r="8" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1"/>
-        <circle cx="292" cy="85" r="8" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1"/>
-        <circle cx="84" cy="178" r="6" fill="none" stroke="rgba(255,255,255,0.28)" stroke-width="1"/>
-        <circle cx="316" cy="178" r="6" fill="none" stroke="rgba(255,255,255,0.28)" stroke-width="1"/>
-        <circle cx="162" cy="226" r="7" fill="none" stroke="rgba(255,255,255,0.30)" stroke-width="1"/>
-        <circle cx="252" cy="220" r="7" fill="none" stroke="rgba(255,255,255,0.30)" stroke-width="1"/>
-        <!-- Node accent dots -->
-        <circle cx="108" cy="85" r="2.5" fill="rgba(255,255,255,0.6)"/>
-        <circle cx="292" cy="85" r="2.5" fill="rgba(255,255,255,0.6)"/>
-        <circle cx="84" cy="178" r="2" fill="rgba(255,255,255,0.5)"/>
-        <circle cx="316" cy="178" r="2" fill="rgba(255,255,255,0.5)"/>
-        <circle cx="162" cy="226" r="2.5" fill="rgba(255,255,255,0.55)"/>
-        <circle cx="252" cy="220" r="2.5" fill="rgba(255,255,255,0.55)"/>
-        <!-- Central node -->
-        <circle cx="200" cy="140" r="20" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="1.5"/>
-        <circle cx="200" cy="140" r="12" fill="none" stroke="rgba(184,74,46,0.5)" stroke-width="1"/>
-        <circle cx="200" cy="140" r="5" fill="rgba(184,74,46,0.9)"/>
-        <!-- Ambient dots -->
-        <circle cx="48" cy="46" r="1.5" fill="rgba(255,255,255,0.18)"/>
-        <circle cx="352" cy="38" r="1.5" fill="rgba(255,255,255,0.18)"/>
-        <circle cx="372" cy="244" r="1.5" fill="rgba(255,255,255,0.12)"/>
-        <circle cx="28" cy="238" r="1.5" fill="rgba(255,255,255,0.12)"/>
-        <circle cx="145" cy="28" r="1.2" fill="rgba(184,74,46,0.4)"/>
-        <circle cx="265" cy="258" r="1.2" fill="rgba(184,74,46,0.4)"/>
-        <circle cx="380" cy="120" r="1" fill="rgba(255,255,255,0.15)"/>
-        <circle cx="20" cy="110" r="1" fill="rgba(255,255,255,0.15)"/>
-      </svg>
-    </div>
+    <article class="head">
+      <p class="meta">7. mars 2026 — digital transformasjon og skoleutvikling</p>
+      <h1>Digital transformasjon i skolen: hva skal til?</h1>
+      <p class="lead">Digitale ferdigheter er en grunnleggende ferdighet i norsk skole. Spørsmålet er hva som må være på plass for at digital transformasjon faktisk styrker elevenes kompetanse.</p>
+    </article>
   </div>
 </div>
 
-<div class="breadcrumb-strip">
-  <a href="index.html">Hjem</a>
-  <span class="sep">›</span>
-  <a href="#">Digital transformasjon</a>
-  <span class="sep">›</span>
-  Grunnleggende digitale ferdigheter
-</div>
-
-<main class="article-wrap">
-  <p class="ingress">Digitale ferdigheter er en av de grunnleggende ferdighetene i norsk skole. Skolen skal altså ikke bare gi elever tilgang til teknologi, men legge til rette for at de utvikler kompetanse til å bruke digitale ressurser på trygge, kritiske og faglig meningsfulle måter.</p>
-
-  <div class="article-body">
+<div class="wrap">
+  <div class="prose col">
+    <p>Skolen skal ikke bare gi elevene tilgang til teknologi, men legge til rette for at de utvikler kompetanse til å bruke digitale ressurser på trygge, kritiske og faglig meningsfulle måter.</p>
     <p>Nettopp derfor er funnene fra <a href="https://cdforskning.no/cdf/catalog/book/271" target="_blank" rel="noopener">ICILS 2023</a> viktige. Til tross for høy tilgang til digitale verktøy viser undersøkelsen at elevenes digitale kompetanse har gått ned siden 2013, og at mange elever fortsatt ikke har et tilstrekkelig nivå.</p>
 
-    <h2>ICILS 2023: noen sentrale tall</h2>
-    <ul>
-      <li><strong>40 %</strong> av norske elever på 9. trinn ligger på <strong>nivå 1 eller under</strong> i digital kompetanse.</li>
-      <li><strong>34 %</strong> ligger på nivå 1 eller under i algoritmisk tenkning.</li>
-      <li>Norge presterer over internasjonalt gjennomsnitt i digital kompetanse, men bare <strong>4 av 34 land</strong> presterer signifikant bedre.</li>
-      <li>I Norge deltok <strong>4 436 elever</strong>, <strong>1 366 lærere</strong> og <strong>153 skoler</strong>.</li>
-      <li>Andelen lærere som samarbeider om teknologibaserte undervisningsopplegg økte med <strong>32 prosentpoeng</strong> fra 2013 til 2023.</li>
-    </ul>
-    <p style="font-size:0.9rem;color:var(--muted);">Tallene er hentet fra Udirs oppsummering av ICILS 2023. Norge deltok i ICILS i 2013 og 2023 (ikke i 2018), så sammenligninger over tid må leses i lys av dette. <a href="https://www.udir.no/tall-og-forskning/finn-forskning/rapporter/2024/icils-2023-digital-kompetanse-og-algoritmisk-tenkning-hos-norske-niendeklassinger/" target="_blank" rel="noopener">Kilde hos Udir</a>.</p>
+    <h2 class="spacer">Noen sentrale tall</h2>
+    <div class="callout">
+      <ul>
+        <li><strong>40 %</strong> av norske elever på 9. trinn ligger på <strong>nivå 1 eller under</strong> i digital kompetanse.</li>
+        <li><strong>34 %</strong> ligger på nivå 1 eller under i algoritmisk tenkning.</li>
+        <li>Norge presterer over internasjonalt gjennomsnitt, men bare <strong>4 av 34 land</strong> presterer signifikant bedre.</li>
+        <li>I Norge deltok <strong>4 436 elever</strong>, <strong>1 366 lærere</strong> og <strong>153 skoler</strong>.</li>
+        <li>Andelen lærere som samarbeider om teknologibaserte undervisningsopplegg økte med <strong>32 prosentpoeng</strong> fra 2013 til 2023.</li>
+      </ul>
+    </div>
+    <p class="note">Tallene er hentet fra Utdanningsdirektoratets oppsummering av ICILS 2023. Norge deltok i 2013 og 2023, men ikke i 2018, så sammenligninger over tid må leses i lys av det. <a href="https://www.udir.no/tall-og-forskning/finn-forskning/rapporter/2024/icils-2023-digital-kompetanse-og-algoritmisk-tenkning-hos-norske-niendeklassinger/" target="_blank" rel="noopener">Kilde hos Udir</a>.</p>
 
-    <div class="highlight-question">Hva må være på plass dersom digital transformasjon skal bidra til å styrke elevers grunnleggende digitale ferdigheter?</div>
+    <p class="pull">Hva må være på plass dersom digital transformasjon skal styrke elevenes grunnleggende digitale ferdigheter?</p>
 
-    <p>Dette spørsmålet står sentralt i min nylig publiserte artikkel om IKT-koordinatoren som medierende aktør i utviklingen av profesjonsfaglig digital kompetanse i skolen. Her viser jeg at varig digital utvikling ikke først og fremst handler om teknologi eller om den enkelte lærers innsats. Den handler om hvordan skolen organiserer utviklingsarbeidet sitt over tid.</p>
+    <p>Dette spørsmålet står sentralt i min nylig publiserte artikkel om IKT-koordinatoren som medierende aktør i utviklingen av profesjonsfaglig digital kompetanse i skolen. Der viser jeg at varig digital utvikling ikke først og fremst handler om teknologi, og heller ikke om den enkelte lærerens innsats. Den handler om hvordan skolen organiserer utviklingsarbeidet sitt over tid.</p>
 
-    <h2>Fra enkeltinitiativ til varig praksis</h2>
-    <p>Denne problemstillingen er sentral i <a href="https://www.ntnu.edu/ilu/research/leadership-and-learning-for-the-development-of-teachers-professional-digital-competence" target="_blank" rel="noopener">LeadDig</a>, der vi undersøker hvordan skoler kan utvikle profesjonsfaglig digital kompetanse gjennom kollektive prosesser, organisatorisk støtte og pedagogisk utviklingsarbeid.</p>
-    <p>For meg henger dette tett sammen med erfaringene fra DigSkole, der jeg har fulgt utviklingsarbeid siden 2021. Samtidig er det viktig å skille prosjektene: LeadDig og DigSkole er ulike satsinger, med ulike deltakere og ulike organisatoriske rammer. Min rolle på tvers av begge kontekster gir et særskilt grunnlag for å analysere likheter og forskjeller i hvordan varig utviklingsarbeid faktisk etableres.</p>
-    <p>Mitt hovedpoeng er at varig digital transformasjon ikke skapes av teknologi alene, men av hvordan skolen organiserer læring over tid: med tydelig ledelsesforankring, felles språk for kvalitet og systematisk utprøving i klasserommet.</p>
-    <p>Det betyr i praksis at skolen må utvikle både <em>profesjonsfellesskapet</em> og <em>organisasjonen</em> samtidig: lærere trenger tid og arenaer for samarbeid, ledelsen må prioritere oppfølging, og lokale mål må knyttes til elevenes læring i fagene. Spørsmålet er derfor ikke bare hvordan digital utvikling kan settes i gang, men hva som skal til for at den blir en varig del av skolens praksis.</p>
+    <h2 class="spacer">Fra enkeltinitiativ til varig praksis</h2>
+    <p>Problemstillingen er sentral i <a href="https://www.ntnu.edu/ilu/research/leadership-and-learning-for-the-development-of-teachers-professional-digital-competence" target="_blank" rel="noopener">LeadDig</a>, der vi undersøker hvordan skoler kan utvikle profesjonsfaglig digital kompetanse gjennom kollektive prosesser, organisatorisk støtte og pedagogisk utviklingsarbeid.</p>
+    <p>For meg henger dette tett sammen med erfaringene fra DigSkole, der jeg har fulgt utviklingsarbeid siden 2021. Samtidig er det viktig å skille prosjektene: LeadDig og DigSkole er ulike satsinger, med ulike deltakere og ulike organisatoriske rammer. Rollen min på tvers av begge kontekster gir et særskilt grunnlag for å analysere likheter og forskjeller i hvordan varig utviklingsarbeid faktisk etableres.</p>
+    <p>Hovedpoenget mitt er at varig digital transformasjon ikke skapes av teknologi alene, men av hvordan skolen organiserer læring over tid: med tydelig ledelsesforankring, felles språk for kvalitet og systematisk utprøving i klasserommet.</p>
+    <p>I praksis betyr det at skolen må utvikle både <em>profesjonsfellesskapet</em> og <em>organisasjonen</em> samtidig. Lærere trenger tid og arenaer for samarbeid, ledelsen må prioritere oppfølging, og lokale mål må knyttes til elevenes læring i fagene. Spørsmålet er derfor ikke bare hvordan digital utvikling kan settes i gang, men hva som skal til for at den blir en varig del av skolens praksis.</p>
   </div>
-</main>
+</div>
 
-<footer>
-  <span>© Mari-Ann Letnes · Førsteamanuensis, NTNU</span>
-  <span>mariannletnes.com</span>
-</footer>
-<script data-goatcounter="https://mariannletnes.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
+<div class="plane-dark">
+  <div class="wrap">
+    <section class="closing">
+      <div>
+        <h2>Nye innlegg rett i innboksen</h2>
+        <p>Jeg skriver om forskning, undervisning og digital teknologi i pedagogisk praksis.</p>
+      </div>
+      <a href="https://mariletn.substack.com" target="_blank" rel="noopener" class="button">Abonner</a>
+    </section>
+  </div>
+</div>
+
+<div class="wrap">
+  <footer>
+    <span>© Mari-Ann Letnes, førsteamanuensis ved NTNU</span>
+    <a href="index.html">Til alle innlegg</a>
+  </footer>
+</div>
+
 </body>
 </html>
