@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Engasjerende læring — Mari-Ann Letnes</title>
+<meta name="description" content="Foredrag for UDI om engasjement i informasjonsøkter med beboere. Fire dimensjoner fra forskningen, og konkrete grep for å legge til rette for dem.">
+<meta property="og:title" content="Engasjerende læring">
+<meta property="og:description" content="Fire dimensjoner av engasjement fra forskningen, og hvordan UDIs informasjonsansvarlige kan legge til rette for dem.">
+<meta property="og:image" content="https://mariannletnes.com/portrett-mork.jpg">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mariannletnes.com/post-engasjerende-laering-udi.html">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%23332830'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='15' fill='%23F8F4F1' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  /* Palett: to nøytrale trinn, én mørk forankring, én aksent.
+     papir F8F4F1 · stein EDE7E2 · mørk 332830 · plomme 6E4B57 */
+  :root{
+    --paper:#F8F4F1; --stone:#EDE7E2; --dark:#332830;
+    --plum:#6E4B57; --plum-soft:#B79BA4;
+    --ink:#4A3C43; --body:#5E4F55; --quiet:#7E6F74;
+    --hair:#E1D8D1; --hair-stone:#DBD1C9;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    background:var(--paper);color:var(--body);
+    font-family:'Jost',system-ui,sans-serif;
+    font-size:1.15rem;font-weight:400;line-height:1.72;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  :focus-visible{outline:2px solid var(--plum);outline-offset:4px}
+
+  .plane-stone{background:var(--stone)}
+  .plane-dark{background:var(--dark)}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 48px}
+  .col{max-width:760px}
+
+  .top{
+    display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
+    gap:16px 28px;padding:34px 0 28px;
+  }
+  .signature{
+    font-family:'Cormorant Garamond',Georgia,serif;font-size:2rem;font-weight:400;
+    color:#F7F1F2;text-decoration:none;line-height:1.1;letter-spacing:.01em;
+  }
+  .menu{display:flex;flex-wrap:wrap;gap:32px;list-style:none;align-items:center}
+  .menu a{
+    font-size:1.04rem;color:#DCCDD3;text-decoration:none;padding-bottom:4px;
+    box-shadow:inset 0 -1px 0 transparent;
+    transition:color .22s ease,box-shadow .22s ease;
+  }
+  .menu a:hover{color:#F7F1F2;box-shadow:inset 0 -1px 0 #F7F1F2}
+  .menu .sub{color:var(--plum-soft);box-shadow:inset 0 -1px 0 #6B545E}
+  .menu .sub:hover{color:#F7F1F2;box-shadow:inset 0 -2px 0 #F7F1F2}
+
+  .head{padding:40px 0 92px}
+  .head .meta{font-size:1.04rem;color:var(--plum-soft);margin-bottom:26px}
+  .head h1{
+    font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;
+    font-size:clamp(2.6rem,5.8vw,4.4rem);line-height:1.06;color:#F7F1F2;
+    max-width:18ch;margin-bottom:30px;
+  }
+  .head .lead{font-size:1.3rem;line-height:1.7;color:#D6C5CB;max-width:54ch}
+  .head .action{
+    display:inline-block;margin-top:38px;background:var(--paper);color:var(--dark);
+    text-decoration:none;font-size:1.06rem;padding:17px 38px;transition:background .2s;
+  }
+  .head .action:hover{background:#fff}
+  .head .action-note{font-size:1.02rem;color:var(--plum-soft);margin-top:14px;max-width:46ch}
+
+  .prose{padding:84px 0 88px}
+  .prose h2{
+    font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:2.2rem;
+    line-height:1.16;color:var(--ink);margin:0 0 20px;
+  }
+  .prose h2.spacer{margin-top:64px}
+  .prose p{font-size:1.2rem;line-height:1.84;margin-bottom:22px}
+  .prose p:last-child{margin-bottom:0}
+  .prose strong{color:var(--ink);font-weight:500}
+  .prose em{font-style:italic}
+  .prose ul,.prose ol{padding-left:1.3em;font-size:1.18rem;line-height:1.8;margin-bottom:24px}
+  .prose li{margin-bottom:12px}
+  .prose a{color:var(--plum);text-decoration:none;box-shadow:inset 0 -1px 0 #CBB4BC}
+  .prose a:hover{box-shadow:inset 0 -2px 0 var(--plum)}
+
+  .callout{border-left:2px solid var(--plum);padding:4px 0 4px 30px;margin:36px 0}
+  .callout .label{font-size:1.04rem;color:var(--plum);margin-bottom:14px}
+  .callout p{font-size:1.18rem;margin-bottom:0}
+  .callout ul,.callout ol{padding-left:1.3em;font-size:1.14rem;line-height:1.78;margin:0}
+  .callout li{margin-bottom:12px}
+  .callout li:last-child{margin-bottom:0}
+
+  .pull{
+    font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;font-style:italic;
+    font-size:clamp(1.6rem,3.2vw,2.2rem);line-height:1.32;color:var(--ink);
+    max-width:26ch;margin:48px 0;
+  }
+
+  .note{font-size:1.04rem;color:var(--quiet);line-height:1.7;margin-bottom:22px}
+  .note a{color:var(--plum);text-decoration:none;box-shadow:inset 0 -1px 0 #CBB4BC}
+
+  .source{
+    font-size:1.04rem;color:var(--quiet);line-height:1.72;
+    border-top:1px solid var(--hair);padding-top:26px;margin-top:64px;
+  }
+  .source a{color:var(--plum);text-decoration:none;box-shadow:inset 0 -1px 0 #CBB4BC}
+
+  .steps{padding:88px 0 94px}
+  .steps h2{
+    font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:2.25rem;
+    color:var(--ink);margin-bottom:8px;
+  }
+  .steps .intro{font-size:1.1rem;color:var(--quiet);margin-bottom:40px;max-width:58ch}
+  .step{
+    display:grid;grid-template-columns:64px 1fr;gap:28px;align-items:start;
+    padding:28px 0;border-top:1px solid var(--hair-stone);max-width:900px;
+  }
+  .step .n{
+    font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;font-size:2.3rem;
+    color:var(--plum);line-height:1;
+  }
+  .step h3{
+    font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:1.55rem;
+    line-height:1.2;color:var(--ink);margin-bottom:10px;
+  }
+  .step p{font-size:1.12rem;line-height:1.7;margin:0}
+  .step p a{color:var(--plum);text-decoration:none;box-shadow:inset 0 -1px 0 #CBB4BC}
+
+  .related{border-top:1px solid var(--hair);margin-top:72px;padding-top:14px}
+  .related .label{font-size:1.06rem;color:var(--plum);padding:16px 0 6px}
+  .related a{
+    display:block;text-decoration:none;padding:24px 26px;margin:0 -26px;
+    border-top:1px solid var(--hair);transition:background .26s ease;
+  }
+  .related a:hover{background:var(--stone)}
+  .related .when{display:block;font-size:1rem;color:var(--quiet);margin-bottom:8px}
+  .related h3{
+    font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:1.55rem;
+    line-height:1.24;color:var(--ink);transition:color .22s ease;
+  }
+  .related a:hover h3{color:var(--plum)}
+
+  .closing{
+    display:grid;grid-template-columns:1fr auto;gap:56px;align-items:center;
+    padding:92px 0 96px;
+  }
+  .closing h2{
+    font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-size:2.8rem;
+    line-height:1.1;color:#F7F1F2;margin-bottom:14px;max-width:17ch;
+  }
+  .closing p{color:var(--plum-soft);font-size:1.16rem;max-width:46ch}
+  .button{
+    display:inline-block;background:var(--paper);color:var(--dark);
+    text-decoration:none;font-size:1.06rem;padding:18px 42px;white-space:nowrap;
+    transition:background .2s;
+  }
+  .button:hover{background:#fff}
+
+  footer{
+    display:flex;flex-wrap:wrap;gap:12px 36px;justify-content:space-between;
+    padding:36px 0 64px;font-size:1rem;color:var(--quiet);
+  }
+  footer a{color:var(--quiet)}
+
+  @media (max-width:940px){
+    .wrap{padding:0 32px}
+    .closing{grid-template-columns:1fr;gap:32px}
+  }
+  @media (max-width:620px){
+    .wrap{padding:0 22px}
+    .head{padding:30px 0 64px}
+    .prose,.steps,.closing{padding:60px 0 66px}
+    .step{grid-template-columns:44px 1fr;gap:18px}
+    .step .n{font-size:1.8rem}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+  .kat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0 44px;max-width:1000px}
+  .kat-grid.to{grid-template-columns:repeat(2,1fr)}
+  .kat{padding:26px 0 30px;border-top:1px solid var(--hair-stone)}
+  .kat .label{font-size:1rem;color:var(--plum);margin-bottom:8px}
+  .kat h3{
+    font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:1.55rem;
+    line-height:1.2;color:var(--ink);margin-bottom:10px;
+  }
+  .kat p{font-size:1.05rem;line-height:1.66;margin:0 0 10px}
+  .kat p:last-child{margin-bottom:0}
+  .kat .k{color:var(--plum)}
+
+  .tablewrap{overflow-x:auto;margin:36px 0 40px}
+  table{width:100%;border-collapse:collapse;font-size:1.04rem}
+  th,td{padding:16px 18px 16px 0;border-bottom:1px solid var(--hair);vertical-align:top;text-align:left}
+  thead th{font-weight:500;color:var(--plum);border-bottom-color:var(--plum)}
+  td:first-child{color:var(--ink);white-space:nowrap;padding-right:28px}
+  table a{color:var(--plum);text-decoration:none;box-shadow:inset 0 -1px 0 #CBB4BC}
+  table a:hover{box-shadow:inset 0 -2px 0 var(--plum)}
+
+  @media (max-width:940px){.kat-grid,.kat-grid.to{grid-template-columns:1fr 1fr;gap:0 32px}}
+  @media (max-width:620px){.kat-grid,.kat-grid.to{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="plane-dark">
+  <div class="wrap">
+    <header class="top">
+      <a href="index.html" class="signature">Mari-Ann Letnes</a>
+      <nav aria-label="Hovedmeny">
+        <ul class="menu">
+          <li><a href="omside.html">Om meg</a></li>
+          <li><a href="forskning.html">Forskning</a></li>
+          <li><a href="publikasjoner.html">Publikasjoner</a></li>
+          <li><a href="https://mariletn.substack.com" target="_blank" rel="noopener" class="sub">Abonner</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <article class="head">
+      <p class="meta">Foredrag, 7. oktober 2026 — UDI</p>
+      <h1>Engasjerende læring</h1>
+      <p class="lead">Oppmøte og ro i rommet sier oss overraskende lite om hvem som faktisk er med. Fire dimensjoner av engasjement fra forskningen, og konkrete grep UDIs informasjonsansvarlige kan bruke i egne informasjonsøkter med beboere.</p>
+    </article>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="prose col">
+    <h2>Bakgrunn</h2>
+    <p>Da jeg var kunststudent, ventet jeg ofte ved trykkpressen på hva grafikeren Bjørn skulle si om arbeidet mitt. Jeg så opp til ham, og vurderingen hans betydde noe. Jeg jobbet videre, tok nye prøvetrykk, prøvde meg fram. Utenfra så dere en student som holdt på — som gjorde en innsats og ikke ga seg. Jeg manglet språket for det jeg forsøkte å forstå, og jeg våget ikke å spørre.</p>
+    <p>Denne forskjellen — mellom det som er synlig utenfra og det som skjer inni den som deltar — er utgangspunktet for foredraget jeg holdt for <strong>UDIs informasjonsansvarlige</strong>. De kjenner innholdet i informasjonsprogrammet så godt at det kan være vanskelig å oppdage hva beboerne trenger forklart. Og som i mitt forhold til Bjørn, er det en forskjell i posisjon: den som leder økta velger spørsmålene, fordeler ordet og avgjør hva man går videre med.</p>
+
+    <p class="pull">Utenfra så dere en student som holdt på. Innenfra husker jeg det som en ubehagelig leting.</p>
+
+    <h2 class="spacer">Engasjement er formbart, ikke en egenskap</h2>
+    <p>Forskningen understreker at engasjement ikke er noe fast ved den enkelte deltakeren. Det endrer seg med situasjonen og påvirkes av hvordan læringsmiljøet tilrettelegges (Fredricks, Blumenfeld &amp; Paris, 2004). At noen følger instruksjonene, forteller ikke nødvendigvis hvor interesserte de er, eller hvor grundig de forsøker å forstå. Spørsmålet blir da hvilket handlingsrom som finnes: hva trenger beboerne tilgang til for å kunne forstå, bruke og stille spørsmål ved informasjonen?</p>
+  </div>
+</div>
+
+<div class="plane-stone">
+  <div class="wrap steps">
+    <h2>Fire dimensjoner av engasjement</h2>
+    <p class="intro">Fire begreper fra forskningen som kan hjelpe oss å lese tegnene på engasjement riktig (Fredricks et al., 2004; Reeve &amp; Tseng, 2011).</p>
+    <div class="step"><span class="n">1</span><div><h3>Atferdsmessig engasjement</h3><p>Deltakelse, oppmerksomhet, innsats og utholdenhet i arbeidet.</p></div></div>
+    <div class="step"><span class="n">2</span><div><h3>Emosjonelt engasjement</h3><p>Følelser i møte med innholdet: interesse, glede, kjedsomhet eller frustrasjon.</p></div></div>
+    <div class="step"><span class="n">3</span><div><h3>Kognitivt engasjement</h3><p>Arbeidet med å forstå — å undersøke, se sammenhenger, bruke strategier og vurdere egen forståelse.</p></div></div>
+    <div class="step"><span class="n">4</span><div><h3>Agentisk engasjement</h3><p>Å bidra til å forme situasjonen gjennom egne spørsmål, behov, forslag og initiativ.</p></div></div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="prose col">
+    <p>Sammen gir de fire dimensjonene flere spørsmål å stille til en informasjonsøkt enn bare om noen «var med»: Hvem får anledning til å delta? Hvordan opplever de situasjonen? Hvordan arbeider de med å forstå? Og hvilke muligheter har de til å påvirke det som skjer?</p>
+
+    <h2 class="spacer">Engasjement er ikke det samme som motivasjon</h2>
+    <p>Motivasjon kan være at du liker et tema, trenger kunnskapen eller ønsker å oppnå noe. Engasjement viser seg i hvordan du retter oppmerksomheten mot innholdet, arbeider med det, reagerer følelsesmessig og forsøker å forstå. Et informasjonsprogram kan være obligatorisk uten at det sier noe om hvor engasjert den enkelte faktisk er.</p>
+
+    <h2 class="spacer">Å skape et miljø som fremmer engasjement</h2>
+    <div class="callout">
+      <ul>
+        <li><strong>Gjør hensikten tydelig.</strong> Rammene for økta bør være forståelige før dere starter.</li>
+        <li><strong>Vis interesse.</strong> For deltakernes erfaringer og spørsmål, ikke bare for eget innhold.</li>
+        <li><strong>Gi tid.</strong> Støtt deltakerne i å formulere egne bidrag.</li>
+        <li><strong>Møt usikkerhet med spørsmål.</strong> Bruk dem til å forstå uenighet, ikke til å avfeie den.</li>
+        <li><strong>La innspill telle.</strong> Deltakernes bidrag bør få reell betydning for hvordan økta utvikler seg videre.</li>
+      </ul>
+    </div>
+
+    <h2 class="spacer">Ressurser fra økta</h2>
+    <p>To enkle verktøy fra workshopen, som lett lar seg bruke i andre sammenhenger.</p>
+    <p><strong>«Jeg vet at de er med når …»</strong> — en refleksjonsøvelse der deltakerne fullfører setningen hver for seg og deler med sidemannen. God innledning til en samtale om egne tegn på engasjement, før man går videre til forskningens fire dimensjoner.</p>
+    <p><strong>«Snakk og bytt»-kort</strong> — fargekodede samtalekort som blander grupper og skaper kontakt på tvers, før man går videre til det faglige arbeidet. <a href="Filer/snakk_og_bytt_blanke_kort.docx" download>Last ned blanke kort (.docx)</a>.</p>
+    <p><strong>Hobby-øvelsen</strong> — en kort digital oppgave deltakerne følger på egen telefon, rett etter Snakk og bytt-kortene. <a href="ovelse-engasjerende-laering-udi.html">Prøv øvelsen</a>.</p>
+
+    <h2 class="spacer">Kilder</h2>
+    <p>Fredricks, J. A., Blumenfeld, P. C. &amp; Paris, A. H. (2004). School engagement: Potential of the concept, state of the evidence. <em>Review of Educational Research</em>, 74(1), 59–109.</p>
+    <p>Reeve, J. &amp; Tseng, C.-M. (2011). Agency as a fourth aspect of students' engagement during learning activities. <em>Contemporary Educational Psychology</em>, 36(4), 257–267.</p>
+  </div>
+</div>
+
+<div class="plane-dark">
+  <div class="wrap">
+    <section class="closing">
+      <div>
+        <h2>Nye innlegg rett i innboksen</h2>
+        <p>Jeg skriver om forskning, undervisning og digital teknologi i pedagogisk praksis.</p>
+      </div>
+      <a href="https://mariletn.substack.com" target="_blank" rel="noopener" class="button">Abonner</a>
+    </section>
+  </div>
+</div>
+
+<div class="wrap">
+  <footer>
+    <span>© Mari-Ann Letnes, førsteamanuensis ved NTNU</span>
+    <a href="index.html">Til alle innlegg</a>
+  </footer>
+</div>
+
+</body>
+</html>
