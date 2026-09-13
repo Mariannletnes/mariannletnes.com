@@ -15,6 +15,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <style>
   :root{
     --paper:#F8F4F1; --stone:#EDE7E2; --dark:#332830;
@@ -107,12 +109,17 @@
   }
   .missing-note textarea::placeholder{color:var(--quiet)}
 
-  .actions{display:flex;justify-content:space-between;align-items:center;margin-top:18px}
+  .actions{display:flex;justify-content:space-between;align-items:center;margin-top:18px;gap:14px;flex-wrap:wrap}
   .reset{
     background:none;border:none;color:var(--quiet);font-size:.92rem;
     box-shadow:inset 0 -1px 0 var(--hair-stone);padding-bottom:2px;
   }
   .reset:hover{color:var(--plum);box-shadow:inset 0 -1px 0 var(--plum)}
+  .download-btn{
+    background:var(--dark);color:#F7F1F2;border:none;text-decoration:none;
+    font-size:.96rem;padding:12px 22px;transition:background .2s;
+  }
+  .download-btn:hover{background:var(--ink)}
 
   @media (max-width:420px){
     .tile{flex-basis:calc(33.333% - 5px)}
@@ -148,12 +155,13 @@
     <p class="missing-title">Hvilke symboler mangler her?</p>
     <p class="missing-desc">Snakk sammen: er det noe som gir trygghet som ikke finnes blant symbolene over? Noter forslag her — det er nyttig tilbakemelding før verktøyet noen gang brukes med beboere.</p>
     <div class="missing-note">
-      <textarea placeholder="Skriv forslag her …"></textarea>
+      <textarea id="missingNotes" placeholder="Skriv forslag her …"></textarea>
     </div>
   </div>
 
   <div class="actions">
     <button class="reset" id="resetBtn">Start på nytt</button>
+    <button class="download-btn" id="downloadBtn">Last ned som PDF</button>
   </div>
 </main>
 
@@ -182,6 +190,7 @@
   var boardHint = document.getElementById('boardHint');
   var resetBtn = document.getElementById('resetBtn');
   var placedCount = 0;
+  var placedItems = [];
   var ghost = null;
   var ghostIcon = null;
 
@@ -249,16 +258,20 @@
     el.style.left = x + 'px';
     el.style.top = y + 'px';
     el.innerHTML = svgFor(sym.icon);
+    var entry = { sym: sym, el: el };
     el.addEventListener('pointerdown', function(e){
       e.stopPropagation();
       el.classList.add('removing');
       setTimeout(function(){
         if (el.parentNode){ el.parentNode.removeChild(el); }
+        var idx = placedItems.indexOf(entry);
+        if (idx > -1){ placedItems.splice(idx, 1); }
         placedCount--;
         if (placedCount <= 0){ boardHint.style.display = 'flex'; }
       }, 180);
     });
     boardEl.appendChild(el);
+    placedItems.push(entry);
     placedCount++;
     if (window.feather) { feather.replace(); }
   }
@@ -267,10 +280,144 @@
     var placedEls = boardEl.querySelectorAll('.placed');
     for (var i = 0; i < placedEls.length; i++){ placedEls[i].parentNode.removeChild(placedEls[i]); }
     placedCount = 0;
+    placedItems = [];
     boardHint.style.display = 'flex';
   }
 
   resetBtn.addEventListener('click', resetBoard);
+
+  var downloadBtn = document.getElementById('downloadBtn');
+  downloadBtn.addEventListener('click', downloadCreation);
+
+  function getNotes(){
+    var ta = document.getElementById('missingNotes');
+    return ta ? ta.value.trim() : '';
+  }
+
+  function downloadCreation(){
+    if (placedCount === 0 && getNotes() === ''){
+      alert('Plasser minst ett symbol, eller skriv et forslag, før dere laster ned.');
+      return;
+    }
+    if (window.jspdf && window.jspdf.jsPDF && window.html2canvas){
+      downloadWithImage();
+    } else if (window.jspdf && window.jspdf.jsPDF){
+      downloadTextOnlyPDF();
+    } else {
+      downloadAsTxt();
+    }
+  }
+
+  function addHeaderAndNotes(doc, margin, startY, pageWidth){
+    var y = startY;
+    if (getNotes() !== ''){
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(13);
+      doc.setTextColor(20,20,20);
+      doc.text('Symboler vi savnet', margin, y);
+      y += 8;
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(11);
+      doc.setTextColor(60,60,60);
+      var lines = doc.splitTextToSize(getNotes(), pageWidth - margin * 2);
+      for (var i = 0; i < lines.length; i++){
+        if (y > 280){ doc.addPage(); y = 24; }
+        doc.text(lines[i], margin, y);
+        y += 6;
+      }
+    }
+    return y;
+  }
+
+  function downloadWithImage(){
+    html2canvas(boardEl, { backgroundColor: '#F8F4F1', scale: 2 }).then(function(canvas){
+      var doc = new window.jspdf.jsPDF();
+      var margin = 20;
+      var pageWidth = doc.internal.pageSize.getWidth();
+      var imgWidth = pageWidth - margin * 2;
+      var imgHeight = imgWidth * (canvas.height / canvas.width);
+      var y = 24;
+
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(17);
+      doc.setTextColor(20,20,20);
+      doc.text('Bygg det trygge — vår tavle', margin, y);
+      y += 8;
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(10);
+      doc.setTextColor(120,120,120);
+      doc.text('Digital variant av UDIs «Rike bilder»-metode', margin, y);
+      y += 14;
+
+      if (placedCount > 0){
+        doc.addImage(canvas.toDataURL('image/png'), 'PNG', margin, y, imgWidth, imgHeight);
+        y += imgHeight + 14;
+      }
+
+      addHeaderAndNotes(doc, margin, y, pageWidth);
+      doc.save('bygg-det-trygge.pdf');
+    }).catch(function(){
+      downloadTextOnlyPDF();
+    });
+  }
+
+  function downloadTextOnlyPDF(){
+    var doc = new window.jspdf.jsPDF();
+    var margin = 20;
+    var pageWidth = doc.internal.pageSize.getWidth();
+    var y = 24;
+
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(17);
+    doc.text('Bygg det trygge — vår tavle', margin, y);
+    y += 8;
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(10);
+    doc.setTextColor(120,120,120);
+    doc.text('Digital variant av UDIs «Rike bilder»-metode', margin, y);
+    doc.setTextColor(20,20,20);
+    y += 14;
+
+    if (placedItems.length > 0){
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(13);
+      doc.text('Symboler vi plasserte', margin, y);
+      y += 8;
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(11);
+      for (var i = 0; i < placedItems.length; i++){
+        if (y > 280){ doc.addPage(); y = 24; }
+        doc.text('• ' + placedItems[i].sym.label, margin + 2, y);
+        y += 6;
+      }
+      y += 8;
+    }
+
+    addHeaderAndNotes(doc, margin, y, pageWidth);
+    doc.save('bygg-det-trygge.pdf');
+  }
+
+  function downloadAsTxt(){
+    var lines = ['Bygg det trygge — vår tavle', 'Digital variant av UDIs «Rike bilder»-metode', ''];
+    if (placedItems.length > 0){
+      lines.push('Symboler vi plasserte:');
+      for (var i = 0; i < placedItems.length; i++){ lines.push('- ' + placedItems[i].sym.label); }
+      lines.push('');
+    }
+    if (getNotes() !== ''){
+      lines.push('Symboler vi savnet:');
+      lines.push(getNotes());
+    }
+    var blob = new Blob([lines.join('\n')], { type: 'text/plain;charset=utf-8' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'bygg-det-trygge.txt';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
 
   buildPalette();
   if (window.feather) { feather.replace(); }
