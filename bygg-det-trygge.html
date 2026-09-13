@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Bygg det trygge — Mari-Ann Letnes</title>
+<meta name="description" content="Digital variant av Rike bilder: dra symboler inn på en tavle og bygg et bilde av det som gir deg en følelse av trygghet.">
+<meta property="og:title" content="Bygg det trygge">
+<meta property="og:image" content="https://mariannletnes.com/portrett-mork.jpg">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mariannletnes.com/bygg-det-trygge.html">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%23332830'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='15' fill='%23F8F4F1' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"></script>
+<style>
+  :root{
+    --paper:#F8F4F1; --stone:#EDE7E2; --dark:#332830;
+    --plum:#6E4B57; --plum-soft:#B79BA4;
+    --ink:#4A3C43; --body:#5E4F55; --quiet:#7E6F74;
+    --hair:#E1D8D1; --hair-stone:#DBD1C9;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    background:var(--stone);color:var(--body);
+    font-family:'Jost',system-ui,sans-serif;
+    font-size:1rem;font-weight:400;line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;display:flex;flex-direction:column;
+    overflow-x:hidden;
+  }
+  a{color:inherit}
+  :focus-visible{outline:2px solid var(--plum);outline-offset:3px}
+  button{font-family:inherit;cursor:pointer}
+  svg{display:block}
+
+  .top{padding:20px 20px 8px;display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px}
+  .signature{
+    font-family:'Cormorant Garamond',Georgia,serif;font-size:1.25rem;font-weight:400;
+    color:var(--ink);text-decoration:none;
+  }
+  .source{font-size:.86rem;color:var(--quiet)}
+
+  main{flex:1;padding:8px 20px 28px;max-width:640px;margin:0 auto;width:100%}
+
+  .intro{margin-bottom:16px}
+  .step-title{
+    font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;
+    font-size:1.6rem;line-height:1.2;color:var(--ink);margin-bottom:8px;
+  }
+  .step-desc{font-size:.98rem;line-height:1.55;color:var(--body)}
+
+  .palette{
+    display:flex;flex-wrap:wrap;gap:8px;
+    margin:16px 0;padding:14px;background:var(--paper);border:1px solid var(--hair-stone);
+  }
+  .tile{
+    flex:0 0 calc(25% - 6px);
+    display:flex;flex-direction:column;align-items:center;gap:5px;
+    padding:10px 4px;background:var(--stone);border:1px solid var(--hair-stone);
+    touch-action:none;user-select:none;-webkit-user-select:none;
+  }
+  .tile svg{width:22px;height:22px;stroke:var(--plum);stroke-width:1.8}
+  .tile span{font-size:.74rem;color:var(--quiet);text-align:center;line-height:1.15}
+
+  .board-wrap{margin:18px 0 8px}
+  .board-label{font-size:.92rem;color:var(--plum);margin-bottom:8px}
+  .board{
+    position:relative;background:var(--paper);border:1px dashed var(--hair-stone);
+    height:340px;touch-action:none;overflow:hidden;
+  }
+  .board.drag-over{border-color:var(--plum);background:#FBF8F6}
+  .board-empty-hint{
+    position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    color:var(--quiet);font-size:.92rem;text-align:center;padding:20px;pointer-events:none;
+  }
+  .placed{
+    position:absolute;width:54px;height:54px;display:flex;align-items:center;justify-content:center;
+    background:var(--stone);border:1px solid var(--hair-stone);
+    transform:translate(-50%,-50%);touch-action:none;
+  }
+  .placed svg{width:26px;height:26px;stroke:var(--ink);stroke-width:1.6}
+  .placed.removing{opacity:0;transition:opacity .18s ease}
+
+  .drag-ghost{
+    position:fixed;width:54px;height:54px;display:flex;align-items:center;justify-content:center;
+    background:var(--paper);border:1px solid var(--plum);pointer-events:none;z-index:50;
+    opacity:.92;transform:translate(-50%,-50%);
+  }
+  .drag-ghost svg{width:26px;height:26px;stroke:var(--plum);stroke-width:1.8}
+
+  .board-note{font-size:.86rem;color:var(--quiet);margin-top:8px;line-height:1.5}
+
+  .missing-wrap{margin-top:24px;padding-top:18px;border-top:1px solid var(--hair)}
+  .missing-title{
+    font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;
+    font-size:1.15rem;color:var(--ink);margin-bottom:6px;
+  }
+  .missing-desc{font-size:.92rem;color:var(--body);line-height:1.5;margin-bottom:10px}
+  .missing-note textarea{
+    width:100%;min-height:80px;background:var(--paper);color:var(--ink);
+    border:1px solid var(--hair-stone);padding:10px 12px;font-family:inherit;
+    font-size:.95rem;line-height:1.5;resize:vertical;
+  }
+  .missing-note textarea::placeholder{color:var(--quiet)}
+
+  .actions{display:flex;justify-content:space-between;align-items:center;margin-top:18px}
+  .reset{
+    background:none;border:none;color:var(--quiet);font-size:.92rem;
+    box-shadow:inset 0 -1px 0 var(--hair-stone);padding-bottom:2px;
+  }
+  .reset:hover{color:var(--plum);box-shadow:inset 0 -1px 0 var(--plum)}
+
+  @media (max-width:420px){
+    .tile{flex-basis:calc(33.333% - 5px)}
+    .board{height:300px}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <a href="index.html" class="signature">Mari-Ann Letnes</a>
+  <span class="source">Digital variant av Rike bilder</span>
+</div>
+
+<main>
+  <div class="intro">
+    <h1 class="step-title">Bygg det trygge</h1>
+    <p class="step-desc">Plasser symbolene sammen på tavlen, og snakk om hvorfor dere velger det dere velger. Bygg ett felles bilde av det som gir trygghet — det finnes ingen riktig måte å gjøre dette på.</p>
+  </div>
+
+  <div class="palette" id="palette"></div>
+
+  <div class="board-wrap">
+    <p class="board-label">Tavlen deres</p>
+    <div class="board" id="board">
+      <p class="board-empty-hint" id="boardHint">Dra et symbol hit for å starte</p>
+    </div>
+    <p class="board-note">Trykk på et symbol på tavlen for å fjerne det igjen.</p>
+  </div>
+
+  <div class="missing-wrap">
+    <p class="missing-title">Hvilke symboler mangler her?</p>
+    <p class="missing-desc">Snakk sammen: er det noe som gir trygghet som ikke finnes blant symbolene over? Noter forslag her — det er nyttig tilbakemelding før verktøyet noen gang brukes med beboere.</p>
+    <div class="missing-note">
+      <textarea placeholder="Skriv forslag her …"></textarea>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button class="reset" id="resetBtn">Start på nytt</button>
+  </div>
+</main>
+
+<script>
+  var symbols = [
+    { icon: "home", label: "Hjem" },
+    { icon: "heart", label: "Noen glad i deg" },
+    { icon: "users", label: "Familie" },
+    { icon: "user", label: "En du stoler på" },
+    { icon: "sun", label: "Sol og varme" },
+    { icon: "moon", label: "Ro og hvile" },
+    { icon: "star", label: "Håp" },
+    { icon: "coffee", label: "Samvær" },
+    { icon: "book-open", label: "Historier" },
+    { icon: "music", label: "Musikk" },
+    { icon: "smile", label: "Glede" },
+    { icon: "phone", label: "Kontakt" },
+    { icon: "umbrella", label: "Beskyttelse" },
+    { icon: "anchor", label: "Stabilitet" },
+    { icon: "key", label: "Eget rom" },
+    { icon: "wind", label: "Frisk luft" }
+  ];
+
+  var paletteEl = document.getElementById('palette');
+  var boardEl = document.getElementById('board');
+  var boardHint = document.getElementById('boardHint');
+  var resetBtn = document.getElementById('resetBtn');
+  var placedCount = 0;
+  var ghost = null;
+  var ghostIcon = null;
+
+  function svgFor(iconName){
+    return '<i data-feather="' + iconName + '"></i>';
+  }
+
+  function buildPalette(){
+    for (var i = 0; i < symbols.length; i++){
+      (function(sym){
+        var tile = document.createElement('div');
+        tile.className = 'tile';
+        tile.innerHTML = svgFor(sym.icon) + '<span>' + sym.label + '</span>';
+        tile.addEventListener('pointerdown', function(e){ startDrag(e, sym); });
+        paletteEl.appendChild(tile);
+      })(symbols[i]);
+    }
+  }
+
+  function startDrag(e, sym){
+    e.preventDefault();
+    ghostIcon = sym;
+    ghost = document.createElement('div');
+    ghost.className = 'drag-ghost';
+    ghost.innerHTML = svgFor(sym.icon);
+    document.body.appendChild(ghost);
+    moveGhost(e.clientX, e.clientY);
+    if (window.feather) { feather.replace(); }
+
+    function onMove(ev){
+      moveGhost(ev.clientX, ev.clientY);
+      var r = boardEl.getBoundingClientRect();
+      if (ev.clientX >= r.left && ev.clientX <= r.right && ev.clientY >= r.top && ev.clientY <= r.bottom){
+        boardEl.classList.add('drag-over');
+      } else {
+        boardEl.classList.remove('drag-over');
+      }
+    }
+
+    function onUp(ev){
+      document.removeEventListener('pointermove', onMove);
+      document.removeEventListener('pointerup', onUp);
+      boardEl.classList.remove('drag-over');
+      var r = boardEl.getBoundingClientRect();
+      if (ev.clientX >= r.left && ev.clientX <= r.right && ev.clientY >= r.top && ev.clientY <= r.bottom){
+        placeOnBoard(sym, ev.clientX - r.left, ev.clientY - r.top);
+      }
+      if (ghost){ document.body.removeChild(ghost); ghost = null; }
+    }
+
+    document.addEventListener('pointermove', onMove);
+    document.addEventListener('pointerup', onUp);
+  }
+
+  function moveGhost(x, y){
+    if (!ghost) return;
+    ghost.style.left = x + 'px';
+    ghost.style.top = y + 'px';
+  }
+
+  function placeOnBoard(sym, x, y){
+    boardHint.style.display = 'none';
+    var el = document.createElement('div');
+    el.className = 'placed';
+    el.style.left = x + 'px';
+    el.style.top = y + 'px';
+    el.innerHTML = svgFor(sym.icon);
+    el.addEventListener('pointerdown', function(e){
+      e.stopPropagation();
+      el.classList.add('removing');
+      setTimeout(function(){
+        if (el.parentNode){ el.parentNode.removeChild(el); }
+        placedCount--;
+        if (placedCount <= 0){ boardHint.style.display = 'flex'; }
+      }, 180);
+    });
+    boardEl.appendChild(el);
+    placedCount++;
+    if (window.feather) { feather.replace(); }
+  }
+
+  function resetBoard(){
+    var placedEls = boardEl.querySelectorAll('.placed');
+    for (var i = 0; i < placedEls.length; i++){ placedEls[i].parentNode.removeChild(placedEls[i]); }
+    placedCount = 0;
+    boardHint.style.display = 'flex';
+  }
+
+  resetBtn.addEventListener('click', resetBoard);
+
+  buildPalette();
+  if (window.feather) { feather.replace(); }
+</script>
+
+</body>
+</html>
