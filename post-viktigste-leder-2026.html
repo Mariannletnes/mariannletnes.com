@@ -1,173 +1,298 @@
 <!DOCTYPE html>
-<html lang="no">
+<html lang="nb">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Viktigste Leder 2026 — Mari-Ann Letnes</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231c1a17'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='16' font-weight='bold' fill='%23b84a2e' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<meta name="description" content="Foredrag for rektorer om hvordan generativ KI kan realisere skolens samfunnsmandat om både danning og utdanning.">
+<meta property="og:title" content="Viktigste Leder 2026">
+<meta property="og:description" content="Foredrag for rektorer om hvordan generativ KI kan realisere skolens samfunnsmandat om både danning og utdanning.">
+<meta property="og:image" content="https://mariannletnes.com/portrett-mork.jpg">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mariannletnes.com/post-viktigste-leder-2026.html">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%23332830'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='15' fill='%23F8F4F1' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #181614;
-    --text: #e8e4de;
-    --muted: #9a9088;
-    --border: rgba(255,255,255,0.07);
-    --ink: #1c1a17;
-    --pop: #b84a2e;
-    --pop-dark: #8f3820;
-    --pop-light: rgba(184,74,46,0.15);
-    --surface: #242220;
+  /* Palett: to nøytrale trinn, én mørk forankring, én aksent.
+     papir F8F4F1 · stein EDE7E2 · mørk 332830 · plomme 6E4B57 */
+  :root{
+    --paper:#F8F4F1; --stone:#EDE7E2; --dark:#332830;
+    --plum:#6E4B57; --plum-soft:#B79BA4;
+    --ink:#4A3C43; --body:#5E4F55; --quiet:#7E6F74;
+    --hair:#E1D8D1; --hair-stone:#DBD1C9;
   }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: var(--bg); font-family: 'Inter', sans-serif; color: var(--text); }
-
-  nav {
-    background: var(--ink);
-    padding: 0 48px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 56px;
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    background:var(--paper);color:var(--body);
+    font-family:'Jost',system-ui,sans-serif;
+    font-size:1.15rem;font-weight:400;line-height:1.72;
+    -webkit-font-smoothing:antialiased;
   }
-  .nav-brand { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: #fff; text-decoration: none; }
-  .nav-brand span { color: var(--pop); font-style: italic; }
-  .nav-links { display: flex; gap: 28px; list-style: none; }
-  .nav-links a { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
-  .nav-links a:hover { color: #fff; }
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  :focus-visible{outline:2px solid var(--plum);outline-offset:4px}
 
-  .post-hero {
-    background: var(--ink);
-    padding: 56px 48px 48px;
+  .plane-stone{background:var(--stone)}
+  .plane-dark{background:var(--dark)}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 48px}
+  .col{max-width:760px}
+
+  .top{
+    display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
+    gap:16px 28px;padding:34px 0 28px;
   }
-  .post-hero-inner { max-width: 800px; margin: 0 auto; }
-  .post-tag { display: inline-block; font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.14em; padding: 4px 10px; background: var(--pop); color: #fff; border-radius: 2px; margin-bottom: 20px; font-weight: 500; }
-  .post-date { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px; }
-  .post-title { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 900; line-height: 1.1; color: #fff; margin-bottom: 18px; }
-  .post-intro { font-size: 1rem; color: rgba(255,255,255,0.55); line-height: 1.75; max-width: 660px; }
-
-  .post-body { max-width: 800px; margin: 0 auto; padding: 48px 48px 80px; }
-
-  /* CTA-boks */
-  .cta-box {
-    background: var(--surface);
-    border: 1px solid rgba(184,74,46,0.4);
-    border-radius: 8px;
-    padding: 28px 32px;
-    margin-bottom: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
+  .signature{
+    font-family:'Cormorant Garamond',Georgia,serif;font-size:2rem;font-weight:400;
+    color:#F7F1F2;text-decoration:none;line-height:1.1;letter-spacing:.01em;
   }
-  .cta-box p { font-size: 0.95rem; color: var(--text); line-height: 1.6; }
-  .cta-box p strong { color: #fff; }
-  .cta-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--pop);
-    color: #fff;
-    text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 600;
-    padding: 12px 24px;
-    border-radius: 4px;
-    white-space: nowrap;
-    transition: background 0.2s;
-    flex-shrink: 0;
+  .menu{display:flex;flex-wrap:wrap;gap:32px;list-style:none;align-items:center}
+  .menu a{
+    font-size:1.04rem;color:#DCCDD3;text-decoration:none;padding-bottom:4px;
+    box-shadow:inset 0 -1px 0 transparent;
+    transition:color .22s ease,box-shadow .22s ease;
   }
-  .cta-btn:hover { background: var(--pop-dark); }
+  .menu a:hover{color:#F7F1F2;box-shadow:inset 0 -1px 0 #F7F1F2}
+  .menu .sub{color:var(--plum-soft);box-shadow:inset 0 -1px 0 #6B545E}
+  .menu .sub:hover{color:#F7F1F2;box-shadow:inset 0 -2px 0 #F7F1F2}
 
-  h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: #fff; margin: 36px 0 14px; }
-  p { font-size: 0.88rem; color: var(--muted); line-height: 1.85; margin-bottom: 16px; }
-  p strong { color: var(--text); }
-
-  /* Innholdsstruktur */
-  .outline { background: var(--surface); border-radius: 6px; padding: 24px 28px; margin: 28px 0; }
-  .outline-title { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--pop); font-weight: 600; margin-bottom: 16px; }
-  .outline-item { display: flex; align-items: baseline; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 0.83rem; color: var(--muted); }
-  .outline-item:last-child { border-bottom: none; }
-  .outline-num { font-family: 'Playfair Display', serif; font-size: 0.75rem; color: var(--pop); font-weight: 700; min-width: 24px; }
-  .outline-item span { color: var(--text); }
-
-  .nav-subscribe { font-size: 0.7rem; font-weight: 600; background: var(--pop); color: #fff; text-decoration: none; padding: 7px 16px; border-radius: 3px; transition: background 0.2s; }
-  .nav-subscribe:hover { background: var(--pop-dark); }
-  footer { background: var(--ink); padding: 24px 48px; display: flex; justify-content: space-between; align-items: center; font-size: 0.72rem; color: rgba(255,255,255,0.35); }
-  .footer-subscribe { font-size: 0.72rem; font-weight: 600; background: var(--pop); color: #fff; text-decoration: none; padding: 7px 16px; border-radius: 3px; transition: background 0.2s; }
-  .footer-subscribe:hover { background: var(--pop-dark); }
-
-  @media (max-width: 640px) {
-    nav, .post-hero, .post-body, footer { padding-left: 20px; padding-right: 20px; }
-    .post-title { font-size: 2rem; }
-    .cta-box { flex-direction: column; align-items: flex-start; }
-    .nav-links { display: none; }
+  .head{padding:40px 0 92px}
+  .head .meta{font-size:1.04rem;color:var(--plum-soft);margin-bottom:26px}
+  .head h1{
+    font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;
+    font-size:clamp(2.6rem,5.8vw,4.4rem);line-height:1.06;color:#F7F1F2;
+    max-width:18ch;margin-bottom:30px;
   }
+  .head .lead{font-size:1.3rem;line-height:1.7;color:#D6C5CB;max-width:54ch}
+  .head .action{
+    display:inline-block;margin-top:38px;background:var(--paper);color:var(--dark);
+    text-decoration:none;font-size:1.06rem;padding:17px 38px;transition:background .2s;
+  }
+  .head .action:hover{background:#fff}
+  .head .action-note{font-size:1.02rem;color:var(--plum-soft);margin-top:14px;max-width:46ch}
+
+  .prose{padding:84px 0 88px}
+  .prose h2{
+    font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:2.2rem;
+    line-height:1.16;color:var(--ink);margin:0 0 20px;
+  }
+  .prose h2.spacer{margin-top:64px}
+  .prose p{font-size:1.2rem;line-height:1.84;margin-bottom:22px}
+  .prose p:last-child{margin-bottom:0}
+  .prose strong{color:var(--ink);font-weight:500}
+  .prose em{font-style:italic}
+  .prose ul,.prose ol{padding-left:1.3em;font-size:1.18rem;line-height:1.8;margin-bottom:24px}
+  .prose li{margin-bottom:12px}
+  .prose a{color:var(--plum);text-decoration:none;box-shadow:inset 0 -1px 0 #CBB4BC}
+  .prose a:hover{box-shadow:inset 0 -2px 0 var(--plum)}
+
+  .callout{border-left:2px solid var(--plum);padding:4px 0 4px 30px;margin:36px 0}
+  .callout .label{font-size:1.04rem;color:var(--plum);margin-bottom:14px}
+  .callout p{font-size:1.18rem;margin-bottom:0}
+  .callout ul,.callout ol{padding-left:1.3em;font-size:1.14rem;line-height:1.78;margin:0}
+  .callout li{margin-bottom:12px}
+  .callout li:last-child{margin-bottom:0}
+
+  .pull{
+    font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;font-style:italic;
+    font-size:clamp(1.6rem,3.2vw,2.2rem);line-height:1.32;color:var(--ink);
+    max-width:26ch;margin:48px 0;
+  }
+
+  .note{font-size:1.04rem;color:var(--quiet);line-height:1.7;margin-bottom:22px}
+  .note a{color:var(--plum);text-decoration:none;box-shadow:inset 0 -1px 0 #CBB4BC}
+
+  .source{
+    font-size:1.04rem;color:var(--quiet);line-height:1.72;
+    border-top:1px solid var(--hair);padding-top:26px;margin-top:64px;
+  }
+  .source a{color:var(--plum);text-decoration:none;box-shadow:inset 0 -1px 0 #CBB4BC}
+
+  .steps{padding:88px 0 94px}
+  .steps h2{
+    font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:2.25rem;
+    color:var(--ink);margin-bottom:8px;
+  }
+  .steps .intro{font-size:1.1rem;color:var(--quiet);margin-bottom:40px;max-width:58ch}
+  .step{
+    display:grid;grid-template-columns:64px 1fr;gap:28px;align-items:start;
+    padding:28px 0;border-top:1px solid var(--hair-stone);max-width:900px;
+  }
+  .step .n{
+    font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;font-size:2.3rem;
+    color:var(--plum);line-height:1;
+  }
+  .step h3{
+    font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:1.55rem;
+    line-height:1.2;color:var(--ink);margin-bottom:10px;
+  }
+  .step p{font-size:1.12rem;line-height:1.7;margin:0}
+  .step p a{color:var(--plum);text-decoration:none;box-shadow:inset 0 -1px 0 #CBB4BC}
+
+  .video{margin:36px 0 14px;aspect-ratio:16/9;background:var(--stone)}
+  .video iframe{width:100%;height:100%;border:0;display:block}
+  .video-caption{font-size:1.04rem;color:var(--quiet);margin-bottom:44px}
+
+  .related{border-top:1px solid var(--hair);margin-top:72px;padding-top:14px}
+  .related .label{font-size:1.06rem;color:var(--plum);padding:16px 0 6px}
+  .related a{
+    display:block;text-decoration:none;padding:24px 26px;margin:0 -26px;
+    border-top:1px solid var(--hair);transition:background .26s ease;
+  }
+  .related a:hover{background:var(--stone)}
+  .related .when{display:block;font-size:1rem;color:var(--quiet);margin-bottom:8px}
+  .related h3{
+    font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:1.55rem;
+    line-height:1.24;color:var(--ink);transition:color .22s ease;
+  }
+  .related a:hover h3{color:var(--plum)}
+
+  .closing{
+    display:grid;grid-template-columns:1fr auto;gap:56px;align-items:center;
+    padding:92px 0 96px;
+  }
+  .closing h2{
+    font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-size:2.8rem;
+    line-height:1.1;color:#F7F1F2;margin-bottom:14px;max-width:17ch;
+  }
+  .closing p{color:var(--plum-soft);font-size:1.16rem;max-width:46ch}
+  .button{
+    display:inline-block;background:var(--paper);color:var(--dark);
+    text-decoration:none;font-size:1.06rem;padding:18px 42px;white-space:nowrap;
+    transition:background .2s;
+  }
+  .button:hover{background:#fff}
+
+  footer{
+    display:flex;flex-wrap:wrap;gap:12px 36px;justify-content:space-between;
+    padding:36px 0 64px;font-size:1rem;color:var(--quiet);
+  }
+  footer a{color:var(--quiet)}
+
+  @media (max-width:940px){
+    .wrap{padding:0 32px}
+    .closing{grid-template-columns:1fr;gap:32px}
+  }
+  @media (max-width:620px){
+    .wrap{padding:0 22px}
+    .head{padding:30px 0 64px}
+    .prose,.steps,.closing{padding:60px 0 66px}
+    .step{grid-template-columns:44px 1fr;gap:18px}
+    .step .n{font-size:1.8rem}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+  .kat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0 44px;max-width:1000px}
+  .kat-grid.to{grid-template-columns:repeat(2,1fr)}
+  .kat{padding:26px 0 30px;border-top:1px solid var(--hair-stone)}
+  .kat .label{font-size:1rem;color:var(--plum);margin-bottom:8px}
+  .kat h3{
+    font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:1.55rem;
+    line-height:1.2;color:var(--ink);margin-bottom:10px;
+  }
+  .kat p{font-size:1.05rem;line-height:1.66;margin:0 0 10px}
+  .kat p:last-child{margin-bottom:0}
+  .kat .k{color:var(--plum)}
+
+  .tablewrap{overflow-x:auto;margin:36px 0 40px}
+  table{width:100%;border-collapse:collapse;font-size:1.04rem}
+  th,td{padding:16px 18px 16px 0;border-bottom:1px solid var(--hair);vertical-align:top;text-align:left}
+  thead th{font-weight:500;color:var(--plum);border-bottom-color:var(--plum)}
+  td:first-child{color:var(--ink);white-space:nowrap;padding-right:28px}
+  table a{color:var(--plum);text-decoration:none;box-shadow:inset 0 -1px 0 #CBB4BC}
+  table a:hover{box-shadow:inset 0 -2px 0 var(--plum)}
+
+  @media (max-width:940px){.kat-grid,.kat-grid.to{grid-template-columns:1fr 1fr;gap:0 32px}}
+  @media (max-width:620px){.kat-grid,.kat-grid.to{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 
-<nav>
-  <a href="index.html" class="nav-brand">Mari-Ann <span>Letnes</span></a>
-  <ul class="nav-links">
-    <li><a href="omside.html">Om hjemmesiden</a></li>
-    <li><a href="forskning.html">Forskning</a></li>
-    <li><a href="publikasjoner.html">Publikasjoner</a></li>
-    <li><a href="https://mariletn.substack.com" target="_blank" rel="noopener" class="nav-subscribe">Abonner</a></li>
-  </ul>
-</nav>
+<div class="plane-dark">
+  <div class="wrap">
+    <header class="top">
+      <a href="index.html" class="signature">Mari-Ann Letnes</a>
+      <nav aria-label="Hovedmeny">
+        <ul class="menu">
+          <li><a href="omside.html">Om meg</a></li>
+          <li><a href="forskning.html">Forskning</a></li>
+          <li><a href="publikasjoner.html">Publikasjoner</a></li>
+          <li><a href="https://mariletn.substack.com" target="_blank" rel="noopener" class="sub">Abonner</a></li>
+        </ul>
+      </nav>
+    </header>
 
-<div class="post-hero">
-  <div class="post-hero-inner">
-    <span class="post-tag">Foredrag · Skoleledelse</span>
-    <div class="post-date">14. april 2026 · Gardermoen</div>
-    <h1 class="post-title">Hvordan utnytte GenAI for å realisere skolens samfunnsmandat om både danning og utdanning?</h1>
-    <p class="post-intro">Foredrag holdt på konferansen Viktigste Leder 2026 for rektorer. En gjennomgang av hva generativ KI gjør med læreprosessen, lærerens profesjonelle rolle og hvilke beslutninger rektor må ta.</p>
+    <article class="head">
+      <p class="meta">Foredrag, 14. april 2026 — Viktigste Leder, Gardermoen</p>
+      <h1>GenAI og skolens samfunnsmandat</h1>
+      <p class="lead">Kan KI true skolens danningsoppdrag, eller kan det forsterke det? Foredrag holdt for rektorer på konferansen Viktigste Leder 2026.</p>
+      <a href="https://mariannletnes.github.io/ledelse-ki-2026/" target="_blank" rel="noopener" class="action">Åpne presentasjonen</a>
+      <p class="action-note">Interaktiv, med alle slides, quiz og forskningsfunn.</p>
+    </article>
   </div>
 </div>
 
-<div class="post-body">
-
-  <div class="cta-box">
-    <p><strong>Se hele presentasjonen</strong><br>Interaktiv presentasjon med alle slides, quiz og forskningsfunn.</p>
-    <a class="cta-btn" href="https://mariannletnes.github.io/ledelse-ki-2026/" target="_blank" rel="noopener">Åpne presentasjonen →</a>
+<div class="wrap">
+  <div class="prose col">
+    <h2>Bakgrunn</h2>
+    <p>Konferansen Viktigste Leder samler rektorer fra hele landet. Foredraget tok utgangspunkt i ett spørsmål: kan KI true skolens danningsoppdrag, eller kan det forsterke det?</p>
+    <p>Med utgangspunkt i <strong>ICILS 2023</strong>, der 40 prosent av norske niendeklassinger ligger på laveste digitale nivå, i <strong>LK20</strong> og Udirs rammeverk for digital kompetanse, og i egne funn fra DIGIT-prosjektet ved NTNU, er svaret at det avhenger av de valgene skolelederne tar nå.</p>
   </div>
-
-  <h2>Bakgrunn</h2>
-  <p>Konferansen Viktigste Leder samler rektorer fra hele landet. Foredraget tok utgangspunkt i et sentralt spørsmål: Kan KI true skolens danningsoppdrag — eller kan det forsterke det?</p>
-  <p>Med utgangspunkt i <strong>ICILS 2023</strong> (40 % av norske 9.-klassinger på laveste digitale nivå), <strong>LK20</strong> og Udirs rammeverk for digital kompetanse, og egne forskningsfunn fra DIGIT-prosjektet ved NTNU, argumenterer foredraget for at svaret avhenger av de valgene skoleledere tar — nå.</p>
-
-  <h2>Presentasjonens innhold</h2>
-
-  <div class="outline">
-    <div class="outline-title">Struktur</div>
-    <div class="outline-item"><span class="outline-num">01</span><span>KI-teknologi-quiz — hvilke verktøy bruker du allerede i dag?</span></div>
-    <div class="outline-item"><span class="outline-num">02</span><span>Teknologi som trussel — fra Gessner (1548) til Sokrates</span></div>
-    <div class="outline-item"><span class="outline-num">03</span><span>Situasjonsanalyse — ICILS 2023 og LK20-rammeverket</span></div>
-    <div class="outline-item"><span class="outline-num">04</span><span>Profesjonsfaglig digital kompetanse — PDC og tre uløste problemer</span></div>
-    <div class="outline-item"><span class="outline-num">05</span><span>KI som læringsressurs — sju dimensjoner for læring</span></div>
-    <div class="outline-item"><span class="outline-num">06</span><span>Hva forskningen viser — elevenes egne ord fra podcastprosjektet</span></div>
-    <div class="outline-item"><span class="outline-num">07</span><span>KI-løsninger i norsk skole — Copilot, NDLA og Kommunal KI-portal</span></div>
-    <div class="outline-item"><span class="outline-num">08</span><span>Tre hovedpoenger for rektorer</span></div>
-  </div>
-
-  <h2>Tre poenger til rektorer</h2>
-  <p><strong>Balanse er alt.</strong> KI kan være gode verktøy for utdanning, men den tilstedeværende læreren er og blir den avgjørende garantisten for danningsprosjektet og læreprosesser.</p>
-  <p><strong>Mennesket i sentrum.</strong> Vi må utvikle og designe KI-løsninger som er pedagogisk forankret, og der elever og lærere har reell kontroll og eierskap.</p>
-  <p><strong>Legg bort KI-skammen.</strong> Vi må bygge en åpen, nysgjerrig og kritisk kultur rundt KI i skolen, der vi tør å snakke ærlig om både muligheter og utfordringer.</p>
-
-  <h2>Referanser og ressurser</h2>
-  <p>Letnes, M.-A. (2025). <em>Artikkelen i European Journal of Teacher Education (EJTE).</em> <a href="https://www.tandfonline.com/doi/full/10.1080/02619768.2025.2565634" target="_blank" style="color:var(--pop);">Les artikkelen →</a></p>
-  <p>Tømte, C., Kårstein, A. & Olsen, D.S. (2013). PDC-rammeverket for profesjonsfaglig digital kompetanse.</p>
-  <p>Udir (2024). <a href="https://www.udir.no/kvalitet-og-kompetanse/digitalisering-skole/kunstig-intelligens-ki-i-skolen/personvern-ki/" target="_blank" style="color:var(--pop);">Ta hensyn til personvernet ved bruk av KI →</a></p>
-
 </div>
 
-<footer>
-  <span>© Mari-Ann Letnes · Førsteamanuensis, NTNU</span>
-  <a href="https://mariletn.substack.com" target="_blank" rel="noopener" class="footer-subscribe">Abonner på nye innlegg →</a>
-  <span>mariannletnes.com</span>
-</footer>
-<script data-goatcounter="https://mariannletnes.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
+<div class="plane-stone">
+  <div class="wrap steps">
+    <h2>Presentasjonens innhold</h2>
+    <p class="intro">Åtte bolker, fra quiz til konklusjon.</p>
+    <div class="step"><span class="n">1</span><div><h3>KI-quiz</h3><p>Hvilke verktøy bruker du allerede i dag?</p></div></div>
+    <div class="step"><span class="n">2</span><div><h3>Teknologi som trussel</h3><p>Fra Gessner i 1548 til Sokrates.</p></div></div>
+    <div class="step"><span class="n">3</span><div><h3>Situasjonsanalyse</h3><p>ICILS 2023 og LK20-rammeverket.</p></div></div>
+    <div class="step"><span class="n">4</span><div><h3>Profesjonsfaglig digital kompetanse</h3><p>PfDK og tre uløste problemer.</p></div></div>
+    <div class="step"><span class="n">5</span><div><h3>KI som læringsressurs</h3><p>Sju dimensjoner for læring.</p></div></div>
+    <div class="step"><span class="n">6</span><div><h3>Hva forskningen viser</h3><p>Elevenes egne ord fra podkastprosjektet.</p></div></div>
+    <div class="step"><span class="n">7</span><div><h3>KI-løsninger i norsk skole</h3><p>Copilot, NDLA og kommunal KI-portal.</p></div></div>
+    <div class="step"><span class="n">8</span><div><h3>Tre hovedpoenger</h3><p>Det rektorene bør ta med seg videre.</p></div></div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="prose col">
+    <h2>Tre poenger til rektorer</h2>
+    <div class="callout">
+      <ul>
+        <li><strong>Balanse er alt.</strong> KI kan være gode verktøy for utdanning, men den tilstedeværende læreren er og blir den avgjørende garantisten for danningsprosjektet.</li>
+        <li><strong>Mennesket i sentrum.</strong> Vi må designe KI-løsninger som er pedagogisk forankret, og der elever og lærere har reell kontroll og eierskap.</li>
+        <li><strong>Legg bort KI-skammen.</strong> Vi må bygge en åpen, nysgjerrig og kritisk kultur der vi tør å snakke ærlig om både muligheter og utfordringer.</li>
+      </ul>
+    </div>
+
+    <h2 class="spacer">Referanser</h2>
+    <p>Letnes, M.-A. (2025). The ICT coordinator as a mediating actor in the development of professional digital competence within a school-based activity system. <em>European Journal of Teacher Education</em>. <a href="https://doi.org/10.1080/02619768.2025.2565634" target="_blank" rel="noopener">doi.org/10.1080/02619768.2025.2565634</a></p>
+    <p>Tømte, C., Kårstein, A., &amp; Olsen, D. S. (2013). Rammeverket for profesjonsfaglig digital kompetanse.</p>
+    <p>Utdanningsdirektoratet (2024). <a href="https://www.udir.no/kvalitet-og-kompetanse/digitalisering-skole/kunstig-intelligens-ki-i-skolen/personvern-ki/" target="_blank" rel="noopener">Ta hensyn til personvernet ved bruk av KI</a>.</p>
+  </div>
+</div>
+
+<div class="plane-dark">
+  <div class="wrap">
+    <section class="closing">
+      <div>
+        <h2>Nye innlegg rett i innboksen</h2>
+        <p>Jeg skriver om forskning, undervisning og digital teknologi i pedagogisk praksis.</p>
+      </div>
+      <a href="https://mariletn.substack.com" target="_blank" rel="noopener" class="button">Abonner</a>
+    </section>
+  </div>
+</div>
+
+<div class="wrap">
+  <footer>
+    <span>© Mari-Ann Letnes, førsteamanuensis ved NTNU</span>
+    <a href="index.html">Til alle innlegg</a>
+  </footer>
+</div>
+
 </body>
 </html>

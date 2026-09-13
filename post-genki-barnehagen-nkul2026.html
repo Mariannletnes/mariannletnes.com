@@ -1,257 +1,333 @@
 <!DOCTYPE html>
-<html lang="no">
+<html lang="nb">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>GenKI i barnehagen — NKUL 2026 · Mari-Ann Letnes</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231c1a17'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='16' font-weight='bold' fill='%23b84a2e' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<meta name="description" content="Muligheter, epistemologiske spørsmål og pedagogisk skjønn i møtet med generativ KI. Åtte kategorier for meningsfull KI-bruk i barnehagen, fra NKUL 2026.">
+<meta property="og:title" content="GenKI i barnehagen — NKUL 2026">
+<meta property="og:description" content="Åtte kategorier for meningsfull KI-bruk i barnehagen — fire for de voksne og fire sammen med barna.">
+<meta property="og:image" content="https://mariannletnes.com/portrett-mork.jpg">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mariannletnes.com/post-genki-barnehagen-nkul2026.html">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%23332830'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='15' fill='%23F8F4F1' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #181614; --text: #e8e4de; --muted: #9a9088; --border: rgba(255,255,255,0.07);
-    --ink: #1c1a17; --pop: #b84a2e; --pop-dark: #8f3820; --pop-light: rgba(184,74,46,0.15); --surface: #242220;
+  /* Palett: to nøytrale trinn, én mørk forankring, én aksent.
+     papir F8F4F1 · stein EDE7E2 · mørk 332830 · plomme 6E4B57 */
+  :root{
+    --paper:#F8F4F1;
+    --stone:#EDE7E2;
+    --dark:#332830;
+    --plum:#6E4B57;
+    --plum-soft:#B79BA4;
+    --ink:#4A3C43;
+    --body:#5E4F55;
+    --quiet:#7E6F74;
+    --hair:#E1D8D1;
+    --hair-stone:#DBD1C9;
   }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: var(--bg); font-family: 'Inter', sans-serif; color: var(--text); }
-
-  nav { background: var(--ink); padding: 0 48px; display: flex; align-items: center; justify-content: space-between; height: 56px; }
-  .nav-brand { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: #fff; text-decoration: none; }
-  .nav-brand span { color: var(--pop); font-style: italic; }
-  .nav-links { display: flex; gap: 28px; list-style: none; }
-  .nav-links a { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
-  .nav-links a:hover { color: #fff; }
-  .nav-subscribe { font-size: 0.7rem; font-weight: 600; background: var(--pop); color: #fff; text-decoration: none; padding: 7px 16px; border-radius: 3px; transition: background 0.2s; white-space: nowrap; }
-  .nav-subscribe:hover { background: var(--pop-dark); }
-
-  .post-header { background: var(--ink); padding: 64px 48px 56px; }
-  .post-header-inner { max-width: 780px; margin: 0 auto; }
-  .post-meta { display: flex; gap: 12px; align-items: center; margin-bottom: 20px; flex-wrap: wrap; }
-  .post-tag { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.12em; padding: 4px 10px; background: var(--pop); color: #fff; border-radius: 2px; font-weight: 500; }
-  .post-tag.secondary { background: transparent; border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.55); }
-  .post-date { font-size: 0.7rem; color: var(--muted); letter-spacing: 0.06em; }
-  .post-header h1 { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 900; line-height: 1.1; color: #fff; margin-bottom: 20px; }
-  .post-header h1 em { color: var(--pop); font-weight: 400; font-style: italic; }
-  .post-header .lead { font-size: 1rem; color: rgba(255,255,255,0.6); line-height: 1.7; max-width: 600px; }
-
-  .post-cta {
-    background: var(--pop);
-    padding: 28px 48px;
-    display: flex; align-items: center; gap: 32px; flex-wrap: wrap;
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    background:var(--paper);color:var(--body);
+    font-family:'Jost',system-ui,sans-serif;
+    font-size:1.15rem;font-weight:400;line-height:1.72;
+    -webkit-font-smoothing:antialiased;
   }
-  .post-cta p { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: #fff; }
-  .post-cta a {
-    display: inline-block; background: #fff; color: var(--pop);
-    font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
-    padding: 12px 28px; border-radius: 3px; text-decoration: none;
-    transition: background 0.2s; white-space: nowrap;
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  :focus-visible{outline:2px solid var(--plum);outline-offset:4px}
+
+  .plane-stone{background:var(--stone)}
+  .plane-dark{background:var(--dark)}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 48px}
+  .col{max-width:760px}
+
+  /* ---------- topp ---------- */
+  .top{
+    display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
+    gap:16px 28px;padding:34px 0 28px;
   }
-  .post-cta a:hover { background: #f0ece6; }
-
-  .post-body { max-width: 780px; margin: 0 auto; padding: 56px 48px 80px; }
-
-  .post-body h2 { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--text); margin: 40px 0 16px; }
-  .post-body h2:first-child { margin-top: 0; }
-  .post-body p { font-size: 0.88rem; color: var(--muted); line-height: 1.8; margin-bottom: 14px; }
-  .post-body strong { color: var(--text); font-weight: 500; }
-
-  /* Kategorikort */
-  .struktur-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 20px 0; }
-  .to-col { grid-template-columns: repeat(2, 1fr); }
-
-  .struktur-card {
-    background: var(--surface); border-radius: 4px; padding: 18px 16px;
-    display: flex; flex-direction: column; gap: 8px;
-    border-top: 2px solid var(--border);
+  .signature{
+    font-family:'Cormorant Garamond',Georgia,serif;font-size:2rem;font-weight:400;
+    color:#F7F1F2;text-decoration:none;line-height:1.1;letter-spacing:.01em;
   }
-  .struktur-card.accent { border-top-color: var(--pop); }
-  .struktur-card .num { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 900; color: var(--pop); line-height: 1; }
-  .struktur-card .kat-label { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--pop); font-weight: 500; }
-  .struktur-card strong { font-size: 0.85rem; color: var(--text); font-weight: 600; }
-  .struktur-card p { font-size: 0.76rem; color: var(--muted); line-height: 1.55; margin: 0; }
-
-  /* Disc-blokk */
-  .disc-block {
-    border-left: 3px solid var(--pop);
-    padding: 14px 18px;
-    background: var(--surface);
-    border-radius: 0 4px 4px 0;
-    margin: 16px 0;
+  .menu{display:flex;flex-wrap:wrap;gap:32px;list-style:none;align-items:center}
+  .menu a{
+    font-size:1.04rem;color:#DCCDD3;text-decoration:none;padding-bottom:4px;
+    box-shadow:inset 0 -1px 0 transparent;
+    transition:color .22s ease,box-shadow .22s ease;
   }
-  .disc-block .disc-label { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--pop); font-weight: 600; margin-bottom: 6px; }
-  .disc-block p { font-size: 0.82rem; color: var(--muted); line-height: 1.65; margin-bottom: 0; }
+  .menu a:hover{color:#F7F1F2;box-shadow:inset 0 -1px 0 #F7F1F2}
+  .menu .sub{color:var(--plum-soft);box-shadow:inset 0 -1px 0 #6B545E}
+  .menu .sub:hover{color:#F7F1F2;box-shadow:inset 0 -2px 0 #F7F1F2}
 
-  /* Sitat */
-  blockquote {
-    border-left: 3px solid var(--pop);
-    padding: 14px 18px;
-    background: var(--surface);
-    border-radius: 0 4px 4px 0;
-    margin: 20px 0;
-    font-family: 'Playfair Display', serif;
-    font-size: 0.95rem;
-    font-style: italic;
-    color: rgba(232,228,222,0.75);
-    line-height: 1.6;
+  /* ---------- artikkeltopp ---------- */
+  .head{padding:40px 0 92px}
+  .head .meta{font-size:1.04rem;color:var(--plum-soft);margin-bottom:26px}
+  .head h1{
+    font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;
+    font-size:clamp(2.8rem,6.4vw,4.8rem);line-height:1.05;color:#F7F1F2;
+    max-width:16ch;margin-bottom:30px;
+  }
+  .head .lead{font-size:1.3rem;line-height:1.7;color:#D6C5CB;max-width:52ch}
+  .head .action{
+    display:inline-block;margin-top:38px;background:var(--paper);color:var(--dark);
+    text-decoration:none;font-size:1.06rem;padding:17px 38px;transition:background .2s;
+  }
+  .head .action:hover{background:#fff}
+  .head .action-note{font-size:1.02rem;color:var(--plum-soft);margin-top:14px;max-width:46ch}
+
+  /* ---------- brødtekst ---------- */
+  .prose{padding:84px 0 88px}
+  .prose h2{
+    font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:2.2rem;
+    line-height:1.16;color:var(--ink);margin:0 0 20px;
+  }
+  .prose h2.spacer{margin-top:64px}
+  .prose p{font-size:1.2rem;line-height:1.84;margin-bottom:22px}
+  .prose p:last-child{margin-bottom:0}
+  .prose strong{color:var(--ink);font-weight:500}
+
+  .callout{
+    border-left:2px solid var(--plum);padding:4px 0 4px 30px;margin:36px 0;
+  }
+  .callout .label{font-size:1.04rem;color:var(--plum);margin-bottom:14px}
+  .callout ul,.callout ol{padding-left:1.3em;font-size:1.14rem;line-height:1.78}
+  .callout li{margin-bottom:12px}
+  .callout li:last-child{margin-bottom:0}
+  .callout strong{color:var(--ink);font-weight:500}
+
+  .source{
+    font-size:1.04rem;color:var(--quiet);line-height:1.72;
+    border-top:1px solid var(--hair);padding-top:26px;margin-top:64px;
+  }
+  .source a{color:var(--plum);text-decoration:none;box-shadow:inset 0 -1px 0 #CBB4BC}
+  .source a:hover{box-shadow:inset 0 -2px 0 var(--plum)}
+
+  /* ---------- kategorier ---------- */
+  .kats{padding:88px 0 94px}
+  .kats h2{
+    font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:2.25rem;
+    color:var(--ink);margin-bottom:8px;
+  }
+  .kats .note{font-size:1.1rem;color:var(--quiet);margin-bottom:44px;max-width:58ch}
+  .group-label{
+    font-size:1.1rem;color:var(--plum);margin:0 0 6px;
+  }
+  .group-label.second{margin-top:64px}
+  .kat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0 40px}
+  .kat{padding:26px 0 30px;border-top:1px solid var(--hair-stone)}
+  .kat .label{font-size:1rem;color:var(--plum);margin-bottom:8px}
+  .kat h3{
+    font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:1.55rem;
+    line-height:1.2;color:var(--ink);margin-bottom:10px;
+  }
+  .kat p{font-size:1.05rem;line-height:1.66}
+
+  /* ---------- spørsmål ---------- */
+  .questions{padding:88px 0 94px}
+  .questions .label{font-size:1.1rem;color:var(--plum);margin-bottom:40px}
+  .q{
+    font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;font-style:italic;
+    font-size:clamp(1.7rem,3.6vw,2.5rem);line-height:1.3;color:var(--ink);
+    padding:34px 0;border-top:1px solid var(--hair-stone);max-width:28ch;
   }
 
-  /* Highlight boks */
-  .highlight {
-    background: var(--surface);
-    border-radius: 4px;
-    padding: 20px 20px;
-    margin: 20px 0;
-    border-top: 2px solid var(--pop);
+  /* ---------- avslutning ---------- */
+  .closing{
+    display:grid;grid-template-columns:1fr auto;gap:56px;align-items:center;
+    padding:92px 0 96px;
   }
-  .highlight .hl-label { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--pop); font-weight: 600; margin-bottom: 10px; }
-  .highlight ol, .highlight ul { padding-left: 1.25rem; font-size: 0.82rem; color: var(--muted); line-height: 1.8; }
-  .highlight li { margin-bottom: 6px; }
-  .highlight strong { color: var(--text); font-weight: 500; }
+  .closing h2{
+    font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-size:2.8rem;
+    line-height:1.1;color:#F7F1F2;margin-bottom:14px;max-width:17ch;
+  }
+  .closing p{color:var(--plum-soft);font-size:1.16rem;max-width:46ch}
+  .button{
+    display:inline-block;background:var(--paper);color:var(--dark);
+    text-decoration:none;font-size:1.06rem;padding:18px 42px;white-space:nowrap;
+    transition:background .2s;
+  }
+  .button:hover{background:#fff}
 
-  footer { background: var(--ink); padding: 24px 48px; display: flex; justify-content: space-between; align-items: center; font-size: 0.72rem; color: rgba(255,255,255,0.35); }
-  .footer-subscribe { font-size: 0.72rem; font-weight: 600; background: var(--pop); color: #fff; text-decoration: none; padding: 7px 16px; border-radius: 3px; transition: background 0.2s; }
-  .footer-subscribe:hover { background: var(--pop-dark); }
+  footer{
+    display:flex;flex-wrap:wrap;gap:12px 36px;justify-content:space-between;
+    padding:36px 0 64px;font-size:1rem;color:var(--quiet);
+  }
+  footer a{color:var(--quiet)}
 
-  .grunnlag { font-size: 0.76rem; color: var(--muted); border-top: 1px solid var(--border); padding-top: 20px; margin-top: 40px; line-height: 1.7; }
-  .grunnlag a { color: var(--pop); text-decoration: none; }
-
-  @media (max-width: 640px) {
-    nav, .post-body, footer { padding-left: 20px; padding-right: 20px; }
-    .post-header, .post-cta { padding-left: 20px; padding-right: 20px; }
-    .post-header h1 { font-size: 2rem; }
-    .nav-links { display: none; }
-    .struktur-grid { grid-template-columns: 1fr 1fr; }
+  @media (max-width:940px){
+    .wrap{padding:0 32px}
+    .kat-grid{grid-template-columns:1fr 1fr;gap:0 36px}
+    .closing{grid-template-columns:1fr;gap:32px}
+  }
+  @media (max-width:620px){
+    .wrap{padding:0 22px}
+    .kat-grid{grid-template-columns:1fr}
+    .head{padding:30px 0 64px}
+    .prose,.kats,.questions,.closing{padding:60px 0 66px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none!important}
   }
 </style>
 </head>
 <body>
 
-<nav>
-  <a href="index.html" class="nav-brand">Mari-Ann <span>Letnes</span></a>
-  <ul class="nav-links">
-    <li><a href="omside.html">Om hjemmesiden</a></li>
-    <li><a href="forskning.html">Forskning</a></li>
-    <li><a href="publikasjoner.html">Publikasjoner</a></li>
-    <li><a href="https://mariletn.substack.com" target="_blank" rel="noopener" class="nav-subscribe">Abonner</a></li>
-  </ul>
-</nav>
+<div class="plane-dark">
+  <div class="wrap">
+    <header class="top">
+      <a href="index.html" class="signature">Mari-Ann Letnes</a>
+      <nav aria-label="Hovedmeny">
+        <ul class="menu">
+          <li><a href="omside.html">Om meg</a></li>
+          <li><a href="forskning.html">Forskning</a></li>
+          <li><a href="publikasjoner.html">Publikasjoner</a></li>
+          <li><a href="https://mariletn.substack.com" target="_blank" rel="noopener" class="sub">Abonner</a></li>
+        </ul>
+      </nav>
+    </header>
 
-<div class="post-header">
-  <div class="post-header-inner">
-    <div class="post-meta">
-      <span class="post-tag">Foredrag</span>
-      <span class="post-tag secondary">KI · Barnehage · Danning</span>
-      <span class="post-date">Mai 2026 · NKUL, Trondheim</span>
-    </div>
-    <h1>GenKI i <em>barnehagen</em></h1>
-    <p class="lead">Muligheter, epistemologiske spørsmål og pedagogisk skjønn i møtet med generativ KI. Presentasjon holdt på NKUL 2026 i Trondheim — med åtte kategorier for meningsfull KI-bruk i barnehagen.</p>
+    <article class="head">
+      <p class="meta">Foredrag, mai 2026 — NKUL i Trondheim</p>
+      <h1>GenKI i barnehagen</h1>
+      <p class="lead">Muligheter, epistemologiske spørsmål og pedagogisk skjønn i møtet med generativ KI. Åtte kategorier for meningsfull KI-bruk i barnehagen.</p>
+      <a href="https://mariannletnes.github.io/genkiibarnehagen/" target="_blank" rel="noopener" class="action">Åpne presentasjonen</a>
+      <p class="action-note">Den interaktive versjonen med refleksjonsforum og fagområdematrise.</p>
+    </article>
   </div>
 </div>
 
-<div class="post-cta">
-  <p>Se den interaktive presentasjonen — med refleksjonsforum og fagområdematrise</p>
-  <a href="https://mariannletnes.github.io/genkiibarnehagen/" target="_blank">Åpne presentasjonen →</a>
+<div class="wrap">
+  <div class="prose col">
+    <h2>Bakgrunn</h2>
+    <p>Teknologi har alltid blitt oppfattet som trussel før den overtas som kultur. Conrad Gessner advarte på 1500-tallet om at boktrykkerkunsten ville drukne menneskene i informasjon. Sokrates fryktet at skriftspråket ville svekke evnen vår til å tenke. Nå er det KI sin tur, og spørsmålet er det samme: hva mister vi, og hva vinner vi?</p>
+    <p>For barnehagen er dette ikke bare et teknologisk spørsmål. Det er dypt pedagogisk og epistemologisk. Hvem har definisjonsmakten over det pedagogiske rommet? Hva forstår vi som kunnskap, lek og danning i møte med algoritmer som simulerer klokskap?</p>
+
+    <h2 class="spacer">To grupper</h2>
+    <p>Presentasjonen organiserer KI-bruk i barnehagen i to grupper: det de voksne gjør <strong>for</strong> barna, og det de gjør <strong>sammen med</strong> barna. Det er et enkelt skille, men det avgjør hvem som har hånden på rattet.</p>
+  </div>
 </div>
 
-<div class="post-body">
+<div class="plane-stone">
+  <div class="wrap kats">
+    <h2>Åtte kategorier</h2>
+    <p class="note">Fire for de voksne, fire sammen med barna.</p>
 
-  <h2>Bakgrunn</h2>
-  <p>Teknologi har alltid blitt oppfattet som trussel før den overtas som kultur. Conrad Gessner advarte på 1500-tallet om at boktrykkerkunsten ville drukne menneskene i informasjon. Sokrates fryktet at skriftspråket ville svekke vår evne til å tenke. Nå er det KI sin tur — og igjen er spørsmålet det samme: Hva mister vi, og hva vinner vi?</p>
-  <p>For barnehagen er spørsmålet ikke bare teknologisk — det er dypt pedagogisk og epistemologisk. Hvem har definisjonsmakten over det pedagogiske rommet? Hva forstår vi som kunnskap, lek og danning i møte med algoritmer som simulerer klokskap?</p>
+    <p class="group-label">For de voksne</p>
+    <div class="kat-grid">
+      <div class="kat">
+        <p class="label">Planlegging</p>
+        <h3>Pedagogisk iscenesetting</h3>
+        <p>KI som arkitekt for magiske møter — aktivitetsdesign, atmosfære, narrativ støtte og forenkling.</p>
+      </div>
+      <div class="kat">
+        <p class="label">Refleksjon</p>
+        <h3>Profesjonsfaglig dveling</h3>
+        <p>KI som analytisk partner for å gå i dybden på praksis og drøfte etiske dilemmaer.</p>
+      </div>
+      <div class="kat">
+        <p class="label">Relasjon</p>
+        <h3>Inkluderende fellesskap</h3>
+        <p>KI som brobygger mellom barnehagen, hjemmet og barnas ulike bakgrunner.</p>
+      </div>
+      <div class="kat">
+        <p class="label">Logistikk</p>
+        <h3>Administrativ støtte</h3>
+        <p>Effektivt kontorarbeid som frigjør tid til det direkte arbeidet med barna.</p>
+      </div>
+    </div>
 
-  <h2>To grupper, åtte kategorier</h2>
-  <p>Presentasjonen organiserer KI-bruk i barnehagen i to grupper: det de voksne gjør <strong>for</strong> barna, og det de gjør <strong>med</strong> barna.</p>
-
-  <p style="font-size:0.72rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--pop); margin-bottom:8px; margin-top:24px;">For de voksne</p>
-  <div class="struktur-grid">
-    <div class="struktur-card accent">
-      <span class="kat-label">Planlegging</span>
-      <strong>Pedagogisk iscenesetting</strong>
-      <p>KI som arkitekt for magiske møter — aktivitetsdesign, atmosfære, narrativ støtte og forenkling.</p>
-    </div>
-    <div class="struktur-card accent">
-      <span class="kat-label">Refleksjon</span>
-      <strong>Profesjonsfaglig dveling</strong>
-      <p>KI som analytisk partner for å gå i dybden på praksis og drøfte etiske dilemmaer.</p>
-    </div>
-    <div class="struktur-card accent">
-      <span class="kat-label">Relasjon</span>
-      <strong>Inkluderende fellesskap</strong>
-      <p>KI som brobygger mellom barnehage, hjem og barnas ulike bakgrunner.</p>
-    </div>
-    <div class="struktur-card accent">
-      <span class="kat-label">Logistikk</span>
-      <strong>Administrativ støtte</strong>
-      <p>Effektivt kontorarbeid for å frigjøre tid til det direkte arbeidet med barna.</p>
-    </div>
-  </div>
-
-  <p style="font-size:0.72rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--pop); margin-bottom:8px; margin-top:20px;">Med barna</p>
-  <div class="struktur-grid">
-    <div class="struktur-card">
-      <span class="kat-label">Samspill</span>
-      <strong>Interaksjon</strong>
-      <p>KI som den digitale lekekameraten — multimodalt samspill der barnet, pedagogen og KI møtes.</p>
-    </div>
-    <div class="struktur-card">
-      <span class="kat-label">Selvuttrykk</span>
-      <strong>Kommunikasjon</strong>
-      <p>KI som støttestillas for barnas stemme — digitalt selvuttrykk før de mestrer skriftspråket.</p>
-    </div>
-    <div class="struktur-card">
-      <span class="kat-label">Fantasi</span>
-      <strong>Visualisering</strong>
-      <p>Fra barnets indre bilde til delt virkelighet på avdelingen — fra tanke til bilde på sekunder.</p>
-    </div>
-    <div class="struktur-card">
-      <span class="kat-label">Bevegelse</span>
-      <strong>Simulering</strong>
-      <p>Fra skjerm til gulv — det digitale som springbrett for kroppslig læring og bevegelse.</p>
+    <p class="group-label second">Sammen med barna</p>
+    <div class="kat-grid">
+      <div class="kat">
+        <p class="label">Samspill</p>
+        <h3>Interaksjon</h3>
+        <p>KI som den digitale lekekameraten — multimodalt samspill der barnet, pedagogen og KI møtes.</p>
+      </div>
+      <div class="kat">
+        <p class="label">Selvuttrykk</p>
+        <h3>Kommunikasjon</h3>
+        <p>KI som støttestillas for barnas stemme, før de mestrer skriftspråket.</p>
+      </div>
+      <div class="kat">
+        <p class="label">Fantasi</p>
+        <h3>Visualisering</h3>
+        <p>Fra barnets indre bilde til delt virkelighet på avdelingen, på sekunder.</p>
+      </div>
+      <div class="kat">
+        <p class="label">Bevegelse</p>
+        <h3>Simulering</h3>
+        <p>Fra skjerm til gulv — det digitale som springbrett for kroppslig læring.</p>
+      </div>
     </div>
   </div>
-
-  <h2>Personvern og GDPR</h2>
-  <p>Et gjennomgående tema i presentasjonen er barns personvern. Barnehagen behandler sensitive opplysninger om de yngste og mest sårbare — og dette setter strenge grenser for hvilken KI som kan brukes, og til hva.</p>
-
-  <div class="highlight">
-    <div class="hl-label">Viktigst å huske</div>
-    <ul>
-      <li>Bruk aldri kommersielle KI-verktøy til å behandle personopplysninger om barn, foresatte eller kolleger</li>
-      <li>Observasjonsnotater om enkeltbarn er personopplysninger — også uten navn</li>
-      <li>Lydopptak av barn skal ikke sendes inn i KI-verktøy uten samtykke og databehandleravtale</li>
-      <li>KI-verktøy kan lage profiler av din bruk — brukt til formål du ikke kontrollerer</li>
-      <li>Spør styrer: hvilken KI-løsning har barnehagen, og hva er det inngått databehandleravtale for?</li>
-    </ul>
-  </div>
-
-  <h2>Tre epistemologiske spørsmål</h2>
-  <p>Presentasjonen løfter frem tre spørsmål som ikke har enkle svar, men som er avgjørende å stille i barnehagen:</p>
-
-  <blockquote>Hva forstår vi som «god» lek i vår barnehage — og kan barn leke digitalt?</blockquote>
-  <blockquote>Hvordan opplever vi danning i vår samtid — hva er det som former de barna som vokser opp i dag?</blockquote>
-  <blockquote>Er det algoritmene eller barnehagelærerens profesjonelle skjønn som skal iscenesette det pedagogiske rommet?</blockquote>
-
-  <h2>Tre hovedpoenger</h2>
-
-  <div class="highlight">
-    <div class="hl-label">Oppsummering</div>
-    <ol>
-      <li><strong>Balanse er alt.</strong> KI kan være gode verktøy for utdanning, men den tilstedeværende pedagogen er og blir den avgjørende garantisten for danningsprosjektet.</li>
-      <li><strong>Mennesket i sentrum.</strong> Vi må utvikle KI-løsninger der barn og lærere har reell kontroll og eierskap.</li>
-      <li><strong>Legg bort KI-skammen.</strong> Vi trenger en åpen, nysgjerrig og kritisk kultur der vi tør å snakke ærlig om både muligheter og utfordringer.</li>
-    </ol>
-  </div>
-
-  <div class="grunnlag">
-    <strong>Grunnlag:</strong> Dette innlegget er basert på presentasjonen «GenKI i barnehagen» holdt på NKUL 2026, Trondheim. Faglig forankret i Rammeplan for barnehagen og forskning på digital kompetanse i barnehagesektoren. Publisert under <a href="https://creativecommons.org/licenses/by/4.0/deed.no" target="_blank">CC BY 4.0</a> · Mari-Ann Letnes, NTNU.
-  </div>
-
 </div>
 
-<footer>
-  <span>© Mari-Ann Letnes · Førsteamanuensis, NTNU · mariannletnes.com</span>
-  <a href="https://mariletn.substack.com" target="_blank" rel="noopener" class="footer-subscribe">Abonner på nye innlegg →</a>
-</footer>
-<script data-goatcounter="https://mariannletnes.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
+<div class="wrap">
+  <div class="prose col">
+    <h2>Personvern</h2>
+    <p>Et gjennomgående tema i presentasjonen er barnas personvern. Barnehagen behandler sensitive opplysninger om de yngste og mest sårbare, og det setter strenge grenser for hvilken KI som kan brukes, og til hva.</p>
+
+    <div class="callout">
+      <p class="label">Viktigst å huske</p>
+      <ul>
+        <li>Bruk aldri kommersielle KI-verktøy til å behandle personopplysninger om barn, foresatte eller kolleger.</li>
+        <li>Observasjonsnotater om enkeltbarn er personopplysninger, også uten navn.</li>
+        <li>Lydopptak av barn skal ikke sendes inn i KI-verktøy uten samtykke og databehandleravtale.</li>
+        <li>KI-verktøy kan lage profiler av bruken din, til formål du ikke kontrollerer.</li>
+        <li>Spør styrer: hvilken KI-løsning har barnehagen, og hva er det inngått databehandleravtale for?</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="plane-stone">
+  <div class="wrap questions">
+    <p class="label">Tre spørsmål uten enkle svar</p>
+    <p class="q">Hva forstår vi som «god» lek i vår barnehage — og kan barn leke digitalt?</p>
+    <p class="q">Hvordan opplever vi danning i vår samtid, og hva former de barna som vokser opp i dag?</p>
+    <p class="q">Er det algoritmene eller barnehagelærerens skjønn som skal iscenesette det pedagogiske rommet?</p>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="prose col">
+    <h2>Tre hovedpoenger</h2>
+    <div class="callout">
+      <ol>
+        <li><strong>Balanse er alt.</strong> KI kan være gode verktøy for utdanning, men den tilstedeværende pedagogen er og blir den avgjørende garantisten for danningsprosjektet.</li>
+        <li><strong>Mennesket i sentrum.</strong> Vi må utvikle KI-løsninger der barn og lærere har reell kontroll og eierskap.</li>
+        <li><strong>Legg bort KI-skammen.</strong> Vi trenger en åpen, nysgjerrig og kritisk kultur der vi tør å snakke ærlig om både muligheter og utfordringer.</li>
+      </ol>
+    </div>
+
+    <p class="source"><strong>Grunnlag:</strong> Innlegget bygger på presentasjonen «GenKI i barnehagen», holdt på NKUL 2026 i Trondheim. Faglig forankret i Rammeplan for barnehagen og i forskning på digital kompetanse i barnehagesektoren. Publisert under <a href="https://creativecommons.org/licenses/by/4.0/deed.no" target="_blank" rel="noopener">CC BY 4.0</a>.</p>
+  </div>
+</div>
+
+<div class="plane-dark">
+  <div class="wrap">
+    <section class="closing">
+      <div>
+        <h2>Nye innlegg rett i innboksen</h2>
+        <p>Jeg skriver om forskning, undervisning og digital teknologi i pedagogisk praksis.</p>
+      </div>
+      <a href="https://mariletn.substack.com" target="_blank" rel="noopener" class="button">Abonner</a>
+    </section>
+  </div>
+</div>
+
+<div class="wrap">
+  <footer>
+    <span>© Mari-Ann Letnes, førsteamanuensis ved NTNU</span>
+    <a href="index.html">Til alle innlegg</a>
+  </footer>
+</div>
+
 </body>
 </html>
