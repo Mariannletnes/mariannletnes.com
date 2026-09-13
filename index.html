@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mari-Ann Letnes — digital teknologi i pedagogisk praksis</title>
-<meta name="description" content="Mari-Ann Letnes er førsteamanuensis ved NTNU og skriver om barns og læreres møte med digital teknologi, fra barnehage til høyere utdanning.">
+<meta name="description" content="Mari-Ann Letnes er førsteamanuensis i pedagogikk ved Institutt for lærerutdanning, NTNU, og arbeider med profesjonsfaglig digital kompetanse, danning og estetiske læreprosesser i barnehage, skole og lærerutdanning.">
 <meta property="og:title" content="Mari-Ann Letnes">
-<meta property="og:description" content="Digital teknologi i pedagogisk praksis — fra barnehage til høyere utdanning.">
+<meta property="og:description" content="Profesjonsfaglig digital kompetanse, danning og estetiske læreprosesser — i barnehage, skole og lærerutdanning.">
 <meta property="og:image" content="https://mariannletnes.com/portrett-mork.jpg">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://mariannletnes.com">
@@ -51,7 +51,7 @@
     gap:16px 28px;padding:34px 0 28px;
   }
   .signature{
-    font-family:'Cormorant Garamond',Georgia,serif;font-size:2rem;font-weight:400;
+    font-family:'Cormorant Garamond',Georgia,serif;font-size:1.55rem;font-weight:400;
     color:var(--ink);text-decoration:none;line-height:1.1;letter-spacing:.01em;
   }
   .menu{display:flex;flex-wrap:wrap;gap:32px;list-style:none;align-items:center}
@@ -71,12 +71,23 @@
   }
   .role{font-size:1.04rem;color:var(--quiet);margin-bottom:26px}
   .hero h1{
-    font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;
-    font-size:clamp(3rem,7vw,5.2rem);line-height:1.04;color:var(--ink);
-    max-width:13ch;margin-bottom:30px;
+    font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;
+    font-size:clamp(2.9rem,6vw,4.4rem);line-height:1.02;color:var(--ink);
+    margin-bottom:18px;letter-spacing:-.005em;
   }
-  .hero h1 i{font-weight:400}
-  .hero .lede{font-size:1.3rem;line-height:1.7;color:var(--body);max-width:42ch}
+  .hero .affil{
+    font-size:1.22rem;line-height:1.5;color:var(--plum);
+    max-width:36ch;margin-bottom:34px;
+  }
+  .hero .affil span{
+    display:block;margin-top:8px;font-size:1.06rem;line-height:1.5;color:var(--quiet);
+  }
+  .hero .tagline{
+    font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;font-style:italic;
+    font-size:clamp(1.8rem,3.4vw,2.5rem);line-height:1.16;color:var(--ink);
+    max-width:16ch;margin-bottom:22px;
+  }
+  .hero .lede{font-size:1.24rem;line-height:1.7;color:var(--body);max-width:42ch}
   .portrait{display:block;text-decoration:none}
   .shots{display:block;position:relative;line-height:0}
   .shots img{width:100%;height:auto}
@@ -147,9 +158,10 @@
   .research{padding:94px 0 100px}
   .research-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 80px}
   .project{
-    display:block;text-decoration:none;padding:38px 0;
-    border-top:1px solid var(--hair-stone);
+    display:block;text-decoration:none;padding:38px 26px;margin:0 -26px;
+    border-top:1px solid var(--hair-stone);transition:background .28s ease;
   }
+  .plane-stone .project:hover{background:var(--paper)}
   .project .status{font-size:1.06rem;color:var(--plum);margin-bottom:12px}
   .project h3{
     font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:2.15rem;
@@ -177,6 +189,12 @@
     transition:background .2s;
   }
   .button:hover{background:#fff}
+  .actions{display:flex;flex-direction:column;align-items:flex-start;gap:16px}
+  .actions .secondary{
+    font-size:1.04rem;color:var(--plum-soft);text-decoration:none;
+    box-shadow:inset 0 -1px 0 #6B545E;padding-bottom:3px;transition:color .2s,box-shadow .2s;
+  }
+  .actions .secondary:hover{color:#F7F1F2;box-shadow:inset 0 -1px 0 #F7F1F2}
 
   footer{
     display:flex;flex-wrap:wrap;gap:12px 36px;justify-content:space-between;
@@ -217,15 +235,17 @@
         <li><a href="forskning.html">Forskning</a></li>
         <li><a href="publikasjoner.html">Publikasjoner</a></li>
         <li><a href="https://mariletn.substack.com" target="_blank" rel="noopener" class="sub">Abonner</a></li>
+          <li><a href="english.html">English</a></li>
       </ul>
     </nav>
   </header>
 
   <section class="hero">
     <div>
-      <p class="role">Førsteamanuensis ved NTNU</p>
-      <h1>Digital teknologi i <i>pedagogisk</i> praksis</h1>
-      <p class="lede">Tanker og ressurser om barns og læreres møte med digitale verktøy — fra barnehage til høyere utdanning.</p>
+      <h1>Mari-Ann Letnes</h1>
+      <p class="affil">Førsteamanuensis i pedagogikk<span>Institutt for lærerutdanning<br>Fakultet for samfunns- og utdanningsvitenskap, NTNU</span></p>
+      <p class="tagline">Digital teknologi i pedagogisk praksis</p>
+      <p class="lede">Forskning, utviklingsarbeid og formidling om profesjonsfaglig digital kompetanse, danning og estetiske læreprosesser — i barnehage, skole og lærerutdanning.</p>
     </div>
     <a href="omside.html" class="portrait">
       <span class="shots">
@@ -255,6 +275,14 @@
 <div class="wrap posts">
   <h2 class="section-head">Alle innlegg</h2>
   <p class="section-note">Foredrag, forskningsformidling og praktiske ressurser.</p>
+
+  <a href="post-forskning-digit.html" class="entry">
+    <span class="meta">16. august 2026<span>Forskning</span></span>
+    <div>
+      <h3>En polarisert debatt om skjerm er skadelig for skolen</h3>
+      <p>Debattinnlegg fra hele DIGIT-prosjektet om hva samtalen om digitalisering i skolen burde handle om i stedet.</p>
+    </div>
+  </a>
 
   <a href="post-viktigste-leder-2026.html" class="entry">
     <span class="meta">14. april 2026<span>Ledelse</span></span>
@@ -340,9 +368,15 @@
 <div class="plane-stone">
   <div class="wrap research">
     <h2 class="section-head">Pågående forskning</h2>
-    <p class="section-note">Fire prosjektspor jeg arbeider i nå. Alle har sin egen omtale under Forskning.</p>
+    <p class="section-note">Fem prosjektspor jeg arbeider i nå. Alle har sin egen omtale under Forskning.</p>
 
     <div class="research-grid">
+      <a href="post-forskning-digit.html" class="project">
+        <p class="status">Oppdrag fra Utdanningsdirektoratet, jeg leder arbeidspakke 4</p>
+        <h3>DIGIT</h3>
+        <p>Jeg leder arbeidspakken om læring og vurdering i fag på 5.–13. trinn, i norsk, matematikk, engelsk og samfunnsfag.</p>
+      </a>
+
       <a href="post-forskning-a-lare-med-maskiner.html" class="project">
         <p class="status">Forskningslinje, tilknyttet AI-Learn</p>
         <h3>Å lære med maskiner</h3>
@@ -350,9 +384,9 @@
       </a>
 
       <a href="post-forskning-leaddig.html" class="project">
-        <p class="status">Pågående, jeg deltar</p>
+        <p class="status">Finansiert av Norges forskningsråd, 2023–2027</p>
         <h3>LeadDig</h3>
-        <p>Ledelse og læring for utvikling av lærernes profesjonsfaglige digitale kompetanse.</p>
+        <p>Skolelederes egen læring i arbeidet med lærernes digitale kompetanse. Seks skoler i Orkland kommune, 2023 til 2027.</p>
       </a>
 
       <a href="post-forskning-digskoleforsk.html" class="project">
@@ -398,14 +432,17 @@
         <h2>Nye innlegg rett i innboksen</h2>
         <p>Jeg skriver om forskning, undervisning og digital teknologi i pedagogisk praksis.</p>
       </div>
-      <a href="https://mariletn.substack.com" target="_blank" rel="noopener" class="button">Abonner</a>
+      <div class="actions">
+        <a href="https://mariletn.substack.com" target="_blank" rel="noopener" class="button">Abonner</a>
+        <a href="omside.html" class="secondary">Foredrag og oppdrag</a>
+      </div>
     </section>
   </div>
 </div>
 
 <div class="wrap">
   <footer>
-    <span>© Mari-Ann Letnes, førsteamanuensis ved NTNU</span>
+    <span>© Mari-Ann Letnes · Institutt for lærerutdanning, NTNU</span>
     <a href="forskning.html">Se forskningsprosjektene mine</a>
   </footer>
 </div>

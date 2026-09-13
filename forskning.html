@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Forskning — Mari-Ann Letnes</title>
-<meta name="description" content="Pågående og ferdigstilte forskningsprosjekter fra Mari-Ann Letnes, førsteamanuensis ved NTNU — kunstig intelligens, profesjonsfaglig digital kompetanse og digital danning.">
+<meta name="description" content="Pågående og ferdigstilte forskningsprosjekter fra Mari-Ann Letnes, førsteamanuensis i pedagogikk ved NTNU — kunstig intelligens, profesjonsfaglig digital kompetanse og digital danning.">
 <meta property="og:title" content="Forskning — Mari-Ann Letnes">
 <meta property="og:description" content="Pågående og ferdigstilte forskningsprosjekter.">
 <meta property="og:image" content="https://mariannletnes.com/portrett-mork.jpg">
@@ -51,7 +51,7 @@
     gap:16px 28px;padding:34px 0 28px;
   }
   .signature{
-    font-family:'Cormorant Garamond',Georgia,serif;font-size:2rem;font-weight:400;
+    font-family:'Cormorant Garamond',Georgia,serif;font-size:1.55rem;font-weight:400;
     color:#F7F1F2;text-decoration:none;line-height:1.1;letter-spacing:.01em;
   }
   .menu{display:flex;flex-wrap:wrap;gap:32px;list-style:none;align-items:center}
@@ -125,6 +125,12 @@
     transition:background .2s;
   }
   .button:hover{background:#fff}
+  .actions{display:flex;flex-direction:column;align-items:flex-start;gap:16px}
+  .actions .secondary{
+    font-size:1.04rem;color:var(--plum-soft);text-decoration:none;
+    box-shadow:inset 0 -1px 0 #6B545E;padding-bottom:3px;transition:color .2s,box-shadow .2s;
+  }
+  .actions .secondary:hover{color:#F7F1F2;box-shadow:inset 0 -1px 0 #F7F1F2}
 
   footer{
     display:flex;flex-wrap:wrap;gap:12px 36px;justify-content:space-between;
@@ -160,6 +166,7 @@
           <li><a href="forskning.html" class="active" aria-current="page">Forskning</a></li>
           <li><a href="publikasjoner.html">Publikasjoner</a></li>
           <li><a href="https://mariletn.substack.com" target="_blank" rel="noopener" class="sub">Abonner</a></li>
+          <li><a href="english.html">English</a></li>
         </ul>
       </nav>
     </header>
@@ -171,7 +178,7 @@
         <p class="lede">Fra doktorgradsarbeidet om digital danning i barnehagen til pågående arbeid med kunstig intelligens i elevenes læringsprosesser.</p>
       </div>
       <figure>
-        <img src="Bilder/forskning-duo-mork.jpg" alt="" aria-hidden="true" loading="eager">
+        <img src="forskning-duo-mork.jpg" alt="" aria-hidden="true" loading="eager">
       </figure>
     </section>
   </div>
@@ -179,9 +186,15 @@
 
 <div class="wrap current">
   <h2 class="section-head">Pågående</h2>
-  <p class="section-note">Fire prosjektspor jeg arbeider i nå.</p>
+  <p class="section-note">Fem prosjektspor jeg arbeider i nå.</p>
 
   <div class="grid-2">
+    <a href="post-forskning-digit.html" class="project">
+      <p class="status">Oppdrag fra Utdanningsdirektoratet, jeg leder arbeidspakke 4</p>
+      <h3>DIGIT</h3>
+      <p>Digitalisering, læring og vurdering i skolen. Jeg leder arbeidspakken om læring og vurdering i fag på 5.–13. trinn, i norsk, matematikk, engelsk og samfunnsfag.</p>
+    </a>
+
     <a href="post-forskning-a-lare-med-maskiner.html" class="project">
       <p class="status">Forskningslinje, tilknyttet AI-Learn</p>
       <h3>Å lære med maskiner</h3>
@@ -189,9 +202,9 @@
     </a>
 
     <a href="post-forskning-leaddig.html" class="project">
-      <p class="status">Pågående, jeg deltar</p>
+      <p class="status">Finansiert av Norges forskningsråd, 2023–2027</p>
       <h3>LeadDig</h3>
-      <p>Ledelse og læring for utvikling av lærernes profesjonsfaglige digitale kompetanse.</p>
+      <p>Skolelederes egen læring i arbeidet med lærernes digitale kompetanse. Seks skoler i Orkland kommune, 2023 til 2027.</p>
     </a>
 
     <a href="post-forskning-digskoleforsk.html" class="project">
@@ -278,14 +291,17 @@
         <h2>Nye innlegg rett i innboksen</h2>
         <p>Jeg skriver om forskning, undervisning og digital teknologi i pedagogisk praksis.</p>
       </div>
-      <a href="https://mariletn.substack.com" target="_blank" rel="noopener" class="button">Abonner</a>
+      <div class="actions">
+        <a href="https://mariletn.substack.com" target="_blank" rel="noopener" class="button">Abonner</a>
+        <a href="omside.html" class="secondary">Foredrag og oppdrag</a>
+      </div>
     </section>
   </div>
 </div>
 
 <div class="wrap">
   <footer>
-    <span>© Mari-Ann Letnes, førsteamanuensis ved NTNU</span>
+    <span>© Mari-Ann Letnes · Institutt for lærerutdanning, NTNU</span>
     <a href="index.html">Til forsiden</a>
   </footer>
 </div>

@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Om meg — Mari-Ann Letnes</title>
-<meta name="description" content="Mari-Ann Letnes er førsteamanuensis ved NTNU og arbeider med digital kompetanse, pedagogisk praksis og profesjonsutvikling i barnehage, skole og lærerutdanning.">
+<meta name="description" content="Mari-Ann Letnes er førsteamanuensis i pedagogikk ved Institutt for lærerutdanning, NTNU, og arbeider med digital kompetanse, pedagogisk praksis og profesjonsutvikling i barnehage, skole og lærerutdanning.">
 <meta property="og:title" content="Om meg — Mari-Ann Letnes">
-<meta property="og:description" content="Førsteamanuensis ved NTNU. Digital kompetanse, pedagogisk praksis og profesjonsutvikling.">
+<meta property="og:description" content="Førsteamanuensis i pedagogikk ved NTNU. Digital kompetanse, pedagogisk praksis og profesjonsutvikling.">
 <meta property="og:image" content="https://mariannletnes.com/portrett-mork.jpg">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://mariannletnes.com/omside.html">
@@ -50,7 +50,7 @@
     gap:16px 28px;padding:34px 0 28px;
   }
   .signature{
-    font-family:'Cormorant Garamond',Georgia,serif;font-size:2rem;font-weight:400;
+    font-family:'Cormorant Garamond',Georgia,serif;font-size:1.55rem;font-weight:400;
     color:#F7F1F2;text-decoration:none;line-height:1.1;letter-spacing:.01em;
   }
   .menu{display:flex;flex-wrap:wrap;gap:32px;list-style:none;align-items:center}
@@ -108,6 +108,21 @@
 
   /* ---------- uthevet ---------- */
   .statement{padding:84px 0 88px}
+  .steps{padding:88px 0 94px}
+  .steps h2{
+    font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:2.25rem;
+    color:var(--ink);margin-bottom:8px;
+  }
+  .steps .intro{font-size:1.1rem;color:var(--quiet);margin-bottom:40px;max-width:60ch}
+  .offers{display:grid;grid-template-columns:1fr 1fr;gap:0 72px}
+  .offer{padding:30px 0;border-top:1px solid #DBD1C9}
+  .offer h3{
+    font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:1.6rem;
+    line-height:1.2;color:var(--ink);margin-bottom:10px;
+  }
+  .offer p{font-size:1.08rem;line-height:1.7;margin:0;max-width:42ch}
+  @media (max-width:940px){.offers{grid-template-columns:1fr;gap:0}}
+
   .statement p{
     font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;
     font-size:clamp(1.9rem,4.2vw,2.9rem);line-height:1.26;color:var(--ink);
@@ -167,13 +182,14 @@
         <li><a href="forskning.html">Forskning</a></li>
         <li><a href="publikasjoner.html">Publikasjoner</a></li>
         <li><a href="https://mariletn.substack.com" target="_blank" rel="noopener" class="sub">Abonner</a></li>
+          <li><a href="english.html">English</a></li>
       </ul>
     </nav>
   </header>
 
   <section class="hero">
     <div>
-      <p class="role">Førsteamanuensis ved NTNU</p>
+      <p class="role">Førsteamanuensis i pedagogikk, Institutt for lærerutdanning, NTNU</p>
       <h1>Om meg</h1>
       <p class="lede">Jeg arbeider med digital kompetanse, pedagogisk praksis og profesjonsutvikling i barnehage, skole og lærerutdanning.</p>
     </div>
@@ -208,12 +224,39 @@
   </div>
 </div>
 
+<div class="plane-stone">
+  <div class="wrap steps">
+    <h2>Foredrag og oppdrag</h2>
+    <p class="intro">Jeg holder jevnlig foredrag på konferanser i inn- og utland, og samarbeider med kommuner, barnehager og skoler om langsiktig kompetanseutvikling. Ta kontakt om noe av dette er aktuelt for dere.</p>
+
+    <div class="offers">
+      <div class="offer">
+        <h3>Foredrag og konferanser</h3>
+        <p>Keynotes og faglige innlegg om generativ KI, profesjonsfaglig digital kompetanse, danning og estetiske læreprosesser. På norsk og engelsk.</p>
+      </div>
+      <div class="offer">
+        <h3>Kompetanseutvikling over tid</h3>
+        <p>Langsiktig utviklingsarbeid sammen med kommuner og enkeltvirksomheter, forankret i profesjonsfellesskapet framfor enkeltstående kursdager.</p>
+      </div>
+      <div class="offer">
+        <h3>Fagdager og personalsamlinger</h3>
+        <p>Opplegg for kollegiet i en barnehage, en skole eller et lærerutdanningsmiljø, tilpasset det dere allerede arbeider med.</p>
+      </div>
+      <div class="offer">
+        <h3>Veiledning og rådgivning</h3>
+        <p>Faglig sparring på utviklingsplaner, prosjektsøknader og forskningsdesign innenfor feltene over.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="plane-dark">
   <div class="wrap">
     <section class="contact">
       <div>
         <h2>Ta gjerne kontakt</h2>
         <p>Jeg svarer på <a href="mailto:mari.ann.letnes@ntnu.no">mari.ann.letnes@ntnu.no</a> eller på telefon <a href="tel:+4741419295">414 19 295</a>.</p>
+        <p style="margin-top:18px">Institutt for lærerutdanning<br>Fakultet for samfunns- og utdanningsvitenskap<br>NTNU</p>
       </div>
       <a href="mailto:mari.ann.letnes@ntnu.no" class="button">Send e-post</a>
     </section>
@@ -222,7 +265,7 @@
 
 <div class="wrap">
   <footer>
-    <span>© Mari-Ann Letnes, førsteamanuensis ved NTNU</span>
+    <span>© Mari-Ann Letnes · Institutt for lærerutdanning, NTNU</span>
     <a href="index.html">Til forsiden</a>
   </footer>
 </div>
