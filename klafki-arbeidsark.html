@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Klafki som arbeidsmåte – Mari-Ann Letnes</title>
+<meta name="description" content="Digital støtte til arbeid med Klafkis fem didaktiske spørsmål i informasjonsprogrammet.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --paper:#F8F4F1;
+  --stone:#EDE7E2;
+  --dark:#332830;
+  --plum:#6E4B57;
+  --ink:#4A3C43;
+  --body:#5E4F55;
+  --quiet:#7E6F74;
+  --hair:#E1D8D1;
+  --hair-stone:#DBD1C9;
+
+  --q1:#E6B91E;
+  --q1-soft:#FFF7D7;
+  --q2:#D75A9D;
+  --q2-soft:#FCE8F3;
+  --q3:#2BA8A7;
+  --q3-soft:#E4F5F4;
+  --q4:#E77C2F;
+  --q4-soft:#FCEBDD;
+  --q5:#7653A6;
+  --q5-soft:#EFE8F7;
+}
+
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{
+  min-height:100vh;
+  background:var(--stone);
+  color:var(--body);
+  font-family:'Jost',system-ui,sans-serif;
+  line-height:1.55;
+}
+button,input,textarea{font-family:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--plum);outline-offset:3px}
+
+.top{
+  max-width:860px;
+  margin:0 auto;
+  padding:20px 20px 8px;
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.signature{
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-size:1.25rem;
+  color:var(--ink);
+  text-decoration:none;
+}
+.source{font-size:.85rem;color:var(--quiet)}
+
+main{
+  max-width:860px;
+  margin:0 auto;
+  padding:10px 20px 42px;
+}
+
+h1,h2,h3{
+  font-family:'Cormorant Garamond',Georgia,serif;
+  color:var(--ink);
+  font-weight:500;
+}
+h1{
+  font-size:2.15rem;
+  line-height:1.1;
+  margin-bottom:8px;
+}
+.intro{
+  max-width:760px;
+  font-size:1rem;
+  margin-bottom:20px;
+}
+.notice{
+  margin:18px 0 22px;
+  padding:14px 16px;
+  background:var(--paper);
+  border-left:5px solid var(--plum);
+  color:var(--ink);
+}
+.notice strong{font-weight:500}
+
+.steps{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin:18px 0 28px;
+}
+.step{
+  background:var(--paper);
+  border:1px solid var(--hair-stone);
+  padding:14px;
+  min-height:124px;
+}
+.step-num{
+  width:31px;
+  height:31px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--dark);
+  color:white;
+  font-size:.9rem;
+  margin-bottom:8px;
+}
+.step h2{
+  font-size:1.22rem;
+  line-height:1.15;
+  margin-bottom:5px;
+}
+.step p{font-size:.91rem}
+
+.workbox{
+  background:#F3EEEA;
+  border:1px solid var(--hair-stone);
+  padding:16px;
+  margin-bottom:28px;
+}
+.workbox h2{font-size:1.45rem;margin-bottom:5px}
+.workbox p{font-size:.94rem;margin-bottom:10px}
+.fields{
+  display:grid;
+  grid-template-columns:1fr 1.4fr;
+  gap:10px;
+}
+label{
+  display:block;
+  font-size:.83rem;
+  color:var(--plum);
+  margin-bottom:5px;
+}
+input,textarea{
+  width:100%;
+  border:1px solid var(--hair-stone);
+  background:var(--paper);
+  color:var(--ink);
+  padding:11px 12px;
+  font-size:.95rem;
+}
+textarea{min-height:86px;resize:vertical}
+
+.section-title{
+  font-size:1.55rem;
+  margin-bottom:5px;
+}
+.section-lead{
+  font-size:.94rem;
+  margin-bottom:14px;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+.card{
+  text-align:left;
+  border:1px solid var(--hair-stone);
+  background:var(--paper);
+  padding:0;
+  overflow:hidden;
+  min-height:150px;
+  transition:transform .15s, box-shadow .15s;
+}
+.card:hover{transform:translateY(-1px)}
+.card-head{
+  padding:8px 13px;
+  color:#fff;
+  font-size:.78rem;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  font-weight:500;
+}
+.card-body{padding:14px 15px 15px}
+.card-body strong{
+  display:block;
+  color:var(--ink);
+  font-size:1.04rem;
+  font-weight:500;
+  line-height:1.3;
+  margin-bottom:7px;
+}
+.card-body span{
+  display:block;
+  color:var(--body);
+  font-size:.88rem;
+  line-height:1.45;
+}
+.card.q1 .card-head{background:var(--q1);color:#3F3310}
+.card.q2 .card-head{background:var(--q2)}
+.card.q3 .card-head{background:var(--q3)}
+.card.q4 .card-head{background:var(--q4)}
+.card.q5 .card-head{background:var(--q5)}
+
+.help{
+  margin-top:16px;
+  border:1px solid var(--hair-stone);
+  background:var(--paper);
+  display:none;
+}
+.help.show{display:block}
+.help-top{
+  padding:13px 16px 11px;
+  border-bottom:1px solid var(--hair);
+}
+.help-top small{
+  display:block;
+  font-size:.78rem;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  margin-bottom:3px;
+}
+.help-top h2{
+  font-size:1.48rem;
+  line-height:1.15;
+}
+.help-content{
+  padding:15px 16px 17px;
+}
+.help-content h3{
+  font-size:1.18rem;
+  margin:13px 0 5px;
+}
+.help-content h3:first-child{margin-top:0}
+.help-content p{
+  font-size:.94rem;
+  margin-bottom:7px;
+}
+.prompt{
+  padding:11px 13px;
+  margin-top:10px;
+  background:#F3EEEA;
+  border-left:4px solid var(--plum);
+  color:var(--ink);
+  font-size:.93rem;
+}
+.example{
+  padding:11px 13px;
+  margin-top:10px;
+  font-size:.91rem;
+  border:1px solid var(--hair-stone);
+}
+
+.notes{
+  margin-top:20px;
+  padding-top:19px;
+  border-top:1px solid var(--hair);
+}
+.notes h2{font-size:1.38rem;margin-bottom:4px}
+.notes p{font-size:.9rem;margin-bottom:8px}
+
+.footer-note{
+  margin-top:24px;
+  padding-top:16px;
+  border-top:1px solid var(--hair);
+  color:var(--quiet);
+  font-size:.82rem;
+  line-height:1.5;
+}
+
+
+.actions{
+  margin-top:22px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.save-btn{
+  border:0;
+  background:var(--plum);
+  color:white;
+  padding:11px 16px;
+  font-size:.92rem;
+  border-radius:3px;
+}
+.save-btn:hover{filter:brightness(.96)}
+
+.print-sheet{
+  display:none;
+}
+
+@media print{
+  body{
+    background:white;
+    color:#222;
+    font-family:Arial, sans-serif;
+  }
+  .top,
+  main > h1,
+  .intro,
+  .notice,
+  .steps,
+  .workbox,
+  .section-title,
+  .section-lead,
+  .cards,
+  .help,
+  .footer-note,
+  .actions{
+    display:none !important;
+  }
+  main{
+    max-width:none;
+    padding:0;
+    margin:0;
+  }
+  .print-sheet{
+    display:block !important;
+    padding:24mm 20mm;
+  }
+  .print-sheet h1{
+    display:block;
+    font-family:Arial, sans-serif;
+    font-size:20pt;
+    margin-bottom:16mm;
+    color:#222;
+  }
+  .print-row{
+    margin-bottom:8mm;
+  }
+  .print-label{
+    font-size:9pt;
+    text-transform:uppercase;
+    letter-spacing:.06em;
+    color:#666;
+    margin-bottom:2mm;
+  }
+  .print-value{
+    font-size:12pt;
+    white-space:pre-wrap;
+    border-bottom:1px solid #ccc;
+    padding-bottom:4mm;
+  }
+  .print-notes .print-value{
+    border:1px solid #ccc;
+    padding:6mm;
+    min-height:80mm;
+  }
+}
+
+@media(max-width:720px){
+  .steps{grid-template-columns:1fr}
+  .cards{grid-template-columns:1fr}
+  .fields{grid-template-columns:1fr}
+  h1{font-size:1.8rem}
+}
+</style>
+</head>
+
+<body>
+<div class="top">
+  <a href="index.html" class="signature">Mari-Ann Letnes</a>
+  <span class="source">Klafki som arbeidsmåte</span>
+</div>
+
+<main>
+  <h1>Fra modul til didaktisk analyse</h1>
+  <p class="intro">
+    Dere arbeider med én modul fra informasjonsprogrammet. Målet og temaene i modulen er utgangspunktet.
+    Velg ett konkret tema dere vil undersøke nærmere, og bruk Klafkis spørsmål til å se innholdet fra ulike sider.
+  </p>
+
+  <div class="notice">
+    <strong>Viktig:</strong> Velg ett konkret tema fra modulen. Ikke prøv å analysere hele modulen på én gang.
+  </div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h2>Velg innhold</h2>
+      <p>Sitt i modulgruppen. Les målet og temaene. Bli enige om ett tema dere vil arbeide videre med.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h2>Arbeid med kortet</h2>
+      <p>Hver deltaker får ett Klafki-spørsmål. Tenk individuelt over det valgte temaet gjennom dette spørsmålet.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h2>Finn samme farge</h2>
+      <p>Gå til andre som har samme Klafki-spørsmål. Dere kommer fra ulike moduler. Sammenlign hva spørsmålet får dere til å se.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <h2>Undersøk på tvers</h2>
+      <p>Hva betyr spørsmålet når innholdet er forskjellig? Hvilke likheter og forskjeller får dere øye på?</p>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <h2>Gå tilbake</h2>
+      <p>Ta med innsikten tilbake til modulgruppen. Del det dere har oppdaget fra hvert av de fem perspektivene.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">6</div>
+      <h2>Se helheten</h2>
+      <p>Hva ser dere nå ved temaet som dere ikke så før dere delte det opp gjennom de fem spørsmålene?</p>
+    </div>
+  </div>
+
+  <div class="workbox">
+    <h2>Hva arbeider dere med?</h2>
+    <p>Skriv gjerne inn modul og tema, slik at du har det foran deg mens du arbeider.</p>
+    <div class="fields">
+      <div>
+        <label for="module">Modul</label>
+        <input id="module" placeholder="For eksempel: Samfunnsforhold, normer og verdier">
+      </div>
+      <div>
+        <label for="topic">Valgt tema</label>
+        <input id="topic" placeholder="For eksempel: normer og verdier i det norske samfunn">
+      </div>
+    </div>
+  </div>
+
+  <h2 class="section-title">Usikker på spørsmålet ditt?</h2>
+  <p class="section-lead">Trykk på fargen eller spørsmålet du har fått. Da får du noen hjelpesetninger. De er ment som støtte, ikke som fasit.</p>
+
+  <div class="cards">
+    <button class="card q1" data-q="1">
+      <div class="card-head">Klafki 1 · Eksemplarisk betydning</div>
+      <div class="card-body">
+        <strong>Hva kan innholdet åpne?</strong>
+        <span>Hva kan dette konkrete innholdet hjelpe beboerne til å forstå utover selve eksemplet?</span>
+      </div>
+    </button>
+
+    <button class="card q2" data-q="2">
+      <div class="card-head">Klafki 2 · Nåtidsbetydning</div>
+      <div class="card-body">
+        <strong>Hvorfor betyr dette noe her og nå?</strong>
+        <span>Hvordan angår innholdet beboernes nåværende situasjon, erfaringer, behov eller spørsmål?</span>
+      </div>
+    </button>
+
+    <button class="card q3" data-q="3">
+      <div class="card-head">Klafki 3 · Fremtidsbetydning</div>
+      <div class="card-body">
+        <strong>Hva kan de få bruk for videre?</strong>
+        <span>I hvilke senere situasjoner kan denne kunnskapen hjelpe dem til å forstå, vurdere eller handle?</span>
+      </div>
+    </button>
+
+    <button class="card q4" data-q="4">
+      <div class="card-head">Klafki 4 · Struktur</div>
+      <div class="card-body">
+        <strong>Hva er innholdets indre struktur?</strong>
+        <span>Hva er kjernen? Hvilke deler henger sammen? Hva må forstås først? Hvor kan det oppstå misforståelser?</span>
+      </div>
+    </button>
+
+    <button class="card q5" data-q="5">
+      <div class="card-head">Klafki 5 · Tilgjengelighet</div>
+      <div class="card-body">
+        <strong>Hvordan kan innholdet gjøres tilgjengelig?</strong>
+        <span>Hvilke erfaringer, eksempler, situasjoner, representasjoner eller arbeidsmåter kan åpne akkurat dette innholdet?</span>
+      </div>
+    </button>
+  </div>
+
+  <div id="help" class="help" aria-live="polite">
+    <div class="help-top" id="helpTop">
+      <small id="helpLabel"></small>
+      <h2 id="helpTitle"></h2>
+    </div>
+    <div class="help-content">
+      <h3>Hva spør du egentlig etter?</h3>
+      <p id="helpExplain"></p>
+
+      <h3>Prøv å spørre deg selv</h3>
+      <div class="prompt" id="helpPrompts"></div>
+
+      <div class="example" id="helpExample"></div>
+
+      <div class="notes">
+        <h2>Mine stikkord</h2>
+        <p>Skriv det du vil ta med inn i samtalen med de andre som har samme farge.</p>
+        <textarea id="note" placeholder="Hva får dette spørsmålet deg til å se ved temaet deres?"></textarea>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="actions">
+    <button class="save-btn" id="savePdf">Lagre arbeidet som PDF</button>
+  </div>
+
+  <section class="print-sheet" id="printSheet">
+    <h1>Klafki som arbeidsmåte</h1>
+
+    <div class="print-row">
+      <div class="print-label">Modul</div>
+      <div class="print-value" id="printModule"></div>
+    </div>
+
+    <div class="print-row">
+      <div class="print-label">Valgt tema</div>
+      <div class="print-value" id="printTopic"></div>
+    </div>
+
+    <div class="print-row">
+      <div class="print-label">Mitt Klafki-spørsmål</div>
+      <div class="print-value" id="printQuestion"></div>
+    </div>
+
+    <div class="print-row print-notes">
+      <div class="print-label">Mine stikkord</div>
+      <div class="print-value" id="printNotes"></div>
+    </div>
+  </section>
+
+<p class="footer-note">
+    Klafkis spørsmål brukes her som støtte for didaktisk analyse. Rutinebeskrivelsen fungerer som utgangspunkt for innholdet dere skal arbeide med. Kilde: Klafki (1995, 2016).
+    Det du skriver på siden lagres bare i nettleseren din mens siden er åpen og sendes ikke videre.
+  </p>
+</main>
+
+<script>
+const data = {
+  1:{
+    label:"Klafki 1 · Eksemplarisk betydning",
+    title:"Hva kan innholdet åpne?",
+    color:"#E6B91E",
+    explain:"Se etter hva det konkrete temaet kan gi tilgang til av større sammenhenger, innsikter eller måter å forstå verden på. Spørsmålet handler om mer enn å kunne gjengi informasjonen.",
+    prompts:"Hva er det større poenget i dette temaet? • Hva kan et konkret eksempel hjelpe beboerne til å forstå? • Finnes det en innsikt her som kan brukes også i andre situasjoner?",
+    example:"Eksempel: Punktlighet kan være mer enn et spørsmål om å møte til riktig klokkeslett. Det kan åpne for samtale om hvordan tid, avtaler og forventninger organiserer møter mellom mennesker og institusjoner."
+  },
+  2:{
+    label:"Klafki 2 · Nåtidsbetydning",
+    title:"Hvorfor betyr dette noe her og nå?",
+    color:"#D75A9D",
+    explain:"Se innholdet fra beboernes nåværende situasjon. Hvor møter de dette allerede? Hva kan de kjenne igjen, lure på, streve med eller ha behov for å forstå nå?",
+    prompts:"Hvor møter de dette i livet sitt akkurat nå? • Hvilke erfaringer kan de koble innholdet til? • Hva kan være vanskelig å tolke eller forstå fra deres ståsted?",
+    example:"Eksempel: Punktlighet kan ha nåtidsbetydning fordi beboerne allerede møter avtaletider i kontakt med mottaket, helsevesenet, skolen eller andre offentlige tjenester."
+  },
+  3:{
+    label:"Klafki 3 · Fremtidsbetydning",
+    title:"Hva kan de få bruk for videre?",
+    color:"#2BA8A7",
+    explain:"Se framover. Hvilke senere situasjoner kan denne kunnskapen få betydning i? Tenk både på forståelse, vurdering og handling.",
+    prompts:"Når kan de få bruk for dette senere? • Hvilke valg eller handlinger kan kunnskapen støtte? • Hva kan bli lettere å forstå dersom de har med seg denne innsikten?",
+    example:"Eksempel: Kunnskap om tidsbruk og punktlighet kan få betydning i skole, arbeidsliv, møter med offentlige tjenester og andre situasjoner der avtaler og forventninger må tolkes."
+  },
+  4:{
+    label:"Klafki 4 · Struktur",
+    title:"Hva er innholdets indre struktur?",
+    color:"#E77C2F",
+    explain:"Bryt temaet opp. Finn kjernen, delene og sammenhengene. Undersøk hva som må forstås først, og hvor det er lett at forståelsen bryter sammen.",
+    prompts:"Hva er kjernen i dette temaet? • Hvilke begreper eller deler henger sammen? • Hva må forstås før noe annet gir mening? • Hvor oppstår det ofte misforståelser?",
+    example:"Eksempel: I et tema om normer og væremåter kan det være viktig å skille mellom lov, formelle regler, sosiale normer og lokale vaner. De virker forskjellig og bør ikke blandes sammen."
+  },
+  5:{
+    label:"Klafki 5 · Tilgjengelighet",
+    title:"Hvordan kan innholdet gjøres tilgjengelig?",
+    color:"#7653A6",
+    explain:"Nå kan du begynne å tenke på hvordan beboerne kan få tilgang til akkurat dette innholdet. Velg en inngang som passer innholdet og menneskene som møter det.",
+    prompts:"Hvilke erfaringer kan vi ta utgangspunkt i? • Finnes det et konkret eksempel eller en situasjon som gjør innholdet tydelig? • Kan noe vises, sammenlignes, undersøkes eller prøves ut? • Hva trenger vi å forklare direkte?",
+    example:"Eksempel: Normer for hilsing eller punktlighet kan undersøkes gjennom konkrete situasjoner og sammenligninger, slik at deltakerne får noe å tolke og diskutere, framfor bare å få en liste over regler."
+  }
+};
+
+const cards = document.querySelectorAll('.card');
+const help = document.getElementById('help');
+const helpTop = document.getElementById('helpTop');
+const label = document.getElementById('helpLabel');
+const title = document.getElementById('helpTitle');
+const explain = document.getElementById('helpExplain');
+const prompts = document.getElementById('helpPrompts');
+const example = document.getElementById('helpExample');
+const note = document.getElementById('note');
+const moduleInput = document.getElementById('module');
+const topicInput = document.getElementById('topic');
+
+let currentQ = null;
+const notes = {};
+
+cards.forEach(card => {
+  card.addEventListener('click', () => {
+    if(currentQ) notes[currentQ] = note.value;
+    currentQ = card.dataset.q;
+    const d = data[currentQ];
+    label.textContent = d.label;
+    title.textContent = d.title;
+    explain.textContent = d.explain;
+    prompts.textContent = d.prompts;
+    example.textContent = d.example;
+    helpTop.style.borderTop = "7px solid " + d.color;
+    note.value = notes[currentQ] || "";
+    help.classList.add('show');
+    help.scrollIntoView({behavior:"smooth", block:"start"});
+  });
+});
+
+
+document.getElementById('savePdf').addEventListener('click', () => {
+  if(currentQ) notes[currentQ] = note.value;
+
+  const moduleText = moduleInput.value.trim() || "Ikke fylt inn";
+  const topicText = topicInput.value.trim() || "Ikke fylt inn";
+  const questionText = currentQ ? data[currentQ].title : "Ikke valgt";
+  const notesText = currentQ ? (notes[currentQ] || "Ingen stikkord skrevet") : "Ingen stikkord skrevet";
+
+  document.getElementById('printModule').textContent = moduleText;
+  document.getElementById('printTopic').textContent = topicText;
+  document.getElementById('printQuestion').textContent = questionText;
+  document.getElementById('printNotes').textContent = notesText;
+
+  window.print();
+});
+
+window.addEventListener('beforeunload', () => {
+  if(currentQ) notes[currentQ] = note.value;
+});
+
+</script>
+</body>
+</html>
