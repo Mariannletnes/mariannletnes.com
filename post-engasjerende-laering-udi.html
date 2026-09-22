@@ -1,20 +1,21 @@
 <!DOCTYPE html>
+
 <html lang="nb">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex">
-<title>Engasjerende læring — Mari-Ann Letnes</title>
-<meta name="description" content="Foredrag for UDI om engasjement i informasjonsøkter med beboere. Fire dimensjoner fra forskningen, og konkrete grep for å legge til rette for dem.">
-<meta property="og:title" content="Engasjerende læring">
-<meta property="og:description" content="Fire dimensjoner av engasjement fra forskningen, og hvordan UDIs informasjonsansvarlige kan legge til rette for dem.">
-<meta property="og:image" content="https://mariannletnes.com/portrett-mork.jpg">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://mariannletnes.com/post-engasjerende-laering-udi.html">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%23332830'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='15' fill='%23F8F4F1' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="noindex" name="robots"/>
+<title>Når informasjon skal bli til læring — Mari-Ann Letnes</title>
+<meta content="Ressursside fra en samling for UDIs informasjonsansvarlige om engasjement, dialog og didaktisk design i informasjonsarbeidet." name="description"/>
+<meta content="Når informasjon skal bli til læring" property="og:title"/>
+<meta content="Tre faglige deler: forstå engasjement, åpne for dialog og gjøre didaktiske valg om innhold og læringsdesign." property="og:description"/>
+<meta content="https://mariannletnes.com/portrett-mork.jpg" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="https://mariannletnes.com/post-engasjerende-laering-udi.html" property="og:url"/>
+<link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%23332830'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='15' fill='%23F8F4F1' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E" rel="icon" type="image/svg+xml"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&amp;family=Jost:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
 <style>
   /* Palett: to nøytrale trinn, én mørk forankring, én aksent.
      papir F8F4F1 · stein EDE7E2 · mørk 332830 · plomme 6E4B57 */
@@ -203,107 +204,232 @@
 
   @media (max-width:940px){.kat-grid,.kat-grid.to{grid-template-columns:1fr 1fr;gap:0 32px}}
   @media (max-width:620px){.kat-grid,.kat-grid.to{grid-template-columns:1fr}}
+
+  .part-intro{padding:88px 0 28px}
+  .part-head{display:grid;grid-template-columns:110px 1fr;gap:34px;align-items:start;max-width:980px}
+  .part-number{
+    font-family:'Cormorant Garamond',Georgia,serif;font-size:7rem;line-height:.8;
+    font-weight:300;color:#C9B8BF;
+  }
+  .part-kicker{font-size:1rem;letter-spacing:.08em;text-transform:uppercase;color:var(--plum);margin-bottom:10px}
+  .part-head h2{
+    font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;
+    font-size:clamp(2.15rem,4vw,3.05rem);line-height:1.12;color:var(--ink);margin:0 0 16px;
+  }
+  .part-head p{font-size:1.18rem;line-height:1.78;max-width:64ch}
+
+  .question-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0 40px;margin:30px 0 10px;max-width:1000px}
+  .question-card{padding:24px 0 28px;border-top:1px solid var(--hair-stone)}
+  .question-card .tag{font-size:.96rem;color:var(--plum);margin-bottom:7px}
+  .question-card h3{
+    font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;
+    font-size:1.48rem;line-height:1.22;color:var(--ink);margin-bottom:8px;
+  }
+  .question-card p{font-size:1.05rem;line-height:1.66;margin:0}
+
+  .resource-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:28px 0 4px;max-width:980px}
+  .resource-card{
+    display:block;text-decoration:none;border:1px solid var(--hair-stone);
+    padding:22px 24px;background:rgba(248,244,241,.56);transition:background .2s ease,transform .2s ease;
+  }
+  .resource-card:hover{background:#fff;transform:translateY(-2px)}
+  .resource-card .rlabel{display:block;font-size:.94rem;color:var(--plum);margin-bottom:6px}
+  .resource-card h3{
+    font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:1.4rem;
+    line-height:1.2;color:var(--ink);margin-bottom:7px;
+  }
+  .resource-card p{font-size:1rem;line-height:1.58;margin:0;color:var(--body)}
+
+  .three-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0 34px;margin:30px 0 10px;max-width:1040px}
+  .three-card{padding:24px 0 28px;border-top:1px solid var(--hair-stone)}
+  .three-card .nsmall{font-family:'Cormorant Garamond',Georgia,serif;font-size:2rem;color:var(--plum);margin-bottom:4px}
+  .three-card h3{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.42rem;color:var(--ink);font-weight:500;margin-bottom:8px;line-height:1.2}
+  .three-card p{font-size:1.02rem;line-height:1.62;margin:0}
+
+  .bridge{margin:44px 0;padding:30px 34px;background:var(--stone);max-width:900px}
+  .bridge h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:1.55rem;color:var(--ink);margin-bottom:10px}
+  .bridge p{font-size:1.1rem;line-height:1.72;margin:0}
+
+  @media (max-width:780px){
+    .part-head{grid-template-columns:72px 1fr;gap:20px}
+    .part-number{font-size:5rem}
+    .question-grid,.resource-grid,.three-grid{grid-template-columns:1fr}
+  }
+
 </style>
 </head>
 <body>
-
 <div class="plane-dark">
-  <div class="wrap">
-    <header class="top">
-      <a href="index.html" class="signature">Mari-Ann Letnes</a>
-      <nav aria-label="Hovedmeny">
-        <ul class="menu">
-          <li><a href="omside.html">Om meg</a></li>
-          <li><a href="forskning.html">Forskning</a></li>
-          <li><a href="publikasjoner.html">Publikasjoner</a></li>
-          <li><a href="https://mariletn.substack.com" target="_blank" rel="noopener" class="sub">Abonner</a></li>
-        </ul>
-      </nav>
-    </header>
-
-    <article class="head">
-      <p class="meta">Foredrag, 7. oktober 2026 — UDI</p>
-      <h1>Engasjerende læring</h1>
-      <p class="lead">Oppmøte og ro i rommet sier oss overraskende lite om hvem som faktisk er med. Fire dimensjoner av engasjement fra forskningen, og konkrete grep UDIs informasjonsansvarlige kan bruke i egne informasjonsøkter med beboere.</p>
-    </article>
-  </div>
+<div class="wrap">
+<header class="top">
+<a class="signature" href="index.html">Mari-Ann Letnes</a>
+<nav aria-label="Hovedmeny">
+<ul class="menu">
+<li><a href="omside.html">Om meg</a></li>
+<li><a href="forskning.html">Forskning</a></li>
+<li><a href="publikasjoner.html">Publikasjoner</a></li>
+<li><a class="sub" href="https://mariletn.substack.com" rel="noopener" target="_blank">Abonner</a></li>
+</ul>
+</nav>
+</header>
+<article class="head">
+<p class="meta">Samling for informasjonsansvarlige i asylmottak · 7. oktober 2026</p>
+<h1>Når informasjon skal bli til læring</h1>
+<p class="lead">Hvordan kan informasjon bli noe deltakerne arbeider med, forstår og kan bruke? Samlingen var bygget opp i tre faglige deler: å forstå engasjement, å åpne for dialog og å gjøre didaktiske valg om innhold, arbeidsmåter og læringsdesign.</p>
+</article>
+</div>
 </div>
 
 <div class="wrap">
-  <div class="prose col">
-    <h2>Bakgrunn</h2>
-    <p>Da jeg var kunststudent, ventet jeg ofte ved trykkpressen på hva grafikeren Bjørn skulle si om arbeidet mitt. Jeg så opp til ham, og vurderingen hans betydde noe. Jeg jobbet videre, tok nye prøvetrykk, prøvde meg fram. Utenfra så dere en student som holdt på — som gjorde en innsats og ikke ga seg. Jeg manglet språket for det jeg forsøkte å forstå, og jeg våget ikke å spørre.</p>
-    <p>Denne forskjellen — mellom det som er synlig utenfra og det som skjer inni den som deltar — er utgangspunktet for foredraget jeg holdt for <strong>UDIs informasjonsansvarlige</strong>. De kjenner innholdet i informasjonsprogrammet så godt at det kan være vanskelig å oppdage hva beboerne trenger forklart. Og som i mitt forhold til Bjørn, er det en forskjell i posisjon: den som leder økta velger spørsmålene, fordeler ordet og avgjør hva man går videre med.</p>
-
-    <p class="pull">Utenfra så dere en student som holdt på. Innenfra husker jeg det som en ubehagelig leting.</p>
-
-    <h2 class="spacer">Engasjement er formbart, ikke en egenskap</h2>
-    <p>Forskningen understreker at engasjement ikke er noe fast ved den enkelte deltakeren. Det endrer seg med situasjonen og påvirkes av hvordan læringsmiljøet tilrettelegges (Fredricks, Blumenfeld &amp; Paris, 2004). At noen følger instruksjonene, forteller ikke nødvendigvis hvor interesserte de er, eller hvor grundig de forsøker å forstå. Spørsmålet blir da hvilket handlingsrom som finnes: hva trenger beboerne tilgang til for å kunne forstå, bruke og stille spørsmål ved informasjonen?</p>
-  </div>
+<div class="prose col">
+<h2>Innhold, mennesker og situasjon</h2>
+<p>Informasjonsprogrammet angir mål og temaer som beboerne skal møte. Det didaktiske arbeidet begynner når dette skal bli til et konkret innhold for en bestemt gruppe. Hva er viktig å få fram? Hva må forstås først? Hva kan knyttes til deltakernes erfaringer? Hvordan skal innholdet representeres, bearbeides og samtales om?</p>
+<p>Utgangspunktet for samlingen var derfor ikke å samle flest mulig metoder. Spørsmålet var hvordan vi kan analysere innholdet, menneskene og situasjonen godt nok til å velge arbeidsmåter som faktisk gjør noe bestemt mulig.</p>
+<div class="callout"><p><strong>Et gjennomgående spørsmål:</strong> Hva skal dette innholdet åpne for, for hvem, og hva skal deltakerne få gjøre med det?</p></div>
+<h2 class="spacer">Før de tre delene: å etablere rommet</h2>
+<p>Før det faglige arbeidet startet, ble rommet etablert som et profesjonsfellesskap. Hvem er menneskene som er til stede? Hvilken erfaring og kunnskap finnes allerede i rommet? Hvordan kan terskelen for å spørre, dele og være usikker senkes? Relasjonsarbeid og trygghet ble behandlet som en del av iscenesettelsen av læringsrommet, og som en forutsetning for at deltakernes erfaringer faktisk kan bli ressurser for hverandre.</p>
+<div class="resource-grid">
+<a class="resource-card" href="snakk_og_bytt_blanke_kort.docx" download><span class="rlabel">Ressurs</span><h3>Snakk og bytt</h3><p>En enkel struktur for å skape kontakt på tvers og gjøre flere av menneskene i rommet tilgjengelige for hverandre.</p></a>
+<a class="resource-card" href="bygg-det-trygge.html"><span class="rlabel">Ressurs</span><h3>Bygg det trygge</h3><p>En digital variant av «Rike bilder» som bruker symboler for å undersøke hva som kan bidra til trygghet og deltakelse.</p></a>
+</div>
+</div>
 </div>
 
 <div class="plane-stone">
-  <div class="wrap steps">
-    <h2>Fire dimensjoner av engasjement</h2>
-    <p class="intro">Fire begreper fra forskningen som kan hjelpe oss å lese tegnene på engasjement riktig (Fredricks et al., 2004; Reeve &amp; Tseng, 2011).</p>
-    <div class="step"><span class="n">1</span><div><h3>Atferdsmessig engasjement</h3><p>Deltakelse, oppmerksomhet, innsats og utholdenhet i arbeidet.</p></div></div>
-    <div class="step"><span class="n">2</span><div><h3>Emosjonelt engasjement</h3><p>Følelser i møte med innholdet: interesse, glede, kjedsomhet eller frustrasjon.</p></div></div>
-    <div class="step"><span class="n">3</span><div><h3>Kognitivt engasjement</h3><p>Arbeidet med å forstå — å undersøke, se sammenhenger, bruke strategier og vurdere egen forståelse.</p></div></div>
-    <div class="step"><span class="n">4</span><div><h3>Agentisk engasjement</h3><p>Å bidra til å forme situasjonen gjennom egne spørsmål, behov, forslag og initiativ.</p></div></div>
-  </div>
+<div class="wrap part-intro">
+<div class="part-head">
+<div class="part-number">1</div>
+<div>
+<div class="part-kicker">Del 1</div>
+<h2>Hvordan skape interesse og engasjement?</h2>
+<p>Før vi kan legge til rette for engasjement, trenger vi et mer presist språk for hva engasjement kan være. Synlig aktivitet er bare én side. Engasjement kan også komme til uttrykk i følelser, tankearbeid og i muligheten til å påvirke læringssituasjonen.</p>
+</div>
+</div>
+</div>
+<div class="wrap steps">
+<h2>Fire dimensjoner ved engasjement</h2>
+<p class="intro">Fredricks, Blumenfeld og Paris (2004) skiller mellom atferdsmessig, emosjonelt og kognitivt engasjement. Reeve og Tseng (2011) beskriver agentisk engasjement som en fjerde dimensjon.</p>
+<div class="step"><span class="n">1</span><div><h3>Atferdsmessig</h3><p>Hva ser vi faktisk? Deltakelse, oppmerksomhet, innsats og utholdenhet kan gi viktige tegn, men de forteller ikke alene hva den andre forstår.</p></div></div>
+<div class="step"><span class="n">2</span><div><h3>Emosjonelt</h3><p>Hvilke reaksjoner oppstår i møte med innhold, situasjon og mennesker? Interesse, uro, frustrasjon, glede og motstand kan alle være relevante uttrykk.</p></div></div>
+<div class="step"><span class="n">3</span><div><h3>Kognitivt</h3><p>Hva gjør deltakerne med informasjonen? Kognitivt engasjement handler om å undersøke, koble, sammenligne, vurdere og utvikle forståelse.</p></div></div>
+<div class="step"><span class="n">4</span><div><h3>Agentisk</h3><p>Hva får deltakerne påvirke? Agentisk engasjement viser seg når spørsmål, behov, forslag og initiativer faktisk får betydning for det som skjer.</p></div></div>
+<div class="bridge"><h3>Fra tegn til analyse</h3><p>De fire dimensjonene gjør det mulig å gå fra spørsmålet «var de engasjerte?» til mer presise spørsmål om hva vi så, hva vi ikke kunne se, hva deltakerne bearbeidet, og hvilket handlingsrom de faktisk hadde.</p></div>
+<div class="resource-grid">
+<a class="resource-card" href="refleksjon-engasjement.html"><span class="rlabel">Arbeidsark</span><h3>Fra tegn på engasjement til refleksjon</h3><p>Ta utgangspunkt i en konkret informasjonssituasjon og undersøk den gjennom ett av de fire blikkene på engasjement.</p></a>
+</div>
+</div>
+</div>
+
+<div class="wrap part-intro">
+<div class="part-head">
+<div class="part-number">2</div>
+<div>
+<div class="part-kicker">Del 2</div>
+<h2>Hvordan legge til rette for aktiv deltakelse fremfor passiv lytting?</h2>
+<p>Aktiv deltakelse er mer enn at mange snakker. I dialog får deltakernes erfaringer, spørsmål og fortolkninger plass, og bidragene får betydning for hvordan forståelsen utvikles. Samtalen blir et sted der innhold kan undersøkes, prøves og bearbeides sammen.</p>
+</div>
+</div>
+</div>
+<div class="wrap">
+<div class="prose col">
+<h2>Fra samtale til dialog</h2>
+<p>I <em>Menon</em> lar Sokrates en antakelse bli formulert, prøvd og undersøkt. Poenget her er ikke å kopiere den sokratiske samtalen, men å se hva spørsmål kan gjøre: De kan gjøre tenkningen synlig nok til at den kan undersøkes. Senere dialogforskning peker på det samme grunnproblemet. Det avgjørende er ikke mengden prat, men hvordan bidragene tas opp og brukes i den videre samtalen (Howe et al., 2019).</p>
+<div class="three-grid">
+<div class="three-card"><div class="nsmall">1</div><h3>Erfaringer og spørsmål får plass</h3><p>Deltakerne får bringe inn det de allerede vet, har erfart, lurer på eller trenger å forstå.</p></div>
+<div class="three-card"><div class="nsmall">2</div><h3>Bidragene får betydning</h3><p>Det som blir sagt, blir tatt opp og påvirker hvordan samtalen og arbeidet med innholdet utvikler seg.</p></div>
+<div class="three-card"><div class="nsmall">3</div><h3>Forståelse undersøkes</h3><p>Påstander, antakelser og fortolkninger kan prøves, sammenlignes, nyanseres og utvikles i fellesskap.</p></div>
+</div>
+<h2 class="spacer">Dobbel åpning</h2>
+<p>Klafkis begrep om dobbel åpning beskriver et gjensidig møte mellom mennesket og innholdet. Innholdet må åpnes slik at det blir tilgjengelig og meningsfullt. Samtidig må deltakeren få komme inn i innholdet med egne erfaringer, spørsmål og fortolkninger.</p>
+<div class="callout"><p><strong>To spørsmål i informasjonsarbeidet:</strong> Hvordan åpner jeg dette innholdet for dem? Hva får de gjøre som gjør at de faktisk kan komme inn i det?</p></div>
+<div class="resource-grid">
+<a class="resource-card" href="ovelse-engasjerende-laering-udi.html"><span class="rlabel">Dialogøvelse</span><h3>Prøv dialogen</h3><p>En kort øvelse der et kjent innhold skal åpnes for en annen gjennom spørsmål, lytting og respons, framfor et lite foredrag.</p></a>
+</div>
+</div>
+</div>
+
+<div class="plane-stone">
+<div class="wrap part-intro">
+<div class="part-head">
+<div class="part-number">3</div>
+<div>
+<div class="part-kicker">Del 3</div>
+<h2>Hvordan iscenesette for engasjement, aktiv deltakelse, refleksjon og dialog?</h2>
+<p>Når innholdet og menneskene er tydeligere, kan vi begynne å velge arbeidsmåter. Denne delen handler om didaktisk analyse, om å undersøke hva en arbeidsform gjør mulig, og om å designe hva deltakerne skal møte og gjøre.</p>
+</div>
+</div>
+</div>
+<div class="wrap steps">
+<h2>Metoden kommer etter analysen</h2>
+<p class="intro">Klafkis didaktiske spørsmål gir en arbeidsmåte for å gå fra modulenes mål og temaer til et konkret innhold som skal åpnes for en bestemt gruppe.</p>
+<div class="question-grid">
+<div class="question-card"><div class="tag">1 · Eksemplarisk betydning</div><h3>Hva kan innholdet åpne?</h3><p>Hvilke større sammenhenger, innsikter eller måter å forstå verden på kan et konkret tema gi tilgang til?</p></div>
+<div class="question-card"><div class="tag">2 · Nåtidsbetydning</div><h3>Hvorfor betyr det noe her og nå?</h3><p>Hvordan angår innholdet deltakernes nåværende situasjon, erfaringer, behov eller spørsmål?</p></div>
+<div class="question-card"><div class="tag">3 · Fremtidsbetydning</div><h3>Hva kan de få bruk for videre?</h3><p>I hvilke senere situasjoner kan denne kunnskapen støtte forståelse, vurdering eller handling?</p></div>
+<div class="question-card"><div class="tag">4 · Struktur</div><h3>Hva er innholdets indre struktur?</h3><p>Hva er kjernen, hvilke deler henger sammen, hva må forstås først, og hvor kan forståelsen bryte sammen?</p></div>
+<div class="question-card"><div class="tag">5 · Tilgjengelighet</div><h3>Hvordan kan innholdet gjøres tilgjengelig?</h3><p>Hvilke erfaringer, eksempler, situasjoner, representasjoner eller arbeidsmåter kan åpne akkurat dette innholdet?</p></div>
+</div>
+<div class="bridge"><h3>Rutinebeskrivelsen som fagplan</h3><p>Modulene angir mål og temaer. Det didaktiske arbeidet består i å konkretisere innholdet og begrunne hvordan det skal åpnes. I arbeidsøkten velger modulgruppen derfor ett tema, undersøker det gjennom Klafkis fem spørsmål og setter perspektivene sammen igjen.</p></div>
+<div class="resource-grid">
+<a class="resource-card" href="klafki-arbeidsark.html"><span class="rlabel">Arbeidsark</span><h3>Klafki som arbeidsmåte</h3><p>Støtte til arbeidet med de fem spørsmålene. Siden kan brukes underveis og lar deg lagre egne stikkord som PDF.</p></a>
+</div>
+</div>
 </div>
 
 <div class="wrap">
-  <div class="prose col">
-    <p>Sammen gir de fire dimensjonene flere spørsmål å stille til en informasjonsøkt enn bare om noen «var med»: Hvem får anledning til å delta? Hvordan opplever de situasjonen? Hvordan arbeider de med å forstå? Og hvilke muligheter har de til å påvirke det som skjer?</p>
+<div class="prose col">
+<h2>Arbeidsmåten må også undersøkes</h2>
+<p>Etter at en arbeidsmåte er valgt, kan den undersøkes i lys av Shulmans begrep om signaturpedagogikk (2005). Hva skjer faktisk? Hvilke antakelser om læring ligger under? Hvilke verdier og posisjoner formidler arbeidsformen? En kjent arbeidsmåte kan bære mye profesjonskunnskap, men den må fortsatt kunne begrunnes ut fra innholdet og menneskene i situasjonen.</p>
+<div class="three-grid">
+<div class="three-card"><div class="nsmall">1</div><h3>Overflatestrukturen</h3><p>Hva skjer, og hvem gjør hva? Hvem forklarer, spør, undersøker, produserer, kommenterer eller holder seg tilbake?</p></div>
+<div class="three-card"><div class="nsmall">2</div><h3>Dybdestrukturen</h3><p>Hvilke antakelser har vi om hvordan den aktuelle kunnskapen og kompetansen best utvikles?</p></div>
+<div class="three-card"><div class="nsmall">3</div><h3>Den implisitte strukturen</h3><p>Hvilke verdier, forventninger og posisjoner formidles gjennom selve arbeidsformen?</p></div>
+</div>
+<h2 class="spacer">Design av en læringssekvens</h2>
+<p>Selander og Kress (2012) flytter oppmerksomheten fra enkeltmetoden til hele læringssekvensen. Hvilke ressurser møter deltakerne? Hva får de bruke når de skal bearbeide innholdet? Hvordan kan forståelsen representeres og samtales om? Hvilke tegn ser vi etter for å vite om noe er blitt forstått?</p>
+<div class="question-grid">
+<div class="question-card"><div class="tag">Iscenesetting</div><h3>Hva møter deltakerne?</h3><p>Hvilke ressurser, representasjoner, språk, medier og eksempler brukes for å gjøre innholdet tilgjengelig?</p></div>
+<div class="question-card"><div class="tag">Transformering</div><h3>Hva får de gjøre med innholdet?</h3><p>Hva får deltakerne undersøke, sammenligne, forklare, prøve ut, representere eller omforme?</p></div>
+<div class="question-card"><div class="tag">Dialog og metarefleksjon</div><h3>Hvordan undersøkes forståelsen?</h3><p>Hvilke samtaler gjør det mulig å stille spørsmål, begrunne, revidere og reflektere over egen forståelse?</p></div>
+<div class="question-card"><div class="tag">Tegn på læring</div><h3>Hva ser vi etter?</h3><p>Hvilke tegn underveis eller i etterkant kan gi informasjon om hva den enkelte og gruppen har fått tak i?</p></div>
+</div>
+<div class="resource-grid">
+<a class="resource-card" href="planlegging-design-for-laering.html"><span class="rlabel">Planleggingsverktøy</span><h3>Design for læring</h3><p>Et digitalt arbeidsark for å planlegge en informasjonsøkt med oppmerksomhet på ressurser, aktivitet, dialog, representasjon og tegn på forståelse.</p></a>
+</div>
 
-    <h2 class="spacer">Engasjement er ikke det samme som motivasjon</h2>
-    <p>Motivasjon kan være at du liker et tema, trenger kunnskapen eller ønsker å oppnå noe. Engasjement viser seg i hvordan du retter oppmerksomheten mot innholdet, arbeider med det, reagerer følelsesmessig og forsøker å forstå. Et informasjonsprogram kan være obligatorisk uten at det sier noe om hvor engasjert den enkelte faktisk er.</p>
+<h2 class="spacer">Tre deler, én bevegelse</h2>
+<p>De tre delene henger sammen. Først trenger vi et språk for å se engasjement mer presist. Deretter må vi undersøke hvordan dialog kan gjøre deltakernes erfaringer og tenkning til en del av arbeidet med innholdet. Til slutt trenger vi didaktiske redskaper for å analysere innholdet, velge arbeidsmåter og designe en læringssekvens som gir deltakerne noe å gjøre med informasjonen.</p>
+<p class="pull">Fra å se hva som skjer, til å åpne innholdet, til å designe hva deltakerne får gjøre.</p>
 
-    <h2 class="spacer">Å skape et miljø som fremmer engasjement</h2>
-    <div class="callout">
-      <ul>
-        <li><strong>Gjør hensikten tydelig.</strong> Rammene for økta bør være forståelige før dere starter.</li>
-        <li><strong>Vis interesse.</strong> For deltakernes erfaringer og spørsmål, ikke bare for eget innhold.</li>
-        <li><strong>Gi tid.</strong> Støtt deltakerne i å formulere egne bidrag.</li>
-        <li><strong>Møt usikkerhet med spørsmål.</strong> Bruk dem til å forstå uenighet, ikke til å avfeie den.</li>
-        <li><strong>La innspill telle.</strong> Deltakernes bidrag bør få reell betydning for hvordan økta utvikler seg videre.</li>
-      </ul>
-    </div>
-
-    <h2 class="spacer">Ressurser fra økta</h2>
-    <p>To enkle verktøy fra workshopen, som lett lar seg bruke i andre sammenhenger.</p>
-    <p><strong>«Jeg vet at de er med når …»</strong> — en refleksjonsøvelse der deltakerne fullfører setningen hver for seg og deler med sidemannen. God innledning til en samtale om egne tegn på engasjement, før man går videre til forskningens fire dimensjoner.</p>
-    <p><strong>Fra tegn på engasjement til refleksjon</strong> — digital refleksjonsoppgave der deltakerne tar utgangspunkt i en konkret informasjonssituasjon, velger ett av de fire blikkene på engasjement og undersøker situasjonen først alene, så i par og til slutt i en liten gruppe. <a href="refleksjon-engasjement.html">Åpne refleksjonsoppgaven</a>.</p>
-    <p><strong>«Snakk og bytt»-kort</strong> — fargekodede samtalekort som blander grupper og skaper kontakt på tvers, før man går videre til det faglige arbeidet. <a href="snakk_og_bytt_blanke_kort.docx" download>Last ned blanke kort (.docx)</a>.</p>
-    <p><strong>Bygg det trygge</strong> — digital variant av UDIs egen «Rike bilder»-metode. Dra symboler inn på en felles tavle og bygg et bilde av det som gir trygghet, uten å måtte tegne selv. <a href="bygg-det-trygge.html">Åpne tavlen</a>.</p>
-    <p><strong>Hobby-øvelsen</strong> — en kort digital oppgave deltakerne følger på egen telefon, rett etter Snakk og bytt-kortene. <a href="ovelse-engasjerende-laering-udi.html">Prøv øvelsen</a>.</p>
-    <p><strong>Planlegging: design for læring</strong> — interaktivt verktøy der modulgruppene planlegger egen økt steg for steg, basert på Selander &amp; Kress (2010). <a href="planlegging-design-for-laering.html">Åpne verktøyet</a>.</p>
-
-    <h2 class="spacer">Kilder</h2>
-    <p>Fredricks, J. A., Blumenfeld, P. C. &amp; Paris, A. H. (2004). School engagement: Potential of the concept, state of the evidence. <em>Review of Educational Research</em>, 74(1), 59–109.</p>
-    <p>Reeve, J. &amp; Tseng, C.-M. (2011). Agency as a fourth aspect of students' engagement during learning activities. <em>Contemporary Educational Psychology</em>, 36(4), 257–267.</p>
-  </div>
+<h2 class="spacer">Kilder</h2>
+<p>Fredricks, J. A., Blumenfeld, P. C. &amp; Paris, A. H. (2004). School engagement: Potential of the concept, state of the evidence. <em>Review of Educational Research</em>, 74(1), 59–109.</p>
+<p>Reeve, J. &amp; Tseng, C.-M. (2011). Agency as a fourth aspect of students' engagement during learning activities. <em>Contemporary Educational Psychology</em>, 36(4), 257–267.</p>
+<p>Platon. (2014). <em>Menon</em> (2. utg.). Vidarforlaget.</p>
+<p>Howe, C., Hennessy, S., Mercer, N., Vrikki, M. &amp; Wheatley, L. (2019). Teacher–Student Dialogue During Classroom Teaching: Does It Really Impact on Student Outcomes? <em>Journal of the Learning Sciences</em>, 28(4–5), 462–512.</p>
+<p>Klafki, W. (1995). Didactic analysis as the core of preparation of instruction (Didaktische Analyse als Kern der Unterrichtsvorbereitung). <em>Journal of Curriculum Studies</em>, 27(1), 13–30.</p>
+<p>Klafki, W. (2001). Kategorial dannelse: bidrag til en dannelsesteoretisk fortolkning av moderne didaktikk. I E. L. Dale (red.), <em>Om utdanning – klassiske tekster</em>. Gyldendal Akademisk.</p>
+<p>Klafki, W. (2016). <em>Dannelsesteori og didaktik: nye studier</em>. Klim.</p>
+<p>Selander, S. &amp; Kress, G. (2012). <em>Læringsdesign: i et multimodalt perspektiv</em>. Frydenlund.</p>
+<p>Shulman, L. S. (2005). Signature pedagogies in the professions. <em>Dædalus</em>, Summer 2005.</p>
+</div>
 </div>
 
 <div class="plane-dark">
-  <div class="wrap">
-    <section class="closing">
-      <div>
-        <h2>Nye innlegg rett i innboksen</h2>
-        <p>Jeg skriver om forskning, undervisning og digital teknologi i pedagogisk praksis.</p>
-      </div>
-      <a href="https://mariletn.substack.com" target="_blank" rel="noopener" class="button">Abonner</a>
-    </section>
-  </div>
-</div>
-
 <div class="wrap">
-  <footer>
-    <span>© Mari-Ann Letnes, førsteamanuensis ved NTNU</span>
-    <a href="index.html">Til alle innlegg</a>
-  </footer>
+<section class="closing">
+<div>
+<h2>Nye innlegg rett i innboksen</h2>
+<p>Jeg skriver om forskning, undervisning og digital teknologi i pedagogisk praksis.</p>
 </div>
-
+<a class="button" href="https://mariletn.substack.com" rel="noopener" target="_blank">Abonner</a>
+</section>
+</div>
+</div>
+<div class="wrap">
+<footer>
+<span>© Mari-Ann Letnes, førsteamanuensis ved NTNU</span>
+<a href="index.html">Til alle innlegg</a>
+</footer>
+</div>
 </body>
 </html>
