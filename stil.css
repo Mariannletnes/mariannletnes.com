@@ -133,16 +133,14 @@ a{color:inherit}
 
 .hero-inner.with-portrait{grid-template-columns:minmax(0,1fr) 300px;gap:4rem}
 
-/* rektangulært portrett med ring, som på Om meg-siden */
+/* rektangulært portrett uten ramme; bakgrunnsfargen ligger i bildet */
 .portrait-link{display:block;text-decoration:none}
 .portrait{
   display:block;position:relative;border-radius:4px;overflow:hidden;
-  border:3px solid var(--marine);box-shadow:0 0 0 3px var(--mauve);
-  aspect-ratio:900/1124;transition:box-shadow .25s;
+  aspect-ratio:900/1124;
 }
 .portrait img{width:100%;height:100%;object-fit:cover}
 .portrait .alt{position:absolute;inset:0;opacity:0;transition:opacity .45s ease}
-.portrait-link:hover .portrait{box-shadow:0 0 0 3px var(--mauve-light)}
 .portrait-link:hover .alt,.portrait-link:focus-visible .alt{opacity:1}
 .portrait-label{
   display:block;margin-top:1.1rem;text-align:center;font-size:.95rem;
