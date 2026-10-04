@@ -133,6 +133,10 @@ a{color:inherit}
 
 .hero-inner.with-portrait{grid-template-columns:minmax(0,1fr) 300px;gap:4rem}
 
+/* Om meg har plommefarget topp i stedet for blå.
+   Bytt fargen her for å endre den. */
+.side-om .site-nav,.side-om .hero{background:var(--plum)}
+
 /* rektangulært portrett uten ramme; bakgrunnsfargen ligger i bildet */
 .portrait-link{display:block;text-decoration:none}
 .portrait{
