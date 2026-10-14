@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>PARK — profesjonsetisk analyse</title>
+<meta name="description" content="Arbeidsark som tar gruppen gjennom Bergems PARK-modell, fra dilemma til begrunnet profesjonsetisk valg. Alt du skriver blir værende på din egen maskin.">
+<meta property="og:title" content="PARK — profesjonsetisk analyse">
+<meta property="og:image" content="https://mariannletnes.com/portrett-mork.jpg">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mariannletnes.com/park-analyse.html">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%23332830'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='15' fill='%23F8F4F1' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ============ Tokens ============ */
+:root{
+  --paper:#F8F4F1;
+  --stone:#EDE7E2;
+  --surface:#FFFFFF;
+  --dark:#332830;
+  --plum:#6E4B57;
+  --ink:#4A3C43;
+  --body:#5E4F55;
+  --quiet:#7E6F74;
+  --hair:#E1D8D1;
+  --hair-stone:#DBD1C9;
+  --shadow:0 18px 38px rgba(51,40,48,.07);
+  --r-lg:22px;
+  --r-md:16px;
+
+  /* De fire bokstavene i PARK, pluss personvern i dempet plomme */
+  --p:#B75E88;  --p-soft:#FBEAF1;
+  --a:#287D7A;  --a-soft:#E2F3F1;
+  --r:#A98400;  --r-soft:#FBF3D4;
+  --k:#70539A;  --k-soft:#EFE8F7;
+  --vern:#6E4B57; --vern-soft:#F3ECEE;
+
+  --varsel:#9A4A20;
+  --varsel-soft:#FBEDE4;
+}
+
+/* ============ Grunnlag ============ */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  background:
+    radial-gradient(circle at 75% 0%, rgba(255,255,255,.85), rgba(255,255,255,0) 42%),
+    linear-gradient(180deg,#F7F2EF 0%, var(--stone) 100%);
+  color:var(--body);
+  font-family:'Jost',system-ui,sans-serif;
+  font-size:1.03rem;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  -webkit-tap-highlight-color:transparent;
+}
+h1,h2,h3,p{margin:0}
+a{color:inherit}
+button,input,textarea{font-family:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--plum);outline-offset:3px}
+
+/* ============ Topp ============ */
+.top{
+  max-width:760px;
+  margin:0 auto;
+  width:100%;
+  padding:22px 24px 0;
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.signature{
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-size:1.3rem;
+  color:var(--ink);
+  text-decoration:none;
+}
+.source{font-size:.88rem;color:var(--quiet)}
+
+/* ============ Premisset øverst ============ */
+.premise{
+  max-width:760px;
+  margin:18px auto 0;
+  width:100%;
+  padding:0 24px;
+}
+.premise-inner{
+  padding:20px 22px;
+  background:var(--vern-soft);
+  border-left:5px solid var(--vern);
+  border-radius:0 18px 18px 0;
+}
+.premise h1{
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-weight:500;
+  font-size:1.95rem;
+  line-height:1.12;
+  color:var(--ink);
+  margin-bottom:8px;
+}
+.premise p{font-size:1rem;line-height:1.6;color:var(--ink)}
+.premise p + p{margin-top:8px}
+.premise .vern-linje{
+  margin-top:12px;
+  font-size:.92rem;
+  color:var(--vern);
+}
+
+/* ============ Kortet ============ */
+main{
+  flex:1;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  padding:18px 24px 30px;
+}
+.card{
+  width:100%;
+  max-width:712px;
+  padding:26px 28px 28px;
+  background:var(--surface);
+  border:1px solid var(--hair);
+  border-radius:var(--r-lg);
+  box-shadow:var(--shadow);
+}
+
+/* ============ Framdrift ============ */
+.progress{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin-bottom:22px;
+}
+.pill{
+  min-width:34px;
+  height:34px;
+  padding:0 9px;
+  display:grid;
+  place-items:center;
+  border:1px solid var(--hair-stone);
+  border-radius:999px;
+  background:transparent;
+  color:var(--quiet);
+  font-size:.86rem;
+  transition:background .2s ease,color .2s ease,border-color .2s ease;
+}
+.pill.done{border-color:var(--c);color:var(--c)}
+.pill.active{background:var(--c);border-color:var(--c);color:#fff}
+.pill[disabled]{opacity:.4;cursor:not-allowed}
+
+.kicker{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:.76rem;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  font-weight:500;
+  color:var(--quiet);
+  margin-bottom:10px;
+}
+.letter{
+  width:30px;
+  height:30px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:var(--c);
+  color:#fff;
+  font-size:.95rem;
+  letter-spacing:0;
+  flex:none;
+}
+.step-title{
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-weight:500;
+  font-size:1.9rem;
+  line-height:1.15;
+  color:var(--ink);
+  margin-bottom:10px;
+}
+.step-desc{font-size:1.02rem;line-height:1.62;margin-bottom:4px}
+
+/* ============ Felt ============ */
+.field{margin-top:18px}
+.field label{
+  display:block;
+  font-size:.96rem;
+  color:var(--ink);
+  font-weight:500;
+  margin-bottom:3px;
+}
+.field .hint{
+  display:block;
+  font-size:.9rem;
+  color:var(--quiet);
+  margin-bottom:7px;
+}
+.kjerne{
+  margin:4px 0 9px;
+  padding:11px 14px;
+  background:var(--a-soft);
+  border-left:4px solid var(--c);
+  border-radius:0 12px 12px 0;
+  font-size:.93rem;
+  line-height:1.55;
+  color:var(--ink);
+}
+.kjerne b{font-weight:500}
+.kjerne .blind{margin-top:6px;color:var(--body)}
+.field textarea{
+  width:100%;
+  min-height:86px;
+  resize:vertical;
+  padding:12px 14px;
+  background:var(--paper);
+  color:var(--ink);
+  border:1px solid var(--hair);
+  border-radius:var(--r-md);
+  font-size:.99rem;
+  line-height:1.55;
+}
+.field input[type="text"]{
+  width:100%;
+  padding:11px 14px;
+  background:var(--paper);
+  color:var(--ink);
+  border:1px solid var(--hair);
+  border-radius:var(--r-md);
+  font-size:.99rem;
+}
+.field textarea::placeholder,
+.field input::placeholder{color:var(--quiet)}
+.field textarea:focus,
+.field input:focus{border-color:var(--c)}
+
+/* Det gruppen skrev tidligere, gjentatt som bakgrunn for neste steg. */
+.echo{
+  margin-top:18px;
+  padding:13px 15px;
+  background:var(--c-soft);
+  border-radius:var(--r-md);
+  font-size:.95rem;
+  line-height:1.5;
+  color:var(--ink);
+}
+.echo strong{display:block;font-weight:500;margin-bottom:3px}
+.echo .tom{color:var(--quiet);font-style:italic}
+
+/* ============ Personvernvarsel ============ */
+.varsel{
+  margin-top:8px;
+  padding:10px 13px;
+  background:var(--varsel-soft);
+  border-left:4px solid var(--varsel);
+  border-radius:0 12px 12px 0;
+  font-size:.9rem;
+  line-height:1.5;
+  color:var(--varsel);
+}
+.varsel b{font-weight:500}
+
+/* ============ Porten ============ */
+.vern-liste{
+  list-style:none;
+  padding:0;
+  margin:18px 0 0;
+  display:grid;
+  gap:9px;
+}
+.vern-liste li{
+  position:relative;
+  padding:12px 15px 12px 44px;
+  background:var(--paper);
+  border-radius:var(--r-md);
+  font-size:.96rem;
+  line-height:1.5;
+  color:var(--ink);
+}
+.vern-liste li::before{
+  content:"";
+  position:absolute;
+  left:17px;
+  top:1.15em;
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  background:var(--vern);
+}
+.samtykke{
+  display:flex;
+  align-items:flex-start;
+  gap:11px;
+  margin-top:20px;
+  padding:14px 16px;
+  background:var(--vern-soft);
+  border-radius:var(--r-md);
+  cursor:pointer;
+}
+.samtykke input{
+  width:20px;
+  height:20px;
+  margin:2px 0 0;
+  accent-color:var(--vern);
+  flex:none;
+}
+.samtykke span{font-size:.97rem;line-height:1.5;color:var(--ink)}
+
+/* ============ Oppsummering ============ */
+.sum{margin-top:20px}
+.sum-blokk{
+  padding:16px 18px;
+  border-radius:var(--r-md);
+  background:var(--c-soft);
+  margin-bottom:12px;
+}
+.sum-blokk h3{
+  font-family:'Jost',system-ui,sans-serif;
+  font-size:.76rem;
+  font-weight:500;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  color:var(--c);
+  margin-bottom:10px;
+}
+.sum-post + .sum-post{margin-top:11px}
+.sum-post b{
+  display:block;
+  font-weight:500;
+  font-size:.93rem;
+  color:var(--ink);
+}
+.sum-post span{
+  display:block;
+  font-size:.97rem;
+  line-height:1.55;
+  color:var(--body);
+  white-space:pre-wrap;
+}
+.sum-post span.tom{color:var(--quiet);font-style:italic}
+.sum-tell{font-size:.92rem;color:var(--quiet);margin-bottom:14px}
+
+/* ============ Knapper ============ */
+.nav-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-top:26px;
+  gap:14px;
+}
+.btn-next{
+  flex:1;
+  background:var(--dark);
+  color:#F7F1F2;
+  border:none;
+  font-size:1.01rem;
+  padding:15px 26px;
+  border-radius:999px;
+  text-align:center;
+  transition:background .2s ease;
+}
+.btn-next:hover{background:var(--ink)}
+.btn-next[disabled]{opacity:.35;cursor:not-allowed}
+.btn-prev{
+  background:transparent;
+  border:none;
+  color:var(--quiet);
+  font-size:1rem;
+  padding:15px 6px;
+}
+.btn-prev:disabled{opacity:0;pointer-events:none}
+.btn-prev:not(:disabled):hover{color:var(--plum)}
+
+.utganger{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:20px;
+}
+.utgang{
+  background:var(--dark);
+  color:#F7F1F2;
+  border:none;
+  font-size:.96rem;
+  padding:12px 22px;
+  border-radius:999px;
+}
+.utgang.mild{
+  background:var(--surface);
+  color:var(--ink);
+  border:1px solid var(--hair-stone);
+}
+.utgang.mild:hover{border-color:var(--plum)}
+
+.kilder{
+  max-width:760px;
+  margin:0 auto;
+  width:100%;
+  padding:0 24px 22px;
+  font-size:.86rem;
+  line-height:1.5;
+  color:var(--quiet);
+}
+.kilder h2{
+  font-family:'Jost',system-ui,sans-serif;
+  font-size:.76rem;
+  font-weight:500;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  margin-bottom:8px;
+}
+.kilder ul{list-style:none;padding:0;margin:0;display:grid;gap:5px}
+.kilder li{padding-left:1.4em;text-indent:-1.4em}
+.bunn{
+  max-width:760px;
+  margin:0 auto;
+  width:100%;
+  padding:0 24px 40px;
+  display:flex;
+  justify-content:space-between;
+  gap:14px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+.bunn p{font-size:.88rem;color:var(--quiet);max-width:52ch}
+.tom-alt{
+  background:none;
+  border:none;
+  padding:0 0 2px;
+  color:var(--quiet);
+  font-size:.92rem;
+  box-shadow:inset 0 -1px 0 var(--hair-stone);
+}
+.tom-alt:hover{color:var(--varsel);box-shadow:inset 0 -1px 0 var(--varsel)}
+
+/* ============ Mobil ============ */
+@media (max-width:600px){
+  .top,.premise,main,.kilder,.bunn{padding-left:16px;padding-right:16px}
+  .card{padding:22px 18px 24px;border-radius:18px}
+  .premise h1{font-size:1.7rem}
+  .step-title{font-size:1.6rem}
+}
+
+/* ============ Redusert bevegelse ============ */
+@media (prefers-reduced-motion:reduce){
+  *{transition:none !important}
+}
+
+/* ============ Utskrift ============ */
+@media print{
+  body{background:#fff}
+  .top,.premise,.progress,.nav-row,.utganger,.bunn,.varsel,.kilder{display:none !important}
+  main{padding:0}
+  .card{box-shadow:none;border:none;max-width:none;padding:0}
+  .sum-blokk{break-inside:avoid;border:1px solid #ccc;background:#fff}
+}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+<div class="top">
+  <a href="index.html" class="signature">Mari-Ann Letnes</a>
+  <span class="source">PEL 3 · Profesjonsetikk i praksis</span>
+</div>
+
+<div class="premise">
+  <div class="premise-inner">
+    <h1>PARK — profesjonsetisk analyse</h1>
+    <p>Dere har et case fra praksis. Her arbeider dere systematisk gjennom de fire stegene i Bergems PARK-modell (2011), fra dilemmaet er formulert til valget er begrunnet. Underveis henter dere inn etisk teori, lovverk, perspektivtaking og makt.</p>
+    <p>Arbeidsarket er stillaset. Plakaten er svaret.</p>
+    <p class="vern-linje">Alt dere skriver blir værende på denne maskinen. Ingenting sendes noe sted.</p>
+  </div>
+</div>
+
+<main>
+  <div class="card">
+    <div class="progress" id="progress" role="group" aria-label="Steg i analysen"></div>
+
+    <p class="kicker" id="stepKicker"></p>
+    <h2 class="step-title" id="stepTitle"></h2>
+    <p class="step-desc" id="stepDesc"></p>
+
+    <div id="innhold"></div>
+
+    <div class="nav-row">
+      <button class="btn-prev" type="button" id="prevBtn">Forrige</button>
+      <button class="btn-next" type="button" id="nextBtn">Neste</button>
+    </div>
+  </div>
+</main>
+
+<section class="kilder" aria-labelledby="kilderTittel">
+  <h2 id="kilderTittel">Kilder</h2>
+  <ul>
+    <li>Bergem, T. (2011). Analysemodeller. I <i>Læreren i etikkens motlys</i> (s. 177–183). Gyldendal.</li>
+    <li>Henriksen, J.-O. og Vetlesen, A. J. (2017). <i>Nærhet og distanse: Grunnlag, verdier og etiske teorier i arbeid med mennesker</i>. Gyldendal Akademisk. Kap. 11, 13 og 14.</li>
+    <li>Lomsdalen, C. (2023). Noen utvalgte profesjonsetiske dilemmaer. I <i>Burde vi det? Profesjonsfaglig etisk kompetanse i skolen</i> (s. 83–111). Fagbokforlaget.</li>
+    <li>Løgstrup, K. E. (1956). <i>Den etiske fordring</i>. Gyldendal.</li>
+    <li>Røkenes, O. H. og Hanssen, P.-H. (2012). <i>Bære eller briste: Kommunikasjon og relasjon i arbeid med mennesker</i> (3. utg.). Fagbokforlaget.</li>
+  </ul>
+</section>
+
+<div class="bunn">
+  <p>Arbeider dere på en lånt maskin, trykk «Tøm alt» før dere går fra den.</p>
+  <button class="tom-alt" type="button" id="tomAltBtn">Tøm alt</button>
+</div>
+
+<script>
+/* ============================================================
+   PARK — profesjonsetisk analyse
+   Bergems modell, slik den brukes i PEL 3.
+
+   Personvern er bygget inn, ikke lagt oppå:
+   · Ingenting forlater maskinen. Det finnes ingen innsending.
+   · Alt ligger i nettleserens eget lager, under én nøkkel.
+   · Steg 1 er en port. Gruppen må velge dekknavn og bekrefte
+     at caset er anonymisert før de får skrive noe som helst.
+   · Teksten leses underveis etter det som kan være navn, steder,
+     årstall eller fødselsnummer, og gruppen får en påminnelse.
+     Dette er en hjelp, ikke en garanti.
+   ============================================================ */
+
+var LAGER = 'park-analyse-v1';
+
+/* ---------- Stegene ---------- */
+var steg = [
+  {
+    bokstav:"", farge:"vern", kort:"Vern",
+    kicker:"Før dere begynner",
+    tittel:"Anonymiser caset",
+    desc:"Caset handler om et virkelig menneske som ikke har samtykket til å bli skrevet om. Derfor er anonymiseringen den første profesjonsetiske handlingen dere gjør her.",
+    port:true,
+    felt:[
+      { id:"dekk_elev",  type:"text", label:"Dekknavn for eleven",
+        hint:"For eksempel «Eleven», «Elev A» eller «Jonas» — et navn som ikke er elevens.",
+        placeholder:"Elev A" },
+      { id:"dekk_andre", type:"text", label:"Dekknavn for andre som nevnes",
+        hint:"Kontaktlærer, forelder, rektor, medelev. Valgfritt.",
+        placeholder:"Kontaktlærer B" }
+    ]
+  },
+  {
+    bokstav:"P", farge:"p", kort:"P",
+    kicker:"Problem",
+    tittel:"Hva er egentlig dilemmaet?",
+    desc:"Et dilemma kjennetegnes ved at noe går tapt uansett hva læreren gjør. Finn fram til det tapet.",
+    felt:[
+      { id:"p_berort", label:"Hvem berøres?",
+        hint:"Hvilke personer og interesser er involvert?" },
+      { id:"p_mot", label:"Hva står mot hverandre?",
+        hint:"Hvilke hensyn, verdier eller plikter er vanskelige å ivareta samtidig?" },
+      { id:"p_spill", label:"Hva står på spill?",
+        hint:"Hva kan gå tapt, uansett hva læreren velger?" },
+      { id:"p_setning", label:"Dilemmaet i én setning",
+        hint:"Klarer dere ikke å få det inn i én setning, er dilemmaet ennå ikke skarpt nok.",
+        placeholder:"Læreren må ivareta …, samtidig som …" }
+    ]
+  },
+  {
+    bokstav:"A", farge:"a", kort:"A1",
+    kicker:"Analyse · tre etiske blikk",
+    tittel:"Samme situasjon, tre måter å se den på",
+    desc:"De tre teoriene er tre blikk som får fram hver sin side ved det samme caset. Legg merke til hvor de peker i ulik retning.",
+    ekko:{ fra:"p_setning", merke:"Dilemmaet deres" },
+    felt:[
+      { id:"a_plikt", label:"Pliktetikk",
+        kjerne:{
+          viktig:"Det som avgjør, er om handlingen er rett i seg selv, ikke hva den fører til. En plikt gjelder absolutt og for alle, og prøvesteinen er spørsmålet «Hva så hvis alle gjorde det?» (Henriksen og Vetlesen, 2017, s. 161). Kjernen er respekten for menneskeverdet: eleven skal aldri bare være et middel (Kant, jf. Henriksen og Vetlesen, 2017, kap. 11). Pliktetikken hjelper læreren å skille det prinsipielle fra det tilfeldige og subjektive.",
+          blind:"Gir lite hjelp når to plikter står mot hverandre, og kan ta blikket bort fra det som gjør akkurat denne situasjonen spesiell (Henriksen og Vetlesen, 2017, s. 174–175)."
+        },
+        hint:"Hvilke plikter og rettigheter er relevante? Kunne handlingen gjelde for alle lærere i samme situasjon? Står noen plikter mot hverandre?" },
+      { id:"a_konsekvens", label:"Konsekvensetikk",
+        kjerne:{
+          viktig:"Det som avgjør, er følgene. Den beste handlingen er den som gir mest nytte og velferd for dem som berøres (nytteetikk, eller utilitarisme). Spørsmålet er: «Hvilken handling vil det være mest nyttig å gjøre nå?» (Henriksen og Vetlesen, 2017, s. 193). Perspektivet ser framover, og alles ve og vel teller likt.",
+          blind:"Vi kan sjelden overskue alle følgene, og flertallets nytte kan gå på bekostning av enkelteleven (Henriksen og Vetlesen, 2017, s. 201–203). Lomsdalens drøfting av anmerkninger viser dette (Lomsdalen, 2023, kap. 5.1)."
+        },
+        hint:"Hvilke følger kan ulike valg få, på kort og lang sikt? Hvem tjener, og hvem taper?" },
+      { id:"a_naerhet", label:"Nærhetsetikk",
+        kjerne:{
+          viktig:"Det som avgjør, er den konkrete situasjonen og relasjonen, ikke allmenne prinsipper. «Nærheten til andre er et gode som gir det etiske resonnementet et annet grunnlag og et annet preg» (Henriksen og Vetlesen, 2017, s. 214). Læreren trenger praktisk klokskap for å se hva akkurat denne eleven trenger (s. 205), og tar på alvor at noe av elevens liv ligger i lærerens hender (jf. Løgstrup, 1956).",
+          blind:"Nærheten kan ta bort den distansen som trengs for å være rettferdig mot dem man ikke står nær, og kan gli over i forskjellsbehandling (Henriksen og Vetlesen, 2017, s. 214)."
+        },
+        hint:"Hva trenger akkurat denne eleven? Hva gjør valget med relasjonen og tilliten?" },
+      { id:"a_spriker", label:"Der blikkene spriker",
+        hint:"Hvor peker teoriene i ulik retning? Hva ser én av dem som de andre overser?" }
+    ]
+  },
+  {
+    bokstav:"A", farge:"a", kort:"A2",
+    kicker:"Analyse · lovverk",
+    tittel:"Et nødvendig korrektiv",
+    desc:"Lovverket avgrenser handlingsrommet, men avgjør sjelden saken. Når det juridiske er avklart, står det etiske spørsmålet som regel igjen.",
+    felt:[
+      { id:"l_rett", label:"Rettigheter og plikter",
+        hint:"Hva sier lovverket om situasjonen?" },
+      { id:"l_rom", label:"Handlingsrom",
+        hint:"Hvilke valg er mulige og forsvarlige innenfor lovverket?" },
+      { id:"l_igjen", label:"Det som står igjen",
+        hint:"Hva må læreren fortsatt vurdere og begrunne etisk?" }
+    ]
+  },
+  {
+    bokstav:"A", farge:"a", kort:"A3",
+    kicker:"Analyse · perspektivtaking",
+    tittel:"Fire blikk på samme situasjon",
+    desc:"Dere har hittil sett caset fra lærerens side. Nå skal dere flytte dere.",
+    felt:[
+      { id:"pe_egen", label:"Egenperspektiv",
+        hint:"Hvordan forstår jeg situasjonen? Hva tar jeg med meg inn i den?" },
+      { id:"pe_andre", label:"Andreperspektiv",
+        hint:"Hvordan kan den andre oppleve situasjonen?" },
+      { id:"pe_var", label:"Vår verden",
+        hint:"Hva kan vi forstå sammen? Finnes det et felles grunnlag?" },
+      { id:"pe_sam", label:"Samhandling",
+        hint:"Hva skjer mellom oss? Hvordan virker makt og kommunikasjon inn?" }
+    ]
+  },
+  {
+    bokstav:"A", farge:"a", kort:"A4",
+    kicker:"Analyse · makt",
+    tittel:"Definisjonsmakten i relasjonen",
+    desc:"Røkenes og Hanssen (2012) peker på at fagpersonen som regel har større definisjonsmakt enn den andre. Det er sjelden noe man merker fra den siden man selv står på.",
+    felt:[
+      { id:"m_hort", label:"Hvem blir hørt?",
+        hint:"Hvilke stemmer får betydning i saken?" },
+      { id:"m_def", label:"Hvem definerer?",
+        hint:"Hvem bestemmer hva problemet egentlig er?" },
+      { id:"m_baerer", label:"Hvem bærer konsekvensene?",
+        hint:"Hvem påvirkes av lærerens valg?" }
+    ]
+  },
+  {
+    bokstav:"R", farge:"r", kort:"R",
+    kicker:"Reaksjon",
+    tittel:"Hva kan læreren gjøre?",
+    desc:"Finn minst tre alternativer, også de dere ender med å forkaste. Med bare to blir det fort et ja eller nei, og da står analysen stille.",
+    ekko:{ fra:"p_setning", merke:"Dilemmaet deres" },
+    felt:[
+      { id:"r_1", label:"Alternativ 1", hint:"Hva kan læreren konkret gjøre?" },
+      { id:"r_2", label:"Alternativ 2", hint:"Hva kan læreren konkret gjøre?" },
+      { id:"r_3", label:"Alternativ 3", hint:"Hva kan læreren konkret gjøre?" }
+    ]
+  },
+  {
+    bokstav:"K", farge:"k", kort:"K",
+    kicker:"Konsekvens",
+    tittel:"Hva følger av valgene?",
+    desc:"Vurder hvert alternativ for seg: hvilke følger det kan få, hvilke verdier og forpliktelser det ivaretar, og hva som går tapt.",
+    speil:true,
+    felt:[
+      { id:"k_1", speilFra:"r_1", label:"Følger av alternativ 1" },
+      { id:"k_2", speilFra:"r_2", label:"Følger av alternativ 2" },
+      { id:"k_3", speilFra:"r_3", label:"Følger av alternativ 3" }
+    ]
+  },
+  {
+    bokstav:"✓", farge:"k", kort:"Valg",
+    kicker:"Begrunnet valg",
+    tittel:"Ta stilling",
+    desc:"En god profesjonsetisk begrunnelse er faglig, etisk og etterprøvbar. Den siste er den strengeste: noen som ville valgt annerledes skal kunne forstå hvorfor dere valgte som dere gjorde.",
+    felt:[
+      { id:"v_valg", label:"Hvilket alternativ er best begrunnet?",
+        hint:"Og hva var det som avgjorde?" },
+      { id:"v_faglig", label:"Faglig",
+        hint:"Hvilken kunnskap om situasjonen og om lærerens oppdrag bygger valget på?" },
+      { id:"v_etisk", label:"Etisk",
+        hint:"Hvilke verdier, plikter, konsekvenser og relasjoner synliggjør begrunnelsen?" },
+      { id:"v_etterprovbar", label:"Etterprøvbar",
+        hint:"Hvordan kan noen som ville valgt annerledes forstå og vurdere begrunnelsen?" },
+      { id:"v_igjen", label:"Det som fortsatt er vanskelig",
+        hint:"Hva kan gå tapt, selv med dette valget?" }
+    ]
+  },
+  {
+    bokstav:"", farge:"vern", kort:"Plakat",
+    kicker:"Til plakaten",
+    tittel:"Hele analysen samlet",
+    desc:"Her står alt dere har skrevet. Bruk det som grunnlag for A3-plakaten, og la det visuelle uttrykket løfte fram den spenningen dere mener er viktigst.",
+    oppsummering:true
+  }
+];
+
+/* Blokkene i oppsummeringen. */
+var sumBlokker = [
+  { merke:"Problem",          farge:"p", felt:["p_berort","p_mot","p_spill","p_setning"] },
+  { merke:"Analyse",          farge:"a", felt:["a_plikt","a_konsekvens","a_naerhet","a_spriker",
+                                               "l_rett","l_rom","l_igjen",
+                                               "pe_egen","pe_andre","pe_var","pe_sam",
+                                               "m_hort","m_def","m_baerer"] },
+  { merke:"Reaksjon",         farge:"r", felt:["r_1","r_2","r_3"] },
+  { merke:"Konsekvens",       farge:"k", felt:["k_1","k_2","k_3"] },
+  { merke:"Begrunnet valg",   farge:"k", felt:["v_valg","v_faglig","v_etisk","v_etterprovbar","v_igjen"] }
+];
+
+/* ---------- Tilstand ---------- */
+var svar = {};
+var samtykke = false;
+var naa = 0;
+
+/* ---------- Lagring, alltid lokalt ---------- */
+function les(){
+  try{
+    var raa = localStorage.getItem(LAGER);
+    if (!raa) return;
+    var d = JSON.parse(raa);
+    svar = d.svar || {};
+    samtykke = d.samtykke === true;
+  }catch(e){ /* privat vindu eller blokkert lager: vi arbeider videre uten */ }
+}
+var skrivTimer = null;
+function skriv(){
+  clearTimeout(skrivTimer);
+  skrivTimer = setTimeout(skrivNaa, 400);
+}
+function skrivNaa(){
+  try{
+    localStorage.setItem(LAGER, JSON.stringify({ svar: svar, samtykke: samtykke }));
+  }catch(e){ /* samme som over */ }
+}
+
+/* ---------- Leting etter personopplysninger ----------
+   Enkel og bevisst forsiktig. Den skal minne, ikke love. */
+var kjenteOrd = [
+  /* Vanlige setningsåpnere. Uten disse ville hver eneste setning slått ut,
+     og et varsel man alltid ser er et varsel man slutter å lese. */
+  'Jeg','Vi','Du','Dere','De','Hun','Han','Hen','Det','Den','Dette','Disse','Denne',
+  'Her','Der','Da','Og','Men','Hvis','Når','Som','For','Fordi','Etter','Før','Under',
+  'Ved','Med','Uten','Alle','Noen','Ingen','Begge','Mange','Hva','Hvem','Hvorfor',
+  'Hvordan','Hvilke','Hvilken','Både','Slik','Dessuten','Samtidig','Derfor','Likevel',
+  'Først','Deretter','Til','Siden','Selv','Altså','Kanskje','Dersom','Enten','Verken',
+  'Han/hun','Man','Dermed','Nå','Også','Bare','Mens','Siden','Så','Om','Ut','Inn',
+  'Læreren','Eleven','Elevene','Skolen','Klassen','Rektor','Rektoren','Mor','Far',
+  'Foreldrene','Foresatte','Kontaktlæreren','Praksislærer','Praksislæreren','Gruppen',
+  'Moren','Mora','Faren','Søsteren','Broren','Familien','Hjemmet','Barnet','Ungdommen',
+  'Medeleven','Medelevene','Assistenten','Helsesykepleier','Helsesykepleieren',
+  'Situasjonen','Dilemmaet','Caset','Saken','Spørsmålet','Valget','Konsekvensen',
+  'Pliktetikk','Pliktetikken','Konsekvensetikk','Konsekvensetikken','Nærhetsetikk',
+  'Nærhetsetikken','Lovverket','Loven','Skoleledelsen','Ledelsen','Avdelingen',
+  'Opplæringsloven','Barnekonvensjonen','Grunnloven','Barnevernet','Barnevernstjenesten',
+  'Bergem','Lomsdalen','Henriksen','Vetlesen','Røkenes','Hanssen','Falck','Pedersen',
+  'Klafki','PARK','FN','NOU','Udir','Utdanningsdirektoratet','Kunnskapsdepartementet',
+  'PPT','Norge','Norsk','Mandag','Tirsdag','Onsdag','Torsdag','Fredag','Lørdag','Søndag',
+  'Januar','Februar','Mars','April','Mai','Juni','Juli','August','September','Oktober',
+  'November','Desember','Elev','Eleven','Læreren','Kontaktlærer','Rektor','Skolen'
+];
+
+function finnPersonopplysninger(tekst){
+  if (!tekst) return [];
+  var funn = [];
+
+  /* Dekknavnene gruppen selv har valgt skal ikke slå ut. */
+  var egne = [];
+  ['dekk_elev','dekk_andre'].forEach(function(id){
+    var v = (svar[id] || '').trim();
+    if (v) { v.split(/\s+/).forEach(function(o){ egne.push(o); }); }
+  });
+
+  function erKjent(ord){
+    if (kjenteOrd.indexOf(ord) > -1) return true;
+    for (var i = 0; i < egne.length; i++){
+      if (egne[i].toLowerCase() === ord.toLowerCase()) return true;
+    }
+    return false;
+  }
+
+  /* Store forbokstaver kan være navn eller steder. Vi ser også på det
+     første ordet i setningen, for det er nettopp der elevnavn pleier å
+     stå — til gjengjeld slipper lista over vanlige åpningsord gjennom. */
+  var setninger = tekst.split(/(?:[.!?]\s+|\n)/);
+  setninger.forEach(function(s){
+    var ord = s.trim().split(/\s+/);
+    for (var i = 0; i < ord.length; i++){
+      var rent = ord[i].replace(/[^0-9A-Za-zÆØÅæøåéèü-]/g, '');
+      if (rent.length < 3) continue;
+      if (!/^[A-ZÆØÅ]/.test(rent)) continue;
+      if (erKjent(rent)) continue;
+      if (funn.indexOf(rent) === -1) funn.push(rent);
+    }
+  });
+
+  /* Skolenavn, uansett plassering. */
+  var skole = tekst.match(/\b[A-ZÆØÅ][a-zæøå]+\s?(?:skole|skolen|barneskole|ungdomsskole|barnehage)\b/g);
+  if (skole){ skole.forEach(function(s){ if (funn.indexOf(s) === -1) funn.push(s); }); }
+
+  /* Fødselsnummer og årstall. */
+  if (/\b\d{11}\b/.test(tekst)) funn.push('et ellevesifret tall');
+  var aar = tekst.match(/\b(?:19|20)\d{2}\b/g);
+  if (aar){ aar.forEach(function(a){ if (funn.indexOf(a) === -1) funn.push(a); }); }
+
+  return funn.slice(0, 6);
+}
+
+/* ---------- Elementer ---------- */
+var progressEl = document.getElementById('progress');
+var kickerEl   = document.getElementById('stepKicker');
+var titleEl    = document.getElementById('stepTitle');
+var descEl     = document.getElementById('stepDesc');
+var innholdEl  = document.getElementById('innhold');
+var prevBtn    = document.getElementById('prevBtn');
+var nextBtn    = document.getElementById('nextBtn');
+
+function trygg(s){
+  return String(s).replace(/[&<>"']/g, function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+  });
+}
+
+/* ---------- Framdriftsrekken ---------- */
+function tegnFramdrift(){
+  progressEl.innerHTML = '';
+  steg.forEach(function(s, i){
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'pill' + (i === naa ? ' active' : (i < naa ? ' done' : ''));
+    b.style.setProperty('--c', 'var(--' + s.farge + ')');
+    b.textContent = s.kort;
+    b.setAttribute('aria-label', 'Gå til ' + s.tittel);
+    if (i === naa) b.setAttribute('aria-current', 'step');
+    /* Porten må passeres før resten åpner seg. */
+    if (i > 0 && !samtykke){ b.disabled = true; }
+    b.addEventListener('click', function(){ naa = i; tegn(); });
+    progressEl.appendChild(b);
+  });
+}
+
+/* ---------- Felt ---------- */
+function byggFelt(f, farge){
+  var wrap = document.createElement('div');
+  wrap.className = 'field';
+  wrap.style.setProperty('--c', 'var(--' + farge + ')');
+
+  var id = 'felt-' + f.id;
+  var html = '<label for="' + id + '">' + trygg(f.label) + '</label>';
+  if (f.kjerne){
+    html += '<div class="kjerne">' +
+      '<p><b>Hva er viktig her?</b> ' + trygg(f.kjerne.viktig) + '</p>' +
+      '<p class="blind"><b>Blindsone:</b> ' + trygg(f.kjerne.blind) + '</p>' +
+      '</div>';
+  }
+  if (f.hint){ html += '<span class="hint">' + trygg(f.hint) + '</span>'; }
+
+  if (f.type === 'text'){
+    html += '<input type="text" id="' + id + '" placeholder="' + trygg(f.placeholder || '') + '">';
+  } else {
+    html += '<textarea id="' + id + '" placeholder="' + trygg(f.placeholder || 'Skriv her …') + '"></textarea>';
+  }
+  wrap.innerHTML = html;
+
+  var inn = wrap.querySelector('#' + id);
+  inn.value = svar[f.id] || '';
+
+  var varsel = document.createElement('div');
+  varsel.className = 'varsel';
+  varsel.hidden = true;
+  wrap.appendChild(varsel);
+
+  function sjekk(){
+    /* Dekknavnfeltene skal selvsagt ikke varsle om seg selv. */
+    if (f.type === 'text'){ varsel.hidden = true; return; }
+    var funn = finnPersonopplysninger(inn.value);
+    if (funn.length === 0){ varsel.hidden = true; return; }
+    varsel.hidden = false;
+    varsel.innerHTML = 'Dette kan være en personopplysning: <b>' +
+      funn.map(trygg).join('</b>, <b>') + '</b>. Bytt det ut med dekknavnet, ' +
+      'eller stryk det om det ikke trengs for analysen.';
+  }
+
+  inn.addEventListener('input', function(){
+    svar[f.id] = inn.value;
+    skriv();
+    sjekk();
+    if (f.type === 'text') oppdaterPort();
+  });
+  sjekk();
+
+  return wrap;
+}
+
+/* ---------- Porten ---------- */
+function byggPort(s){
+  var liste = document.createElement('ul');
+  liste.className = 'vern-liste';
+  [
+    'Ingen navn på elever, foresatte, kolleger, skole eller kommune.',
+    'Ingen fødselsdato, klassetrinn kombinert med årstall, eller andre opplysninger som til sammen peker ut én person.',
+    'Diagnose, religion, etnisitet og familieforhold tas bare med når analysen faktisk trenger det.',
+    'Ingenting dere skriver forlater denne maskinen. Det finnes ingen innsending her.'
+  ].forEach(function(t){
+    var li = document.createElement('li');
+    li.textContent = t;
+    liste.appendChild(li);
+  });
+  innholdEl.appendChild(liste);
+
+  s.felt.forEach(function(f){ innholdEl.appendChild(byggFelt(f, s.farge)); });
+
+  var boks = document.createElement('label');
+  boks.className = 'samtykke';
+  boks.innerHTML =
+    '<input type="checkbox" id="samtykkeBoks">' +
+    '<span>Vi har gått gjennom caset og fjernet det som kan knytte det til en bestemt person.</span>';
+  innholdEl.appendChild(boks);
+
+  var boksEl = boks.querySelector('#samtykkeBoks');
+  boksEl.checked = samtykke;
+  boksEl.addEventListener('change', function(){
+    samtykke = boksEl.checked;
+    skrivNaa();
+    tegnFramdrift();
+    oppdaterPort();
+  });
+}
+
+function oppdaterPort(){
+  if (!steg[naa].port) return;
+  var harDekknavn = (svar.dekk_elev || '').trim() !== '';
+  nextBtn.disabled = !(samtykke && harDekknavn);
+  nextBtn.textContent = nextBtn.disabled ? 'Velg dekknavn og bekreft' : 'Begynn analysen';
+}
+
+/* ---------- Oppsummeringen ---------- */
+function feltEtikett(id){
+  for (var i = 0; i < steg.length; i++){
+    var f = steg[i].felt || [];
+    for (var j = 0; j < f.length; j++){
+      if (f[j].id === id) return f[j].label;
+    }
+  }
+  return id;
+}
+
+function byggOppsummering(){
+  var fylt = 0, alle = 0;
+  sumBlokker.forEach(function(b){
+    b.felt.forEach(function(id){
+      alle++;
+      if ((svar[id] || '').trim() !== '') fylt++;
+    });
+  });
+
+  var tell = document.createElement('p');
+  tell.className = 'sum-tell';
+  tell.textContent = fylt + ' av ' + alle + ' punkter er fylt ut.';
+  innholdEl.appendChild(tell);
+
+  var sum = document.createElement('div');
+  sum.className = 'sum';
+  sumBlokker.forEach(function(b){
+    var blokk = document.createElement('div');
+    blokk.className = 'sum-blokk';
+    blokk.style.setProperty('--c', 'var(--' + b.farge + ')');
+    blokk.style.setProperty('--c-soft', 'var(--' + b.farge + '-soft)');
+
+    var h = document.createElement('h3');
+    h.textContent = b.merke;
+    blokk.appendChild(h);
+
+    b.felt.forEach(function(id){
+      var post = document.createElement('div');
+      post.className = 'sum-post';
+      var verdi = (svar[id] || '').trim();
+      post.innerHTML = '<b>' + trygg(feltEtikett(id)) + '</b>' +
+        (verdi ? '<span>' + trygg(verdi) + '</span>'
+               : '<span class="tom">Ikke fylt ut.</span>');
+      blokk.appendChild(post);
+    });
+
+    sum.appendChild(blokk);
+  });
+  innholdEl.appendChild(sum);
+
+  var rad = document.createElement('div');
+  rad.className = 'utganger';
+  rad.innerHTML =
+    '<button class="utgang" type="button" id="lastNedBtn">Last ned som PDF</button>' +
+    '<button class="utgang mild" type="button" id="skrivUtBtn">Skriv ut</button>';
+  innholdEl.appendChild(rad);
+
+  document.getElementById('skrivUtBtn').addEventListener('click', function(){ window.print(); });
+  document.getElementById('lastNedBtn').addEventListener('click', lastNed);
+}
+
+function lastNed(){
+  /* PDF-en lages her i nettleseren. Ingenting sendes noe sted. */
+  if (!window.jspdf || !window.jspdf.jsPDF){
+    alert('PDF-verktøyet ble ikke lastet. Bruk «Skriv ut» og velg «Lagre som PDF» i stedet.');
+    window.print();
+    return;
+  }
+  var doc = new window.jspdf.jsPDF({ unit:'mm', format:'a4' });
+  var B = 210, H = 297, M = 20, bredde = B - 2*M;
+  var y = M;
+
+  /* Standardfontene i PDF kan ikke vise alle tegn (f.eks. emoji). */
+  function rens(t){
+    return String(t).replace(/[\uD800-\uDFFF]/g, '').replace(/[^\u0000-\u00FF\u2013\u2014\u2018\u2019\u201C\u201D\u201E\u2026\u2022\u20AC]/g, '').replace(/[ \t]{2,}/g, ' ');
+  }
+  function hex(h){ return [parseInt(h.substr(1,2),16), parseInt(h.substr(3,2),16), parseInt(h.substr(5,2),16)]; }
+  var farger = { p:'#B75E88', a:'#287D7A', r:'#A98400', k:'#70539A' };
+  var blekk = hex('#4A3C43'), brod = hex('#5E4F55'), stille = hex('#7E6F74');
+
+  function plass(h){
+    if (y + h > H - M){ doc.addPage(); y = M; }
+  }
+  function tekst(t, str, stil, farge, linje){
+    doc.setFont('helvetica', stil);
+    doc.setFontSize(str);
+    doc.setTextColor(farge[0], farge[1], farge[2]);
+    var linjer = doc.splitTextToSize(rens(t), bredde);
+    var lh = str * 0.3528 * (linje || 1.4);
+    linjer.forEach(function(l){
+      plass(lh);
+      doc.text(l, M, y + lh*0.75);
+      y += lh;
+    });
+  }
+
+  tekst('PARK — profesjonsetisk analyse', 20, 'bold', blekk, 1.2);
+  y += 1;
+  tekst('PEL 3 · Profesjonsetikk i praksis', 10, 'normal', stille);
+  var dekk = (svar.dekk_elev || '').trim();
+  var andre = (svar.dekk_andre || '').trim();
+  if (dekk){ tekst('Dekknavn: ' + dekk + (andre ? '   ·   Øvrige: ' + andre : ''), 10, 'normal', stille); }
+  y += 6;
+
+  sumBlokker.forEach(function(b){
+    var f = hex(farger[b.farge] || '#6E4B57');
+    plass(16);
+    doc.setFillColor(f[0], f[1], f[2]);
+    doc.rect(M, y, 3, 6, 'F');
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(11);
+    doc.setTextColor(f[0], f[1], f[2]);
+    doc.text(rens(b.merke.toUpperCase()), M + 6, y + 4.6);
+    y += 10;
+
+    b.felt.forEach(function(id){
+      var v = (svar[id] || '').trim();
+      plass(14);
+      tekst(feltEtikett(id), 10.5, 'bold', blekk);
+      if (v){ tekst(v, 10.5, 'normal', brod, 1.45); }
+      else  { tekst('Ikke fylt ut.', 10.5, 'italic', stille); }
+      y += 3;
+    });
+    y += 5;
+  });
+
+  plass(20);
+  y += 2;
+  tekst('KILDER', 9.5, 'bold', stille);
+  y += 1;
+  Array.prototype.forEach.call(document.querySelectorAll('.kilder li'), function(li){
+    tekst(li.textContent.replace(/\s+/g,' ').trim(), 9, 'normal', stille, 1.35);
+    y += 1.2;
+  });
+
+  var n = doc.getNumberOfPages();
+  for (var i = 1; i <= n; i++){
+    doc.setPage(i);
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(8.5);
+    doc.setTextColor(stille[0], stille[1], stille[2]);
+    doc.text('PARK — profesjonsetisk analyse · side ' + i + ' av ' + n, B / 2, H - 10, { align:'center' });
+  }
+
+  doc.save('park-analyse.pdf');
+}
+
+/* ---------- Tegning ---------- */
+function tegn(){
+  var s = steg[naa];
+  tegnFramdrift();
+
+  var k = '';
+  if (s.bokstav){ k += '<span class="letter" style="--c:var(--' + s.farge + ')">' + s.bokstav + '</span>'; }
+  k += '<span>' + trygg(s.kicker) + '</span>';
+  kickerEl.innerHTML = k;
+
+  titleEl.textContent = s.tittel;
+  descEl.textContent = s.desc || '';
+  descEl.style.display = s.desc ? 'block' : 'none';
+
+  innholdEl.innerHTML = '';
+  nextBtn.disabled = false;
+  nextBtn.textContent = 'Neste';
+
+  if (s.port){
+    byggPort(s);
+    oppdaterPort();
+  } else if (s.oppsummering){
+    byggOppsummering();
+  } else {
+    /* Dilemmaet gjentas der gruppen trenger å ha det foran seg. */
+    if (s.ekko){
+      var e = document.createElement('div');
+      e.className = 'echo';
+      e.style.setProperty('--c-soft', 'var(--' + s.farge + '-soft)');
+      var v = (svar[s.ekko.fra] || '').trim();
+      e.innerHTML = '<strong>' + trygg(s.ekko.merke) + '</strong>' +
+        (v ? trygg(v) : '<span class="tom">Ikke formulert ennå.</span>');
+      innholdEl.appendChild(e);
+    }
+
+    s.felt.forEach(function(f){
+      /* I K-steget står alternativet fra R rett over feltet. */
+      if (s.speil && f.speilFra){
+        var e2 = document.createElement('div');
+        e2.className = 'echo';
+        e2.style.setProperty('--c-soft', 'var(--r-soft)');
+        var v2 = (svar[f.speilFra] || '').trim();
+        e2.innerHTML = '<strong>' + trygg(feltEtikett(f.speilFra)) + '</strong>' +
+          (v2 ? trygg(v2) : '<span class="tom">Ikke fylt ut i forrige steg.</span>');
+        innholdEl.appendChild(e2);
+      }
+      innholdEl.appendChild(byggFelt(f, s.farge));
+    });
+  }
+
+  prevBtn.disabled = (naa === 0);
+  nextBtn.style.display = (naa === steg.length - 1) ? 'none' : 'block';
+}
+
+prevBtn.addEventListener('click', function(){ if (naa > 0){ naa--; tegn(); window.scrollTo(0,0); } });
+nextBtn.addEventListener('click', function(){
+  if (naa < steg.length - 1){ naa++; tegn(); window.scrollTo(0,0); }
+});
+
+document.getElementById('tomAltBtn').addEventListener('click', function(){
+  if (!confirm('Dette sletter alt dere har skrevet, på denne maskinen. Det kan ikke angres.')) return;
+  svar = {};
+  samtykke = false;
+  naa = 0;
+  try{ localStorage.removeItem(LAGER); }catch(e){}
+  tegn();
+  window.scrollTo(0,0);
+});
+
+les();
+tegn();
+</script>
+
+</body>
+</html>
